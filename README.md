@@ -1,7 +1,7 @@
 # CS319 - Group Project - Fall 2021/2022
 
 ****
-## Team: Covoid-21 (Pandemic Manager) 
+## Group3E - Covoid-21 - Pandemic Manager 
 ****
 
 ## General Information
