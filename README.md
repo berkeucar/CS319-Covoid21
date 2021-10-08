@@ -27,7 +27,7 @@ This software project is an application which helps universities to manage their
 #### Group Members
 - Kutay Demiray
 - Gökberk Keskinkılıç
-- Berke Ucar
+- Berke Uçar
 - Yağız Yaşar
 - Ömer Burak Yıldıran
 
