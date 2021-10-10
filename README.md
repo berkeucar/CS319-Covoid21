@@ -29,9 +29,9 @@ This software project is an application which helps universities to manage their
 - Health Center User: This user type can be applied to the doctors, nurses, urgent aid workers and information center workers (mentioned in planned features).
 - Maintenance User
 
-##General Features for All Users
-- There will be a part of the system that ask users to enter their roommates or families (basically people whom they are living with) and track their infaction status.
-- 
+## General Features for All Users
+- There will be a part of the system that ask users to enter their roommates or families (basically people whom they are living with) and track their infection status.
+-
 
 ## Student Users' Functionalities
 - For each classroom they have been, there will be a screen for selecting the seat they have been sitting.
