@@ -16,7 +16,7 @@ This software project is an application which helps universities to manage their
 - Notifications about the Risks that You Encounter (such as contact being infected)
 - Dormitory Infection Tracking for Nearby Rooms or Common Restrooms in Dorms
 - Infection tracking of the people who use campus facilities like gym, pool, closed squash court etc. at the same time
-- Infection tracking of the people who use rings
+- Infection tracking of the people who use shuttles.
 
 ## Aim
 - To reduce the health risks due to the face-to-face teaching in pandemic.
