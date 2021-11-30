@@ -5,7 +5,7 @@ import com.covoid21.panman.entity.VaccinationEntry;
 
 import java.util.ArrayList;
 
-public class User {
+public abstract class User {
     private int id;
     private String userName;
     private String password;
