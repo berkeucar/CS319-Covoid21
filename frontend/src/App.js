@@ -1,5 +1,5 @@
 import panman from './images/panman.png';
-import './App.css';
+import './App.scss';
 
 
 function App() {
