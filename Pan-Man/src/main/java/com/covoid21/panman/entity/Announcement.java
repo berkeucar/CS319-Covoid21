@@ -1,11 +1,16 @@
 package com.covoid21.panman.entity;
 
+import lombok.Getter;
+import lombok.Setter;
+
 import javax.persistence.*;
 import java.util.Date;
 
 
 @Entity
 @Table(name = "announcements")
+@Getter
+@Setter
 public class Announcement {
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO)
@@ -16,6 +21,7 @@ public class Announcement {
     private String message;
 
     //@Column(name = "date")
+    //@OneToOne
     private Date date;
 
     //@Column(name = "sender")
@@ -23,7 +29,7 @@ public class Announcement {
 
     protected Announcement() {}
 
-    public Announcement(String message, Date date, int senderID) {
+    public Announcement(String message, Date date, long senderID) {
         this.message = message;
         this.date = date;
         this.senderID = senderID;
