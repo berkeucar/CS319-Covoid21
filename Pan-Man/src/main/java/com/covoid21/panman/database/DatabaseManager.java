@@ -47,7 +47,8 @@ public class DatabaseManager {
     }
 
     public Announcement getAnnouncement(long id) {
-        return announcementRepository.findById(id);
+        //return announcementRepository.findById(id);
+        return null;
     }
 
     public Policy getPolicy(int id) {

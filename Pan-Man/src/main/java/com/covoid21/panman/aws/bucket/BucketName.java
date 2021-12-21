@@ -1,5 +1,5 @@
 package com.covoid21.panman.aws.bucket;
-
+/*
 public enum BucketName {
     PANMAN("pan-man");
 
@@ -9,3 +9,4 @@ public enum BucketName {
         this.bucketName = bucketName;
     }
 }
+*/

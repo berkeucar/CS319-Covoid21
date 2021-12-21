@@ -1,19 +1,14 @@
 package com.covoid21.panman.entity;
 
-import org.springframework.data.annotation.Id;
-
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
+import javax.persistence.*;
 import java.util.Date;
 
 
-@Entity(name = "Announcement")
+@Entity
+@Table(name = "announcements")
 public class Announcement {
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO)
-
     //@Column(name = "id", nullable = false, updatable = false, unique = true)
     private Long id;
 
@@ -28,8 +23,7 @@ public class Announcement {
 
     protected Announcement() {}
 
-    public Announcement(Long id, String message, Date date, int senderID) {
-        this.id = id;
+    public Announcement(String message, Date date, int senderID) {
         this.message = message;
         this.date = date;
         this.senderID = senderID;
