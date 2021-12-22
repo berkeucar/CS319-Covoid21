@@ -21,7 +21,6 @@ public class Announcement {
     private String message;
 
     //@Column(name = "date")
-    //@OneToOne
     private Date date;
 
     //@Column(name = "sender")

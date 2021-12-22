@@ -3,34 +3,33 @@ package com.covoid21.panman.database.service;
 import com.covoid21.panman.database.repository.AnnouncementRepository;
 import com.covoid21.panman.entity.Announcement;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
-import org.springframework.stereotype.Repository;
+import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Service;
 
-import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
-import javax.persistence.TypedQuery;
-import javax.transaction.Transactional;
+import java.lang.annotation.Annotation;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Service class for Announcement entities
+ * Provides most CRUD operations.
+ * Used in DatabaseManager
+ */
+
 @Service
-public class AnnouncementService {
-    @Autowired
+public class AnnouncementService extends ServiceBase<Announcement> {
+
     private AnnouncementRepository repo;
 
-    public Announcement add(Announcement announcement) {
-        return repo.save(announcement);
+    @Autowired
+    public AnnouncementService(AnnouncementRepository repo) {
+        super();
+        this.repo = repo;
+        this.baseRepo = repo;
     }
-    /*
-    public List<Announcement> findBySenderId(Long id) {
-        return repo.findBySenderId(id);
-    }
-    */
-    public List<Announcement> getAllAnnouncements() {
-        List<Announcement> announcements = new ArrayList<Announcement>();
-        repo.findAll().forEach(announcements::add);
-        return announcements;
+
+    public List<Announcement> findBySenderId(Long senderId) {
+        return repo.findBySenderId(senderId);
     }
 
 }

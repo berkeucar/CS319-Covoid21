@@ -1,11 +1,10 @@
 package com.covoid21.panman.database;
 
-import com.covoid21.panman.database.repository.AnnouncementRepository;
+import com.covoid21.panman.database.service.AnnouncementService;
 import com.covoid21.panman.entity.*;
 import com.covoid21.panman.entity.appointment.Appointment;
 import com.covoid21.panman.entity.user.User;
-
-import java.util.Optional;
+import org.springframework.beans.factory.annotation.Autowired;
 
 /**
  * Singleton class
@@ -13,10 +12,12 @@ import java.util.Optional;
 public class DatabaseManager {
     private static DatabaseManager instance;
 
-    private AnnouncementRepository announcementRepository;
+    // services
+    @Autowired
+    private AnnouncementService announcementService;
 
     private DatabaseManager() {
-
+        System.out.println("DatabaseManager() constructed");
     }
 
     public DatabaseManager getInstance() {
@@ -26,29 +27,28 @@ public class DatabaseManager {
         return instance;
     }
 
-    public User getUser(int id) {
+    public User getUser(Long id) {
         return null;
     }
 
-    public Notification getNotification(int id) {
+    public Notification getNotification(Long id) {
         return null;
     }
 
-    public Course getCourse(int id) {
+    public Course getCourse(Long id) {
         return null;
     }
 
-    public Appointment getAppointment(long id) {
+    public Appointment getAppointment(Long id) {
         return null;
     }
 
-    public TimeTable getTimeTable(long id) {
+    public TimeTable getTimeTable(Long id) {
         return null;
     }
 
-    public Announcement getAnnouncement(long id) {
-        //return announcementRepository.findById(id);
-        return null;
+    public Announcement getAnnouncement(Long id) {
+        return announcementService.find(id);
     }
 
     public Policy getPolicy(int id) {

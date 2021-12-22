@@ -11,5 +11,5 @@ import java.util.List;
 
 @Repository
 public interface AnnouncementRepository extends CrudRepository<Announcement, Long> {
-    //List<Announcement> findBySenderId(long senderId);
+    List<Announcement> findBySenderId(Long senderId);
 }
