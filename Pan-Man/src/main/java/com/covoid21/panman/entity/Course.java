@@ -9,6 +9,7 @@ import javax.persistence.*;
 import java.util.List;
 
 @Entity
+@Table(name = "courses")
 @Getter
 @Setter
 public class Course
