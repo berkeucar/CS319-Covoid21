@@ -17,7 +17,8 @@ public class Announcement
     @GeneratedValue( strategy = GenerationType.AUTO )
     //@Column(name = "id", nullable = false, updatable = false, unique = true)
     private Long id;
-    
+
+    @Column(columnDefinition="text")
     private String message;
     
     private Date date;

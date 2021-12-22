@@ -12,7 +12,9 @@ import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.context.annotation.Bean;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 @SpringBootApplication
 @EnableJpaRepositories( "com.covoid21.panman.database.repository" )
@@ -40,7 +42,9 @@ public class PanmanApplication
             announcement = as.find(2L);
             System.out.println(announcement);
 
-            ns.add(notification);
+            //ns.add(notification);
+
+            //List<Announcement> list = new ArrayList<Announcement>(as.findBySenderID(123L));
         };
     }
 }

@@ -10,6 +10,7 @@ import javax.persistence.*;
 import java.util.List;
 
 @Entity
+@Inheritance(strategy = InheritanceType.JOINED)
 @Table(name = "users")
 @Getter
 @Setter
@@ -17,7 +18,7 @@ public abstract class User
 {
     @Id
     @GeneratedValue
-    private int id;
+    private Long id;
     
     private int universityID;
     

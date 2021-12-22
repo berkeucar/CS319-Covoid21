@@ -11,7 +11,7 @@ import java.util.List;
 import java.util.Date;
 
 @Entity
-@Table( name = "facility_appointments" )
+@Table(name = "facility_appointments")
 @Getter
 @Setter
 public class FacilityAppointment extends Appointment
