@@ -3,8 +3,11 @@ package com.covoid21.panman;
 import com.covoid21.panman.database.repository.HealthAppointmentRepository;
 import com.covoid21.panman.database.service.*;
 import com.covoid21.panman.entity.Announcement;
+import com.covoid21.panman.entity.InfectionStatus;
 import com.covoid21.panman.entity.Notification;
 import com.covoid21.panman.entity.NotificationType;
+import com.covoid21.panman.entity.appointment.HealthAppointment;
+import com.covoid21.panman.entity.user.HealthcarePersonnel;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -27,9 +30,7 @@ public class PanmanApplication
     }
     
     @Bean
-    CommandLineRunner commandLineRunner(HealthAppointmentService hs,
-                                        TestAppointmentService ts,
-                                        FacilityAppointmentService fs
+    CommandLineRunner commandLineRunner(HealthAppointmentService hs
     )
     {
         return args ->
@@ -47,8 +48,27 @@ public class PanmanApplication
             announcement = as.find(2L);
             System.out.println(announcement);
             */
+            HealthcarePersonnel personnel = new HealthcarePersonnel(
+                    21902238,
+                    "sirkeeverywhere",
+                    "123",
+                    "berkebjkucar@gmail.com",
+                    "3162",
+                    InfectionStatus.HEALTHY,
+                    true,
+                    "Beyin Hastalıkları",
+                    "sağlık merkezi z31",
+                    "Uzman Dr."
+            );
+            HealthAppointment health = new HealthAppointment(
+                    new Date(),
+                    personnel,
+                    "sirke uçar sağlık hizmetleri",
+                    personnel.getDepartment(),
+                    personnel
+                    );
 
-
+            hs.add(health);
 
             //ns.add(notification);
 

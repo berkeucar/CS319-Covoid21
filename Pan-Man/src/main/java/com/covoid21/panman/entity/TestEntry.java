@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import java.util.Date;
 
 @Entity
 public class TestEntry
@@ -12,6 +13,6 @@ public class TestEntry
     @Autowired
     private int id;
     private TestType testType;
-    private java.util.Date Date;
+    private Date date;
     private boolean isPositive;
 }
