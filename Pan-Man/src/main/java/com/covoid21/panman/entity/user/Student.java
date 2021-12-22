@@ -11,10 +11,11 @@ import java.util.Date;
 import java.util.List;
 
 @Entity
-@Table(name = "students")
+@Table( name = "students" )
 @Getter
 @Setter
-public class Student extends User {
+public class Student extends User
+{
     @ManyToMany
     private List<Course> coursesTaken;
     

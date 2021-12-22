@@ -7,10 +7,11 @@ import javax.persistence.Entity;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "healthcare_personnel")
+@Table( name = "healthcare_personnel" )
 @Getter
 @Setter
-public class HealthcarePersonnel extends User{
+public class HealthcarePersonnel extends User
+{
     private String department;
     private String office;
     private String title;
