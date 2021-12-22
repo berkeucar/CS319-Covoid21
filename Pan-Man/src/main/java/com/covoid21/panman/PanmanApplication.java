@@ -34,6 +34,8 @@ public class PanmanApplication {
             //announcement.setId(1L);
             as.add(announcement);
             System.out.println(announcement);
+            announcement = as.find(2L);
+            System.out.println(announcement);
         };
     }
 

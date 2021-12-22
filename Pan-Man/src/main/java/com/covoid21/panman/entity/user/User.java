@@ -2,21 +2,44 @@ package com.covoid21.panman.entity.user;
 import com.covoid21.panman.entity.InfectionStatus;
 import com.covoid21.panman.entity.TestEntry;
 import com.covoid21.panman.entity.VaccinationEntry;
+import lombok.Getter;
+import lombok.Setter;
+import org.springframework.beans.factory.annotation.Autowired;
 
+import javax.persistence.*;
 import java.util.ArrayList;
+import java.util.List;
 
+@Entity
+@Table(name = "users")
+@Getter
+@Setter
 public abstract class User {
+    @Id
+    @GeneratedValue
     private int id;
+
+    private int universityID;
+
     private String userName;
     private String password;
     private String email;
     private String hesCode;
     private InfectionStatus infectionStatus;
-    private boolean fullyVaccinated;
-    private ArrayList<Integer> closeContactsID;
-    private ArrayList<Integer> appointmentsID;
-    private ArrayList<Integer> notificationsID;
-    private ArrayList<Integer> temporaryCloseContactsID;
-    private ArrayList<VaccinationEntry> vaccinationsEntries;
-    private ArrayList<TestEntry> testEntries;
+    private boolean isFullyVaccinated;
+
+    @ElementCollection
+    private List<Integer> closeContactsID;
+    @ElementCollection
+    private List<Integer> appointmentsID;
+    @ElementCollection
+    private List<Integer> notificationsID;
+    @ElementCollection
+    private List<Integer> temporaryCloseContactsID;
+
+    @OneToMany
+    private List<VaccinationEntry> vaccinationsEntries;
+
+    @OneToMany
+    private List<TestEntry> testEntries;
 }

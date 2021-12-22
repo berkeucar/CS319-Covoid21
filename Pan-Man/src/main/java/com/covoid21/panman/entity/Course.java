@@ -1,27 +1,56 @@
 package com.covoid21.panman.entity;
 
-import java.util.ArrayList;
+import com.covoid21.panman.entity.user.Instructor;
+import com.covoid21.panman.entity.user.Student;
+import lombok.Getter;
+import lombok.Setter;
+import org.springframework.beans.factory.annotation.Autowired;
 
+import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
+
+@Entity
+@Getter
+@Setter
 public class Course {
-    private final int id;
+    @Id
+    @GeneratedValue(strategy= GenerationType.AUTO)
+    private int id;
+
     private String code;
     private int section;
-    private ArrayList<Integer> studentsID = new ArrayList<Integer>();
-    private int instructorID;
-    private ArrayList<Integer> assistantsID = new ArrayList<Integer>();
+
+    @ManyToMany
+    private List<Student> students;
+
+    @OneToOne
+    private Instructor instructor;
+
+    @ManyToMany
+    private List<Student> assistants;
+
     private int quota;
     private int seatingPlanID;
-    private double[] coordinate;
+
+    private double coordinateX;
+    private double coordinateY;
+
     private boolean isFaceToFace;
 
-    public Course(int id, String code, int section, int instructorID, int quota, int seatingPlanID, double[] coordinate, boolean isFaceToFace) {
+    protected Course() {
+
+    }
+
+    public Course(int id, String code, int section, Instructor instructor, int quota, int seatingPlanID, double coordinateX, double coordinateY, boolean isFaceToFace) {
         this.id = id;
         this.code = code;
         this.section = section;
-        this.instructorID = instructorID;
+        this.instructor = instructor;
         this.quota = quota;
         this.seatingPlanID = seatingPlanID;
-        this.coordinate = coordinate;
+        this.coordinateX = coordinateX;
+        this.coordinateY = coordinateY;
         this.isFaceToFace = isFaceToFace;
     }
 }
