@@ -28,8 +28,8 @@ public class AnnouncementService extends ServiceBase<Announcement> {
         this.baseRepo = repo;
     }
 
-    public List<Announcement> findBySenderId(Long senderId) {
-        return repo.findBySenderId(senderId);
+    public List<Announcement> findBySenderID(Long senderID) {
+        return repo.findBySenderID(senderID);
     }
 
 }

@@ -32,8 +32,8 @@ public class PanmanApplication {
         return args -> {
             Announcement announcement = new Announcement("deneme", new Date(), 123);
             //announcement.setId(1L);
-            System.out.println(announcement);
             as.add(announcement);
+            System.out.println(announcement);
         };
     }
 

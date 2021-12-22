@@ -11,30 +11,31 @@ import java.util.List;
 @RestController
 @RequestMapping("/announcements")
 public class AnnouncementController extends ControllerBase<Announcement> {
-
+    
+    @Autowired
     private AnnouncementService announcementService;
 
-    @Autowired
-    public AnnouncementController(AnnouncementService announcementService) {
-        this.announcementService = announcementService;
-        this.service = announcementService;
-    }
+    
+//    public AnnouncementController(AnnouncementService announcementService) {
+//        this.announcementService = announcementService;
+//        this.service = announcementService;
+//    }
 
     @Override
     @PostMapping("/announcements")
-    public Announcement add(Announcement entity) {
+    public Announcement add(@RequestBody Announcement entity) {
         return super.add(entity);
     }
 
     @Override
     @DeleteMapping("/announcements/{id}")
-    public Announcement delete(Long id) {
+    public Announcement delete(@PathVariable Long id) {
         return super.delete(id);
     }
 
     @Override
     @GetMapping("/announcements/{id}")
-    public Announcement get(Long id) {
+    public Announcement get(@PathVariable Long id) {
         return super.get(id);
     }
 
