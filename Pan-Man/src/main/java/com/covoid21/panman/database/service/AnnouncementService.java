@@ -3,11 +3,8 @@ package com.covoid21.panman.database.service;
 import com.covoid21.panman.database.repository.AnnouncementRepository;
 import com.covoid21.panman.entity.Announcement;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Service;
 
-import java.lang.annotation.Annotation;
-import java.util.ArrayList;
 import java.util.List;
 
 /**

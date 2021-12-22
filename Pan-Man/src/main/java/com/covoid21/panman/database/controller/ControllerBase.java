@@ -1,14 +1,8 @@
 package com.covoid21.panman.database.controller;
 
-import com.covoid21.panman.database.service.AnnouncementService;
 import com.covoid21.panman.database.service.ServiceBase;
-import com.covoid21.panman.entity.Announcement;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
-import java.security.Provider;
-import java.util.ArrayList;
 import java.util.List;
 
 @RestController
