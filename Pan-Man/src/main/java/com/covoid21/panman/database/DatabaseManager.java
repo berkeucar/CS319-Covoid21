@@ -1,6 +1,7 @@
 package com.covoid21.panman.database;
 
 import com.covoid21.panman.database.service.AnnouncementService;
+import com.covoid21.panman.database.service.NotificationService;
 import com.covoid21.panman.entity.*;
 import com.covoid21.panman.entity.appointment.Appointment;
 import com.covoid21.panman.entity.user.User;
@@ -15,6 +16,7 @@ public class DatabaseManager {
     // services
     @Autowired
     private AnnouncementService announcementService;
+    private NotificationService notificationService;
 
     private DatabaseManager() {
         System.out.println("DatabaseManager() constructed");
@@ -32,7 +34,7 @@ public class DatabaseManager {
     }
 
     public Notification getNotification(Long id) {
-        return null;
+        return notificationService.find(id);
     }
 
     public Course getCourse(Long id) {
