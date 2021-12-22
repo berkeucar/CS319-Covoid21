@@ -6,7 +6,8 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 
 @Entity
-public class TestEntry {
+public class TestEntry
+{
     @Id
     @Autowired
     private int id;

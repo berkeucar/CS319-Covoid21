@@ -1,6 +1,7 @@
 package com.covoid21.panman.entity;
 
-public enum PolicyItem {
+public enum PolicyItem
+{
     VACCINATION,
     TEST,
     QUARANTINE,

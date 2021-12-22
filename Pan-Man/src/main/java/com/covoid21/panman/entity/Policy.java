@@ -4,7 +4,8 @@ import java.time.LocalTime;
 import java.util.ArrayList;
 
 
-public class Policy {
+public class Policy
+{
     private final int id;
     private String description;
     private ArrayList<VaccinationType> acceptedVaccines = new ArrayList<VaccinationType>();
@@ -13,8 +14,9 @@ public class Policy {
     private String testInfo;
     private String quarantineInfo;
     private LocalTime[] workingHours = new LocalTime[2];
-
-    public Policy(int id, String description, String vaccinationInfo, String testInfo, String quarantineInfo, LocalTime openingHour, LocalTime closingHour) {
+    
+    public Policy(int id, String description, String vaccinationInfo, String testInfo, String quarantineInfo, LocalTime openingHour, LocalTime closingHour)
+    {
         this.id = id;
         this.description = description;
         this.vaccinationInfo = vaccinationInfo;
