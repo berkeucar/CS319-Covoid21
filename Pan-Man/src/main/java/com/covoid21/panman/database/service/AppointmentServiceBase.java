@@ -15,9 +15,10 @@ import java.util.List;
 public abstract class AppointmentServiceBase<T extends Appointment> extends ServiceBase<T> {
     private AppointmentRepositoryBase<T> appointmentRepo;
 
+    @Autowired
     public AppointmentServiceBase(AppointmentRepositoryBase<T> repo)
     {
-        super();
+        super(repo);
         this.appointmentRepo = repo;
     }
 

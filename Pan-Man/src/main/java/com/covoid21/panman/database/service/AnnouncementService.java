@@ -21,7 +21,7 @@ public class AnnouncementService extends ServiceBase<Announcement>
     @Autowired
     public AnnouncementService(AnnouncementRepository repo)
     {
-        super();
+        super(repo);
         this.announcementRepo = repo;
     }
     

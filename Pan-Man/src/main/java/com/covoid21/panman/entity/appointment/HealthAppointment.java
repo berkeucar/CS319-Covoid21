@@ -5,10 +5,7 @@ import com.covoid21.panman.entity.user.User;
 import lombok.Getter;
 import lombok.Setter;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.ManyToOne;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.util.Date;
 
 @Entity
@@ -19,14 +16,15 @@ public class HealthAppointment extends Appointment
 {
     private String department;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
+    //@ManyToOne
     private HealthcarePersonnel doctor;
     
     public HealthAppointment() {}
     
-    public HealthAppointment(Long id, Date date, User hostUser, String message, String department, HealthcarePersonnel doctor)
+    public HealthAppointment(Date date, User hostUser, String message, String department, HealthcarePersonnel doctor)
     {
-        super(id, date, hostUser, message);
+        super(date, hostUser, message);
         this.department = department;
         this.doctor = doctor;
     }

@@ -5,9 +5,11 @@ import com.covoid21.panman.database.repository.TestAppointmentRepository;
 import com.covoid21.panman.entity.TestType;
 import com.covoid21.panman.entity.appointment.TestAppointment;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service
 public class TestAppointmentService extends AppointmentServiceBase<TestAppointment> {
     private TestAppointmentRepository testAppointmentRepository;
 

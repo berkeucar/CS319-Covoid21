@@ -25,11 +25,21 @@ public abstract class Appointment
 
     @Column(columnDefinition="text")
     private String message;
-    
+
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    private User user;
+
     public Appointment() {}
     
-    public Appointment(Long id, Date date, User hostUser, String message)
+    public Appointment(Date date, User hostUser, String message)
     {
+        this.date = date;
+        this.hostUser = hostUser;
+        this.message = message;
+    }
+
+    public Appointment(Long id, Date date, User hostUser, String message) {
         this.id = id;
         this.date = date;
         this.hostUser = hostUser;

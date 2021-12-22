@@ -6,8 +6,8 @@ import lombok.Setter;
 
 import javax.persistence.Entity;
 import javax.persistence.ManyToMany;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Date;
 
@@ -24,9 +24,10 @@ public class FacilityAppointment extends Appointment
     
     public FacilityAppointment() {}
     
-    public FacilityAppointment(Long id, Date date, User hostUser, String message)
+    public FacilityAppointment(Date date, User hostUser, String message, String facility)
     {
-        super(id, date, hostUser, message);
-//        participants.add(hostUserID);
+        super(date, hostUser, message);
+        participants = new ArrayList<>();
+        this.facility = facility;
     }
 }

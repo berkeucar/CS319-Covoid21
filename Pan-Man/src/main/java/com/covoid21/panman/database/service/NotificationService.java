@@ -13,7 +13,7 @@ public class NotificationService extends ServiceBase<Notification> {
 
     @Autowired
     public NotificationService(NotificationRepository repo) {
-        super();
+        super(repo);
         this.notificationRepo = repo;
     }
 
