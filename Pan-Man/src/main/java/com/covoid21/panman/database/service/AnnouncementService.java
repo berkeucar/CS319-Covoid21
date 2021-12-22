@@ -14,20 +14,23 @@ import java.util.List;
  */
 
 @Service
-public class AnnouncementService extends ServiceBase<Announcement> {
-
+public class AnnouncementService extends ServiceBase<Announcement>
+{
+    
     private AnnouncementRepository repo;
-
+    
     @Autowired
-    public AnnouncementService(AnnouncementRepository repo) {
+    public AnnouncementService(AnnouncementRepository repo)
+    {
         super();
         this.repo = repo;
         this.baseRepo = repo;
     }
-
-    public List<Announcement> findBySenderID(Long senderID) {
+    
+    public List<Announcement> findBySenderID(Long senderID)
+    {
         return repo.findBySenderID(senderID);
     }
-
+    
 }
 

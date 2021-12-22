@@ -1,6 +1,7 @@
 package com.covoid21.panman.entity;
 
-public enum VaccinationType {
+public enum VaccinationType
+{
     SINOVAC,
     BIONTECH,
     ASTRAZENECA,

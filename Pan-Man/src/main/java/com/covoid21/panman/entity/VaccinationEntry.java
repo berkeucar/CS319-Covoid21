@@ -6,7 +6,8 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 
 @Entity
-public class VaccinationEntry {
+public class VaccinationEntry
+{
     @Id
     @Autowired
     private int id;

@@ -9,39 +9,42 @@ import java.util.List;
 
 
 @RestController
-@RequestMapping("/announcements")
-public class AnnouncementController extends ControllerBase<Announcement> {
-    
+public class AnnouncementController extends ControllerBase<Announcement>
+{
     @Autowired
     private AnnouncementService announcementService;
 
-    
+
 //    public AnnouncementController(AnnouncementService announcementService) {
 //        this.announcementService = announcementService;
 //        this.service = announcementService;
 //    }
-
+    
     @Override
-    @PostMapping("/announcements")
-    public Announcement add(@RequestBody Announcement entity) {
+    @PostMapping( "/announcements" )
+    public Announcement add(@RequestBody Announcement entity)
+    {
         return super.add(entity);
     }
-
+    
     @Override
-    @DeleteMapping("/announcements/{id}")
-    public Announcement delete(@PathVariable Long id) {
+    @DeleteMapping( "/announcements/{id}" )
+    public Announcement delete(@PathVariable Long id)
+    {
         return super.delete(id);
     }
-
+    
     @Override
-    @GetMapping("/announcements/{id}")
-    public Announcement get(@PathVariable Long id) {
+    @GetMapping( "/announcements/{id}" )
+    public Announcement get(@PathVariable Long id)
+    {
         return super.get(id);
     }
-
+    
     @Override
-    @GetMapping("/announcements")
-    public List<Announcement> getAll() {
+    @GetMapping( "/announcements" )
+    public List<Announcement> getAll()
+    {
         return super.getAll();
     }
     /*
@@ -61,5 +64,5 @@ public class AnnouncementController extends ControllerBase<Announcement> {
         return service.getAllAnnouncements();
     }
     */
-
+    
 }
