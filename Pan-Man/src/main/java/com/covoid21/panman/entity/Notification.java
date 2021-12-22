@@ -13,10 +13,7 @@ import java.util.Date;
 public class Notification {
     @Id
     @GeneratedValue( strategy = GenerationType.AUTO )
-    //@Column(name = "id", nullable = false, updatable = false, unique = true)
     private Long id;
-
-
     private Date date;
     private NotificationType notificationType;
     private Long receiverID;
