@@ -39,12 +39,6 @@ public class PanmanApplication
                     );
             as.add(announcement);
             System.out.println(announcement);
-            announcement = as.find(2L);
-            System.out.println(announcement);
-
-            //ns.add(notification);
-
-            //List<Announcement> list = new ArrayList<Announcement>(as.findBySenderID(123L));
         };
     }
 }
