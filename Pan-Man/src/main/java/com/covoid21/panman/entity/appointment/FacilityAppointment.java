@@ -5,6 +5,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.Entity;
+import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import java.util.List;
@@ -16,14 +17,16 @@ import java.util.Date;
 @Setter
 public class FacilityAppointment extends Appointment
 {
-    @OneToMany
+    @ManyToMany
     private List<User> participants;
+
+    private String facility;
     
     public FacilityAppointment() {}
     
-    public FacilityAppointment(int id, Date date, int hostUserID, String message)
+    public FacilityAppointment(Long id, Date date, User hostUser, String message)
     {
-        super(id, date, hostUserID, message);
+        super(id, date, hostUser, message);
 //        participants.add(hostUserID);
     }
 }

@@ -1,7 +1,7 @@
 package com.covoid21.panman;
 
-import com.covoid21.panman.database.service.AnnouncementService;
-import com.covoid21.panman.database.service.NotificationService;
+import com.covoid21.panman.database.repository.HealthAppointmentRepository;
+import com.covoid21.panman.database.service.*;
 import com.covoid21.panman.entity.Announcement;
 import com.covoid21.panman.entity.Notification;
 import com.covoid21.panman.entity.NotificationType;
@@ -27,10 +27,14 @@ public class PanmanApplication
     }
     
     @Bean
-    CommandLineRunner commandLineRunner(AnnouncementService as, NotificationService ns)
+    CommandLineRunner commandLineRunner(HealthAppointmentService hs,
+                                        TestAppointmentService ts,
+                                        FacilityAppointmentService fs
+    )
     {
         return args ->
         {
+            /*
             Announcement announcement = new Announcement("deneme", new Date(), 123);
             Notification notification = new Notification(new Date(),
                     NotificationType.CONTACT_INFECTION_ALERT,
@@ -38,9 +42,13 @@ public class PanmanApplication
                     "Your contact is infected birader"
                     );
             as.add(announcement);
+
             System.out.println(announcement);
             announcement = as.find(2L);
             System.out.println(announcement);
+            */
+
+
 
             //ns.add(notification);
 

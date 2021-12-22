@@ -1,5 +1,6 @@
 package com.covoid21.panman.entity.appointment;
 
+import com.covoid21.panman.entity.user.User;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -15,18 +16,23 @@ public abstract class Appointment
 {
     @Id
     @GeneratedValue
-    private int id;
+    private Long id;
+
     private Date date;
-    private int hostUserID;
+
+    @ManyToOne
+    private User hostUser;
+
+    @Column(columnDefinition="text")
     private String message;
     
     public Appointment() {}
     
-    public Appointment(int id, Date date, int hostUserID, String message)
+    public Appointment(Long id, Date date, User hostUser, String message)
     {
         this.id = id;
         this.date = date;
-        this.hostUserID = hostUserID;
+        this.hostUser = hostUser;
         this.message = message;
     }
 }

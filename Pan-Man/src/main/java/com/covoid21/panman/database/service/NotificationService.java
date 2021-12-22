@@ -9,16 +9,15 @@ import java.util.List;
 
 @Service
 public class NotificationService extends ServiceBase<Notification> {
-    private NotificationRepository repo;
+    private NotificationRepository notificationRepo;
 
     @Autowired
     public NotificationService(NotificationRepository repo) {
         super();
-        this.repo = repo;
-        this.baseRepo = repo;
+        this.notificationRepo = repo;
     }
 
     public List<Notification> findByReceiverID(Long receiverID) {
-        return repo.findByReceiverID(receiverID);
+        return notificationRepo.findByReceiverID(receiverID);
     }
 }

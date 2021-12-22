@@ -13,7 +13,7 @@ import java.util.List;
 @Service
 public abstract class ServiceBase<T>
 {
-    protected CrudRepository<T, Long> baseRepo;
+    private CrudRepository<T, Long> baseRepo;
     
     public ServiceBase() {}
     

@@ -1,6 +1,7 @@
 package com.covoid21.panman.entity.appointment;
 
 import com.covoid21.panman.entity.TestType;
+import com.covoid21.panman.entity.user.User;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -18,9 +19,9 @@ public class TestAppointment extends Appointment
     
     public TestAppointment() {}
     
-    public TestAppointment(int id, Date date, int hostUserID, String message, TestType testType)
+    public TestAppointment(Long id, Date date, User hostUser, String message, TestType testType)
     {
-        super(id, date, hostUserID, message);
+        super(id, date, hostUser, message);
         this.testType = testType;
     }
 }
