@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@RestController
 public class NotificationController extends ControllerBase<Notification> {
     @Autowired
     private NotificationService notificationService;
@@ -18,13 +19,13 @@ public class NotificationController extends ControllerBase<Notification> {
     }
 
     @Override
-    @DeleteMapping( "/notifications" )
+    @DeleteMapping( "/notifications/{id}" )
     public Notification delete(@PathVariable Long id) {
         return super.delete(id);
     }
 
     @Override
-    @GetMapping( "/notifications" )
+    @GetMapping( "/notifications{id}" )
     public Notification get(@PathVariable Long id) {
         return super.get(id);
     }

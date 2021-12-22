@@ -11,7 +11,6 @@ import java.util.Date;
 @Getter
 @Setter
 public class Notification {
-
     @Id
     @GeneratedValue( strategy = GenerationType.AUTO )
     //@Column(name = "id", nullable = false, updatable = false, unique = true)
@@ -26,12 +25,12 @@ public class Notification {
 
     protected Notification() {}
     
-    public Notification(Date date, NotificationType notificationType, Long receiverID, String message, boolean isRead)
+    public Notification(Date date, NotificationType notificationType, Long receiverID, String message)
     {
         this.date = date;
         this.notificationType = notificationType;
         this.receiverID = receiverID;
         this.message = message;
-        this.isRead = isRead;
+        this.isRead = false;
     }
 }

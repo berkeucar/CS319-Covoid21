@@ -10,10 +10,9 @@ import java.util.List;
 public interface NotificationRepository extends CrudRepository<Notification, Long>
 {
     /**
-     * Finds all notifications of a user by ider
+     * Finds all notifications of a user by their ID
      *
-     * @param receiverID ID of sender (can be also null, in which case
-     *                 the method fetches all anonymous announcements)
+     * @param receiverID ID of receiver user
      * @return List of Notifications sent to that receiver
      */
     List<Notification> findByReceiverID(Long receiverID);
