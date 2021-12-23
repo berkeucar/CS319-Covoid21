@@ -5,6 +5,7 @@ import com.covoid21.panman.entity.InfectionStatus;
 import lombok.Getter;
 import lombok.Setter;
 
+import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
@@ -13,7 +14,8 @@ import java.util.Date;
 import java.util.List;
 
 @Entity
-@Table(name = "students")
+//@Table(name = "students")
+@DiscriminatorValue("student")
 @Getter
 @Setter
 public class Student extends User
@@ -25,7 +27,19 @@ public class Student extends User
     private String department;
     private String dormRoom;
 
-    public Student(int universityID, String userName, String password, String email, String hesCode, InfectionStatus infectionStatus, boolean isFullyVaccinated, Date entryDate, String department, String dormRoom) {
+    public Student(
+            //int universityID,
+            Long universityID,
+            String userName,
+            String password,
+            String email,
+            String hesCode,
+            InfectionStatus infectionStatus,
+            boolean isFullyVaccinated,
+            Date entryDate,
+            String department,
+            String dormRoom
+    ) {
         super(universityID, userName, password, email, hesCode, infectionStatus, isFullyVaccinated);
         this.entryDate = entryDate;
         this.department = department;
@@ -35,5 +49,9 @@ public class Student extends User
 
     public Student() {
         super();
+    }
+
+    public String toString() {
+        return "Student" + super.toString();
     }
 }

@@ -6,10 +6,12 @@ import com.covoid21.panman.entity.TestType;
 import com.covoid21.panman.entity.appointment.TestAppointment;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
 @Service
+@Transactional
 public class TestAppointmentService extends AppointmentServiceBase<TestAppointment> {
     private TestAppointmentRepository testAppointmentRepository;
 

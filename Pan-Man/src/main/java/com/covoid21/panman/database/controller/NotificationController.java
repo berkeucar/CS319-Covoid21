@@ -14,8 +14,8 @@ public class NotificationController extends ControllerBase<Notification> {
 
     @Override
     @PostMapping( "/notifications" )
-    public Notification add(@RequestBody Notification entity) {
-        return super.add(entity);
+    public Notification save(@RequestBody Notification entity) {
+        return super.save(entity);
     }
 
     @Override

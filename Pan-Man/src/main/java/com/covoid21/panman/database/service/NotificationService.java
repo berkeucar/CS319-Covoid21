@@ -4,10 +4,12 @@ import com.covoid21.panman.database.repository.NotificationRepository;
 import com.covoid21.panman.entity.Notification;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
 @Service
+@Transactional
 public class NotificationService extends ServiceBase<Notification> {
     private NotificationRepository notificationRepo;
 

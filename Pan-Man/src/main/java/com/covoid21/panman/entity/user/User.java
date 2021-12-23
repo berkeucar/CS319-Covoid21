@@ -1,41 +1,56 @@
 package com.covoid21.panman.entity.user;
 
 import com.covoid21.panman.entity.InfectionStatus;
-import com.covoid21.panman.entity.Notification;
 import com.covoid21.panman.entity.TestEntry;
 import com.covoid21.panman.entity.VaccinationEntry;
-import com.covoid21.panman.entity.appointment.Appointment;
+import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
-import org.aspectj.weaver.ast.Not;
 
 import javax.persistence.*;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 @Entity
-@Inheritance(strategy = InheritanceType.JOINED)
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+@DiscriminatorColumn(name="user_type",
+        discriminatorType = DiscriminatorType.STRING)
 @Table(name = "users")
 @Getter
 @Setter
+@EqualsAndHashCode(of = "id")
 public abstract class User
 {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    protected Long id;
-    
+    //@GeneratedValue(strategy = GenerationType.AUTO)
+    protected Long id; // university id
+
+    /*
+    @Column(unique = true, nullable = false, updatable = false)
     private int universityID;
-    
-    private String userName;
+    */
+
+    @Column(unique = true, nullable = false)
+    private String name;
+
     private String password;
+
+    @Column(unique = true, nullable = false)
     private String email;
+
+    @Column(unique = true)
     private String hesCode;
+
+    @Enumerated
     private InfectionStatus infectionStatus;
+
     private boolean isFullyVaccinated;
 
-
-    @ManyToMany
-    private List<User> closeContacts = new ArrayList<User>();
+    //@ManyToMany(cascade = {CascadeType.DETACH, CascadeType.MERGE, CascadeType.REFRESH, CascadeType.REMOVE})
+    @OneToMany
+    private Set<User> closeContacts = new HashSet<User>();
     /*
     @OneToMany(mappedBy = "user") // TODO ?
     //@JoinColumn(name = "appointments_id") // TODO ?
@@ -45,9 +60,9 @@ public abstract class User
     //@JoinColumn(name = "notifications_id")
     private List<Notification> notifications = new ArrayList<Notification>();
     */
-    @ManyToMany
-    @Column(nullable = true)
-    private List<User> temporaryCloseContacts;
+    //@ManyToMany(cascade = {CascadeType.DETACH, CascadeType.MERGE, CascadeType.REFRESH, CascadeType.REMOVE})
+    @OneToMany
+    private Set<User> temporaryCloseContacts;
 
     @OneToMany
     @Column(nullable = true)
@@ -58,30 +73,35 @@ public abstract class User
     private List<TestEntry> testEntries;
 
     public User(
-            int universityID,
-            String userName,
+            Long universityID,
+            String name,
             String password,
             String email,
             String hesCode,
             InfectionStatus infectionStatus,
             boolean isFullyVaccinated
     ) {
-        this.universityID = universityID;
-        this.userName = userName;
+        this.id = universityID;
+        //this.universityID = universityID;
+        this.name = name;
         this.password = password;
         this.email = email;
         this.hesCode = hesCode;
         this.infectionStatus = infectionStatus;
         this.isFullyVaccinated = isFullyVaccinated;
-        this.closeContacts = new ArrayList<User>();
+        this.closeContacts = new HashSet<User>();
         //this.appointments = new ArrayList<Appointment>();
         //this.notifications = new ArrayList<Notification>();
-        this.temporaryCloseContacts = new ArrayList<User>();
+        this.temporaryCloseContacts = new HashSet<User>();
         this.vaccinationsEntries = new ArrayList<VaccinationEntry>();
         this.testEntries = new ArrayList<TestEntry>();
     }
 
     public User() {
+    }
 
+    @Override
+    public String toString() {
+        return "" + id + " " + id;
     }
 }
