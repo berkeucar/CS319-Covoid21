@@ -39,20 +39,25 @@ public class UserService implements UserDetailsService {
 
         user.setPassword(encodedPassword);
 
-       // userRepository.save(user);
+        userRepository.save(user);
 
         String token = UUID.randomUUID().toString();
 
         ConfirmationToken confirmationToken = new ConfirmationToken(
                 token,
                 LocalDateTime.now(),
-                LocalDateTime.now().plusMinutes(15),
+                LocalDateTime.now().plusMinutes(30),
                 user
         );
 
         confirmationTokenService.saveConfirmationToken(
                 confirmationToken);
 
+        
+
         return token;
     }
+
+    
+
 }
