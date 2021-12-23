@@ -4,21 +4,22 @@ import com.covoid21.panman.database.repository.NotificationRepository;
 import com.covoid21.panman.entity.Notification;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
 @Service
+@Transactional
 public class NotificationService extends ServiceBase<Notification> {
-    private NotificationRepository repo;
+    private NotificationRepository notificationRepo;
 
     @Autowired
     public NotificationService(NotificationRepository repo) {
-        super();
-        this.repo = repo;
-        this.baseRepo = repo;
+        super(repo);
+        this.notificationRepo = repo;
     }
 
     public List<Notification> findByReceiverID(Long receiverID) {
-        return repo.findByReceiverID(receiverID);
+        return notificationRepo.findByReceiverID(receiverID);
     }
 }

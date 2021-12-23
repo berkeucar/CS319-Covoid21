@@ -16,9 +16,9 @@ public class AnnouncementController extends ControllerBase<Announcement>
     
     @Override
     @PostMapping( "/announcements" )
-    public Announcement add(@RequestBody Announcement entity)
+    public Announcement save(@RequestBody Announcement entity)
     {
-        return controller.add(entity);
+        return super.save(entity);
     }
     
     @Override

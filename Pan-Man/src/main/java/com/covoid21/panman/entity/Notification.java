@@ -1,5 +1,6 @@
 package com.covoid21.panman.entity;
 
+import com.covoid21.panman.entity.user.User;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -19,6 +20,10 @@ public class Notification {
     private Long receiverID;
     private String message;
     private boolean isRead;
+
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    private User user;
 
     protected Notification() {}
     

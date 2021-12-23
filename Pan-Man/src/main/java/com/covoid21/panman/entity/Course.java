@@ -24,7 +24,7 @@ public class Course
     @ManyToMany
     private List<Student> students;
     
-    @OneToOne
+    @ManyToOne
     private Instructor instructor;
     
     @ManyToMany

@@ -4,26 +4,36 @@ import com.covoid21.panman.entity.user.User;
 import lombok.Getter;
 import lombok.Setter;
 
+import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
-import javax.persistence.OneToMany;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
-import java.util.List;
-import java.util.Date;
+import java.util.*;
 
 @Entity
-@Table(name = "facility_appointments")
+//@Table(name = "facility_appointments")
+@DiscriminatorValue("facility")
 @Getter
 @Setter
 public class FacilityAppointment extends Appointment
 {
-    @OneToMany
-    private List<User> participants;
+    @ManyToMany
+    private Set<User> participants;
+
+    private String facility;
     
     public FacilityAppointment() {}
     
-    public FacilityAppointment(int id, Date date, int hostUserID, String message)
+    public FacilityAppointment(Date date, User hostUser, String message, String facility)
     {
-        super(id, date, hostUserID, message);
-//        participants.add(hostUserID);
+        super(date, hostUser, message);
+        participants = new HashSet<User>();
+        participants.add(hostUser);
+        this.facility = facility;
+    }
+
+    @Override
+    public String toString() {
+        return "Facility" + super.toString() + " " + facility;
     }
 }

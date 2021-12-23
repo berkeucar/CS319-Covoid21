@@ -1,5 +1,7 @@
 package com.covoid21.panman.database.service;
 
+import org.hibernate.exception.ConstraintViolationException;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Service;
 
@@ -10,14 +12,15 @@ import java.util.List;
  * Base service class for most entities
  * Provides most CRUD operations.
  */
-@Service
 public abstract class ServiceBase<T>
 {
     protected CrudRepository<T, Long> baseRepo;
-    
-    public ServiceBase() {}
-    
-    public T add(T entity)
+
+    public ServiceBase(CrudRepository<T, Long> repo) {
+        this.baseRepo = repo;
+    }
+
+    public T save(T entity)
     {
         return baseRepo.save(entity);
     }

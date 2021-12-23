@@ -4,6 +4,7 @@ import com.covoid21.panman.database.repository.AnnouncementRepository;
 import com.covoid21.panman.entity.Announcement;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -14,22 +15,21 @@ import java.util.List;
  */
 
 @Service
+@Transactional
 public class AnnouncementService extends ServiceBase<Announcement>
 {
-    
-    private AnnouncementRepository repo;
+    private AnnouncementRepository announcementRepo;
     
     @Autowired
     public AnnouncementService(AnnouncementRepository repo)
     {
-        super();
-        this.repo = repo;
-        this.baseRepo = repo;
+        super(repo);
+        this.announcementRepo = repo;
     }
     
     public List<Announcement> findBySenderID(Long senderID)
     {
-        return repo.findBySenderID(senderID);
+        return announcementRepo.findBySenderID(senderID);
     }
     
 }

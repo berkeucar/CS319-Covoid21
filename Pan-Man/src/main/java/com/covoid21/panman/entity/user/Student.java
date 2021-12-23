@@ -1,17 +1,21 @@
 package com.covoid21.panman.entity.user;
 
 import com.covoid21.panman.entity.Course;
+import com.covoid21.panman.entity.InfectionStatus;
 import lombok.Getter;
 import lombok.Setter;
 
+import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
 @Entity
-@Table( name = "students" )
+//@Table(name = "students")
+@DiscriminatorValue("student")
 @Getter
 @Setter
 public class Student extends User
@@ -22,6 +26,32 @@ public class Student extends User
     private Date entryDate;
     private String department;
     private String dormRoom;
-    
-    public Student() {}
+
+    public Student(
+            //int universityID,
+            Long universityID,
+            String userName,
+            String password,
+            String email,
+            String hesCode,
+            InfectionStatus infectionStatus,
+            boolean isFullyVaccinated,
+            Date entryDate,
+            String department,
+            String dormRoom
+    ) {
+        super(universityID, userName, password, email, hesCode, infectionStatus, isFullyVaccinated);
+        this.entryDate = entryDate;
+        this.department = department;
+        this.dormRoom = dormRoom;
+        this.coursesTaken = new ArrayList<Course>();
+    }
+
+    public Student() {
+        super();
+    }
+
+    public String toString() {
+        return "Student" + super.toString();
+    }
 }

@@ -11,9 +11,9 @@ public abstract class ControllerBase<T>
 {
     protected ServiceBase<T> controller;
     
-    public T add(@RequestBody T entity)
+    public T save(@RequestBody T entity)
     {
-        return controller.add(entity);
+        return service.save(entity);
     }
     
     public T delete(@PathVariable Long id)
