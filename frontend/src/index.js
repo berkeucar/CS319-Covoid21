@@ -26,7 +26,7 @@ import {
     Footer,
     Home,
     About,
-    Appo,
+    Appointments,
     Contact,
     Courses,
     Profile,
@@ -41,6 +41,7 @@ ReactDOM.render(
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<About />} />
             <Route path="/contact" element={<Contact />} />
+            <Route path="/appointments" element={<Appointments />} />
             {/*<Route path="/blog" element={<Blog />}>
                 <Route path="" element={<Posts />} />
                 <Route path=":postSlug" element={<Post />} />

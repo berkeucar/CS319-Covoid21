@@ -1,7 +1,7 @@
 
 import React from "react";
 
-function Appo() {
+function Appointments() {
     return (
         <div className="appointments">
             <div className="container">
@@ -13,4 +13,4 @@ function Appo() {
     );
 }
 
-export default Appo;
+export default Appointments;

@@ -1,5 +1,5 @@
 export { default as About } from "./About";
-export { default as Appointments } from "./Appo";
+export { default as Appointments } from "./Appointments";
 export { default as Contact } from "./Contact";
 export { default as Courses } from "./Courses";
 export { default as Footer } from "./Footer";

@@ -1,5 +1,25 @@
+@import 'colors';
+@import 'mixins';
 
 .profile{
-  text-align: center;
-  background-color: #61dafb;
+  .profile-container{
+    max-width: 1280px;
+    display: flex;
+    background-color: $panmanblue;
+    border: solid;
+    border-color: $panmanblue;
+    border-radius: 12px;
+    margin: 40px auto;
+    padding: 30px 30px;
+    flex-direction: row;
+    .profile-brief{
+        flex: 1 0 45%;
+        .profile-brief-info{
+          margin: 10px auto;
+        }
+    }
+    .profile-info{
+        flex: 1 0 45%;
+    }
+  }
 }

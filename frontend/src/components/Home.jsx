@@ -1,5 +1,4 @@
 import React from "react";
-//import panman from "../images/panman.png";
 import '../sass/Home.scss';
 
 function Home() {
@@ -10,11 +9,14 @@ function Home() {
                     <div className="home-status-text">
                         <h1>Your Status:</h1>
                     </div>
-                    <div className="home-status-safe">
-                        <h1>Safe</h1>
+                    <div className="home-status-healthy">
+                        <h1>Healthy</h1>
                     </div>
-                    <div className="home-status-risky">
-                        <h1>Risky</h1>
+                    <div className="home-status-contacted">
+                        <h1>Contacted</h1>
+                    </div>
+                    <div className="home-status-infected">
+                        <h1>Infected</h1>
                     </div>
                 </div>
                 <div className="home-last">
@@ -43,7 +45,7 @@ function Home() {
                                 <p>My Contacts</p>
                             </div>
                             <div className="home-last-box-status">
-                                <p>Riskless ben</p>
+                                <p>Riskless</p>
                             </div>
                         </div>
                     </div>
