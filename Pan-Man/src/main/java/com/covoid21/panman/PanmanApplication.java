@@ -25,20 +25,5 @@ public class PanmanApplication
     {
         SpringApplication.run(PanmanApplication.class, args);
     }
-    
-    @Bean
-    CommandLineRunner commandLineRunner(AnnouncementService as, NotificationService ns)
-    {
-        return args ->
-        {
-            Announcement announcement = new Announcement("deneme", new Date(), 123);
-            Notification notification = new Notification(new Date(),
-                    NotificationType.CONTACT_INFECTION_ALERT,
-                    1327L,
-                    "Your contact is infected birader"
-                    );
-            as.add(announcement);
-            System.out.println(announcement);
-        };
-    }
+
 }
