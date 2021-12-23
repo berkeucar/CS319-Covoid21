@@ -1,5 +1,6 @@
 package com.covoid21.panman.entity.user;
 
+import com.amazonaws.services.transfer.model.UserDetails;
 import com.covoid21.panman.entity.Course;
 import lombok.Getter;
 import lombok.Setter;
