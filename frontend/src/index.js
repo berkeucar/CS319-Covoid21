@@ -26,7 +26,7 @@ import {
     Footer,
     Home,
     About,
-    Appointments,
+    Appo,
     Contact,
     Courses,
     Profile,

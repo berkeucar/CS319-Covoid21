@@ -1,0 +1,59 @@
+@import 'colors';
+.Home {
+
+    .home-status {
+        background-color: $panmanlila;
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        .home-status-text{
+            margin: 0 20px 0;
+        }
+        .home-status-safe{
+
+            display: none;
+        }
+        .home-status-risky{
+
+
+        }
+    }
+    .home-last{
+        padding: 20px 10px;
+        .home-last-title{
+            margin: 0 20px 0;
+        }
+        .home-last-container {
+            max-width: 1280px;
+            display: flex;
+            background-color: $panmangreen;
+            border: solid;
+            border-color: $panmanblue;
+            border-radius: 12px;
+            margin: 0 auto;
+            flex-direction: row;
+            .home-last-text {
+                flex: .4;
+                margin-left: 42px;
+                max-width: 380px;
+
+            }
+
+            .home-last-box{
+                border: solid;
+                border-color: $panmanblack;
+                border-radius: 12px;
+                margin: 30px 20px;
+                padding: 5px 10px;
+                flex: 1 0 30%;
+            }
+        }
+    }
+}
+
+
+
+.Home-link {
+    color: $panmangreen;
+}
+
