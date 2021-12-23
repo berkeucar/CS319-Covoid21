@@ -16,8 +16,9 @@ public class HealthAppointment extends Appointment
 {
     private String department;
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    //@ManyToOne(cascade = CascadeType.ALL)
     //@ManyToOne
+    @ManyToOne
     private HealthcarePersonnel doctor;
     
     public HealthAppointment() {}

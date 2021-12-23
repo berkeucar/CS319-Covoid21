@@ -20,7 +20,7 @@ public abstract class Appointment
 
     private Date date;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     private User hostUser;
 
     @Column(columnDefinition="text")

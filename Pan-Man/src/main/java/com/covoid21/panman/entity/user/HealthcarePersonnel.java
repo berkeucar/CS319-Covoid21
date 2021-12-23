@@ -5,10 +5,12 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.Entity;
+import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
 
 @Entity
-@Table( name = "healthcare_personnel" )
+@PrimaryKeyJoinColumn(name = "user_id")
+@Table(name = "healthcare_personnel")
 @Getter
 @Setter
 public class HealthcarePersonnel extends User {
@@ -32,5 +34,9 @@ public class HealthcarePersonnel extends User {
         this.department = department;
         this.office = office;
         this.title = title;
+    }
+
+    public HealthcarePersonnel() {
+        super();
     }
 }
