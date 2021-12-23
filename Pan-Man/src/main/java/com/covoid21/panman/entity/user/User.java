@@ -19,7 +19,7 @@ import java.util.List;
 @Table(name = "users")
 @Getter
 @Setter
-public abstract class User implements UserDetails {
+public class User implements UserDetails {
     @Id
     @SequenceGenerator(
             name = "user_sequence",
@@ -33,7 +33,7 @@ public abstract class User implements UserDetails {
     private Long id;
     
     private int universityID;
-
+    private boolean isEnabled;
     private String userName;
     private String password;
     private String email;
@@ -74,6 +74,13 @@ public abstract class User implements UserDetails {
 
     public User() {
         super();
+    }
+
+    public User(String userName, String password, String email, String hesCode) {
+        this.userName = userName;
+        this.password = password;
+        this.email = email;
+        this.hesCode = hesCode;
     }
 
     @Override
