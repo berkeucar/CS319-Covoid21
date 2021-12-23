@@ -8,11 +8,27 @@ function Profile() {
                     <div className="profile-brief">
                         <h1>My Profile</h1>
                         <img src={panmanhead} className="profile-brief-pp" alt="pp" />
+                        <h3>Status: </h3>
                         <div className="profile-brief-info">
-                            <h5>Alexandre Chancourtois</h5>
-                            <h5>Student</h5>
-                            <h5>S2P7-1923-09</h5>
-                            <h5>83801666</h5>
+                            <table className="profile-table">
+                                <tr>
+                                    <th>Name:</th>
+                                    <td>Alexandre Chancourtois</td>
+                                </tr>
+                                <tr>
+                                    <th>Role:</th>
+                                    <td>Student</td>
+                                </tr>
+                                <tr>
+                                    <th>HES:</th>
+                                    <td>S2P7-1923-09</td>
+                                </tr>
+                                <tr>
+                                    <th>ID No:</th>
+                                    <td>83801666</td>
+                                </tr>
+                            </table>
+                            <button className="button-edit-profile">Edit Profile</button>
                         </div>
                     </div>
                     <div className="profile-info">

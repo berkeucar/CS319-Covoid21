@@ -1,27 +1,28 @@
 import React from "react";
+import '../sass/Stats.scss';
 
 function Stats() {
     return (
         <div className="stats">
-            <div class="container">
-                <div class="row align-items-center my-5">
-                    <div class="col-lg-7">
-                        <img
-                            class="img-fluid rounded mb-4 mb-lg-0"
-                            src="http://placehold.it/900x400"
-                            alt=""
-                        />
-                    </div>
-                    <div class="col-lg-5">
-                        <h1 class="font-weight-light">Stats</h1>
-                        <p>
-                            Lorem Ipsum is simply dummy text of the printing and typesetting
-                            industry. Lorem Ipsum has been the industry's standard dummy text
-                            ever since the 1500s, when an unknown printer took a galley of
-                            type and scrambled it to make a type specimen book.
-                        </p>
-                    </div>
-                </div>
+            <div className="container">
+                <table className="stats-table">
+                    <tr>
+                        <th>Name:</th>
+                        <td>Alexandre Chancourtois</td>
+                    </tr>
+                    <tr>
+                        <th>Role:</th>
+                        <td>Student</td>
+                    </tr>
+                    <tr>
+                        <th>HES:</th>
+                        <td>S2P7-1923-09</td>
+                    </tr>
+                    <tr>
+                        <th>ID No:</th>
+                        <td>83801666</td>
+                    </tr>
+                </table>
             </div>
         </div>
     );
