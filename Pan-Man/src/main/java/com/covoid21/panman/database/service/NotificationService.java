@@ -4,6 +4,7 @@ import com.amazonaws.services.dynamodbv2.xspec.N;
 import com.covoid21.panman.database.repository.NotificationRepository;
 import com.covoid21.panman.entity.Notification;
 import com.covoid21.panman.entity.Policy;
+import com.covoid21.panman.entity.user.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -24,8 +25,8 @@ public class NotificationService extends ServiceBase<Notification> {
         this.notificationRepo = repo;
     }
 
-    public List<Notification> findByReceiverID(Long receiverID) {
-        return notificationRepo.findByReceiverID(receiverID);
+    public List<Notification> findByReceiver(User receiver) {
+        return notificationRepo.findByReceiver(receiver);
     }
 
     @Override

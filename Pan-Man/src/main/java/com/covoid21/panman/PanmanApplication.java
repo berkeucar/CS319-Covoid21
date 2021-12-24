@@ -3,6 +3,7 @@ package com.covoid21.panman;
 import com.covoid21.panman.database.service.*;
 import com.covoid21.panman.entity.*;
 
+import com.covoid21.panman.entity.user.Student;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -12,6 +13,7 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 import javax.persistence.EntityExistsException;
 import java.time.LocalTime;
+import java.util.Date;
 
 @SpringBootApplication
 @EnableJpaRepositories( "com.covoid21.panman.database.repository" )
@@ -26,7 +28,7 @@ public class PanmanApplication
     @Bean
     CommandLineRunner commandLineRunner(
             //HealthcarePersonnelService hps,
-            //StudentService ss,
+            StudentService ss,
             //HealthAppointmentService has,
             //TestAppointmentService tas,
             //FacilityAppointmentService fas,
@@ -45,10 +47,29 @@ public class PanmanApplication
                     LocalTime.of(18,30, 0)
             );
 
+            Student student = new Student(
+                21902222,
+                "Berke Uçar",
+                "sirke",
+                "berke.ucar@ug.bilkent.edu.tr",
+                "berkeninhesi",
+                InfectionStatus.HEALTHY,
+                true,
+                new Date(1019, 8, 30),
+                "Computer Science",
+                "82-842"
+            );
+
             try {
                 ps.save(policy);
             } catch (EntityExistsException e) {
-                System.out.println("entity already exists");
+                System.out.println("policy already exists");
+            }
+
+            try {
+                ss.save(student);
+            } catch (EntityExistsException e) {
+                System.out.println("student already exists");
             }
 
             policy = ps.findByTitle("Bilkent Policies");
@@ -59,6 +80,12 @@ public class PanmanApplication
             ps.update(policy);
             policy = ps.findByTitle("Bilkent Policies");
             System.out.println(policy);
+
+            student = ss.findByUniversityID(21901815);
+            System.out.println(student);
+            student.setInfectionStatus(InfectionStatus.CONTACTED);
+            ss.update(student);
+            System.out.println(ss.findByEmail("kutay.demiray@ug.bilkent.edu.tr"));
         };
     }
 }

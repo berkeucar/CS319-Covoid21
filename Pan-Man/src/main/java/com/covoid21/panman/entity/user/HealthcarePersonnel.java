@@ -25,7 +25,7 @@ public class HealthcarePersonnel extends User {
 
     public HealthcarePersonnel(
             //int universityID,
-            Long universityID,
+            int universityID,
             String userName,
             String password,
             String email,

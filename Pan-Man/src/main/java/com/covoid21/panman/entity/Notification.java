@@ -13,15 +13,21 @@ import java.util.Date;
 @Setter
 public class Notification {
     @Id
-    @GeneratedValue( strategy = GenerationType.AUTO )
+    @GeneratedValue(strategy = GenerationType.AUTO)
     //@Column(name = "id", nullable = false, updatable = false, unique = true)
     private Long id;
 
-
     private Date date;
+
+    @Enumerated
     private NotificationType notificationType;
-    private Long receiverID;
+
+    @OneToOne
+    private User receiver;
+
+    @Column(columnDefinition = "text")
     private String message;
+
     private boolean isRead;
 
     @ManyToOne
@@ -30,11 +36,11 @@ public class Notification {
 
     protected Notification() {}
     
-    public Notification(Date date, NotificationType notificationType, Long receiverID, String message)
+    public Notification(Date date, NotificationType notificationType, User receiver, String message)
     {
         this.date = date;
         this.notificationType = notificationType;
-        this.receiverID = receiverID;
+        this.receiver = receiver;
         this.message = message;
         this.isRead = false;
     }

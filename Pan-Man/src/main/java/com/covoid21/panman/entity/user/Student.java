@@ -28,8 +28,7 @@ public class Student extends User
     private String dormRoom;
 
     public Student(
-            //int universityID,
-            Long universityID,
+            int universityID,
             String userName,
             String password,
             String email,

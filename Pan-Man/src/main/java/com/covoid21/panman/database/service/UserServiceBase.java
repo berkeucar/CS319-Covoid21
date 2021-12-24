@@ -21,7 +21,7 @@ public abstract class UserServiceBase<T extends User> extends ServiceBase<T> {
 
     @Override
     public T save(T entity) {
-        if (userRepo.existsById(entity.getId())) {
+        if (userRepo.existsById(entity.getId()) || userRepo.existsByUniversityID(entity.getUniversityID())) {
             throw new EntityExistsException();
         }
         return userRepo.save(entity);
@@ -41,8 +41,8 @@ public abstract class UserServiceBase<T extends User> extends ServiceBase<T> {
         return userRepo.findByEmail(email).get();
     }
 
-    public T findByName(String name) {
-        return userRepo.findByName(name).get();
+    public List<T> findByName(String name) {
+        return userRepo.findByName(name);
     }
 
     public T findByHesCode(String hesCode) {
@@ -56,9 +56,12 @@ public abstract class UserServiceBase<T extends User> extends ServiceBase<T> {
     public List<T> findByTemporaryCloseContactsContaining(User contact) {
         return userRepo.findByTemporaryCloseContactsContaining(contact);
     }
-    /*
+
     public T findByUniversityID(int universityID) {
         return userRepo.findByUniversityID(universityID).get();
     }
-    */
+
+    public boolean existsByUniversityID(int universityID) {
+        return userRepo.existsByUniversityID(universityID);
+    }
 }

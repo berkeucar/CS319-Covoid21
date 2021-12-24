@@ -9,9 +9,10 @@ import java.util.Optional;
 
 @Repository
 public interface UserRepositoryBase<T extends User> extends CrudRepository<T, Long> {
-    //Optional<T> findByUniversityID(int universityID);
+    Optional<T> findByUniversityID(int universityID);
+    boolean existsByUniversityID(int universityID);
     Optional<T> findByEmail(String email);
-    Optional<T> findByName(String name);
+    List<T> findByName(String name);
     Optional<T> findByHesCode(String hesCode);
     List<T> findByCloseContactsContaining(User contact);
     List<T> findByTemporaryCloseContactsContaining(User contact);
