@@ -7,20 +7,20 @@ function Stats() {
             <div className="container">
                 <table className="stats-table">
                     <tr>
-                        <th>Name:</th>
-                        <td>Alexandre Chancourtois</td>
+                        <th>Total Cases in Campus:</th>
+                        <td>37</td>
                     </tr>
                     <tr>
-                        <th>Role:</th>
-                        <td>Student</td>
+                        <th>Number of Students Infected:</th>
+                        <td>23</td>
                     </tr>
                     <tr>
-                        <th>HES:</th>
-                        <td>S2P7-1923-09</td>
+                        <th>Number of Instructors Infected:</th>
+                        <td>9</td>
                     </tr>
                     <tr>
-                        <th>ID No:</th>
-                        <td>83801666</td>
+                        <th>Number of Personnel Infected:</th>
+                        <td>5</td>
                     </tr>
                 </table>
             </div>

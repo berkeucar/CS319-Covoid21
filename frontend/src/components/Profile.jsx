@@ -8,7 +8,12 @@ function Profile() {
                     <div className="profile-brief">
                         <h1>My Profile</h1>
                         <img src={panmanhead} className="profile-brief-pp" alt="pp" />
-                        <h3>Status: </h3>
+                        <table className="profile-status-table">
+                            <tr>
+                                <th>Status:</th>
+                                <td>Healthy</td>
+                            </tr>
+                        </table>
                         <div className="profile-brief-info">
                             <table className="profile-table">
                                 <tr>

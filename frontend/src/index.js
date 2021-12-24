@@ -31,6 +31,8 @@ import {
     Courses,
     Profile,
     Stats,
+    Login,
+    SignUp,
 
 } from "./components";
 
@@ -50,6 +52,8 @@ ReactDOM.render(
             <Route path="/navigation" element={<Navigation />} />
             <Route path="/profile" element={<Profile />} />
             <Route path="/stats" element={<Stats />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/signup" element={<SignUp />} />
         </Routes>
         <Footer />
     </Router>,
