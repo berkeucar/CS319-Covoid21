@@ -5,8 +5,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Service;
 
+import javax.persistence.EntityExistsException;
+import javax.persistence.EntityNotFoundException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 /**
  * Base service class for most entities
@@ -20,22 +23,21 @@ public abstract class ServiceBase<T>
         this.baseRepo = repo;
     }
 
-    public T save(T entity)
-    {
-        return baseRepo.save(entity);
-    }
-    
+    public abstract T save(T entity) throws EntityExistsException;
+
+    public abstract T update(T entity) throws EntityNotFoundException;
+
     public T delete(Long id)
     {
-        T entity = baseRepo.findById(id).orElse(null);
+        Optional<T> entity = baseRepo.findById(id);
         
-        if (entity == null)
+        if (!entity.isPresent())
         {
-            throw new RuntimeException(); // TODO make a proper error
+            throw new EntityNotFoundException(); // TODO make a proper error
         }
         
         baseRepo.deleteById(id);
-        return entity;
+        return entity.get();
     }
     
     public T find(Long id)

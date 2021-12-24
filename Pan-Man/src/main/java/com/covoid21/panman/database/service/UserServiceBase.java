@@ -4,7 +4,10 @@ import com.covoid21.panman.database.repository.UserRepositoryBase;
 import com.covoid21.panman.entity.user.User;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import javax.persistence.EntityExistsException;
+import javax.persistence.EntityNotFoundException;
 import java.util.List;
+import java.util.Optional;
 
 public abstract class UserServiceBase<T extends User> extends ServiceBase<T> {
     private UserRepositoryBase<T> userRepo;
@@ -16,12 +19,23 @@ public abstract class UserServiceBase<T extends User> extends ServiceBase<T> {
         this.userRepo = repo;
     }
 
-    /*
     @Override
-    public T save(T user) {
-        if (user.getEmail())
+    public T save(T entity) {
+        if (userRepo.existsById(entity.getId())) {
+            throw new EntityExistsException();
+        }
+        return userRepo.save(entity);
     }
-     */
+
+    @Override
+    public T update(T entity) {
+        Optional<T> tmp = userRepo.findById(entity.getId());
+
+        if (!tmp.isPresent()) {
+            throw new EntityNotFoundException();
+        }
+        return userRepo.save(entity);
+    }
 
     public T findByEmail(String email) {
         return userRepo.findByEmail(email).get();

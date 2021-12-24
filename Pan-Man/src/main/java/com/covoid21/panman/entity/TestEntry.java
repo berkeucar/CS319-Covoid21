@@ -11,7 +11,7 @@ public class TestEntry
 {
     @Id
     @Autowired
-    private int id;
+    private Long id;
     private TestType testType;
     private Date date;
     private boolean isPositive;

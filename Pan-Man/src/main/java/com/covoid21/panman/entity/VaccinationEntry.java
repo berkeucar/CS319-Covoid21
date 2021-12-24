@@ -10,7 +10,8 @@ public class VaccinationEntry
 {
     @Id
     @Autowired
-    private int id;
+    private Long id;
+
     private VaccinationType vaccinationType;
     private String location;
 }

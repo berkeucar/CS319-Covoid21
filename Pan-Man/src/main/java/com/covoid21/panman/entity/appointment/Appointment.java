@@ -30,7 +30,7 @@ public abstract class Appointment
 
     @Autowired
     protected Appointment() {
-
+        super();
     }
 
     @Autowired

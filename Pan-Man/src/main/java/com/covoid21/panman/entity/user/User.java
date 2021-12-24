@@ -25,7 +25,7 @@ public abstract class User
 {
     @Id
     //@GeneratedValue(strategy = GenerationType.AUTO)
-    protected Long id; // university id
+    protected Long id; // university id is the primary key for users
 
     /*
     @Column(unique = true, nullable = false, updatable = false)

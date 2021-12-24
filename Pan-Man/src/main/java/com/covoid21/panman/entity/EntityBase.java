@@ -2,15 +2,10 @@ package com.covoid21.panman.entity;
 
 import lombok.Getter;
 import lombok.Setter;
+import org.springframework.beans.factory.annotation.Autowired;
 
-/**
- * Might be used as a base for all entities, if we have time later to refactor
- */
-@Deprecated
-//@Getter
-//@Setter
-public abstract class EntityBase {
-    protected Long id;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
-    // more attributes or methods?
-}

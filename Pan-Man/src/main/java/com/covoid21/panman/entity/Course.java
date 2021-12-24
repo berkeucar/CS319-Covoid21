@@ -12,11 +12,10 @@ import java.util.List;
 @Table(name = "courses")
 @Getter
 @Setter
-public class Course
-{
+public class Course {
     @Id
     @GeneratedValue( strategy = GenerationType.AUTO )
-    private int id;
+    private Long id;
     
     private String code;
     private int section;
@@ -40,7 +39,7 @@ public class Course
     
     protected Course() {}
     
-    public Course(int id, String code, int section, Instructor instructor, int quota, int seatingPlanID, double coordinateX, double coordinateY, boolean isFaceToFace)
+    public Course(Long id, String code, int section, Instructor instructor, int quota, int seatingPlanID, double coordinateX, double coordinateY, boolean isFaceToFace)
     {
         this.id = id;
         this.code = code;
