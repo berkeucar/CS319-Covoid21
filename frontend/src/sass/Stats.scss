@@ -1,0 +1,32 @@
+@import 'colors';
+@import 'mixins';
+
+.stats{
+  .container{
+    display: flex;
+    .heat-map{
+      padding: 20px 30px;
+    }
+    .statistics{
+      padding: 20px 30px;
+      .stats-title{
+        display: flex;
+
+        .dropdown{
+          padding: 0 10px;
+        }
+      }
+      .stats-table {
+        border: solid;
+        border-color: $panmangreen;
+        margin: 20px auto;
+        font-size: 0.9em;
+        font-family: sans-serif;
+        min-width: 250px;
+
+      }
+    }
+
+  }
+
+}

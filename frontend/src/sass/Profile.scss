@@ -1,0 +1,39 @@
+@import 'colors';
+@import 'mixins';
+
+.profile{
+  .profile-container{
+    max-width: 1280px;
+    display: flex;
+    background-color: $panmanblue;
+    border: solid;
+    border-color: $panmanblue;
+    border-radius: 12px;
+    margin: 40px auto;
+    padding: 30px 30px;
+    flex-direction: row;
+    .profile-brief{
+      flex: 1 0 45%;
+
+      .profile-brief-info{
+        margin: 10px auto;
+        .profile-table{
+          margin: 20px 0;
+          font-family: sans-serif;
+          min-width: 250px;
+          box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
+          border: solid;
+          border-color: $panmanblack;
+          padding: 0.5em;
+        }
+        .button-edit-profile{
+          border-radius: 8px;
+          border-color: $panmanblack;
+        }
+      }
+    }
+    .profile-info{
+        flex: 1 0 45%;
+    }
+  }
+}
