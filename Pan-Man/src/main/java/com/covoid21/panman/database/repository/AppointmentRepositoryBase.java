@@ -15,4 +15,5 @@ public interface AppointmentRepositoryBase<T extends Appointment> extends CrudRe
     List<T> findByHostUser(User hostUser);
     Optional<T> findByHostUserUniversityIDAndDate(int senderUniversityID, Date date);
     boolean existsByHostUser(User hostUser);
+    boolean existsByHostUserAndDate(User hostUser, Date date);
 }
