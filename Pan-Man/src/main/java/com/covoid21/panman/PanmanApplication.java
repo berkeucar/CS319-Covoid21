@@ -38,7 +38,8 @@ public class PanmanApplication
             TestAppointmentService tas,
             FacilityAppointmentService fas,
             PolicyService ps,
-            AnnouncementService as
+            AnnouncementService as,
+            NotificationService ns
     )
     {
         return args ->
@@ -191,6 +192,24 @@ public class PanmanApplication
             announcement = as.findByDate(new Date(121, 12, 31));
             announcement.setMessage("Mutlu yıllar falan");
             as.update(announcement);
+
+            // notification
+            Notification notification = new Notification(
+                    new Date(121, 12, 26, 13,52),
+                    NotificationType.CONTACT_INFECTION_ALERT,
+                    ss.findByUniversityID(21901815),
+                    "oda arkadaşın hastalanmış kib aeo"
+            );
+
+            try {
+                ns.save(notification);
+            } catch (EntityExistsException e) {
+                System.out.println("notification already exists");
+            }
+
+            notification = ns.findByReceiverAndDate(ss.findByUniversityID(21901815),new Date(121, 12, 26, 13,52) );
+            notification.setMessage("oda arkadaşın hastalanmış ama yeniden");
+            ns.update(notification);
         };
     }
 }

@@ -5,7 +5,9 @@ import com.covoid21.panman.entity.user.User;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
+import java.util.Date;
 import java.util.List;
+import java.util.Optional;
 
 @Repository
 public interface NotificationRepository extends CrudRepository<Notification, Long>
@@ -17,4 +19,7 @@ public interface NotificationRepository extends CrudRepository<Notification, Lon
      * @return List of Notifications sent to that receiver
      */
     List<Notification> findByReceiver(User receiver);
+
+    Optional<Notification> findByReceiverAndDate(User receiver, Date date);
+    boolean existsByReceiverAndDate(User receiver, Date date);
 }

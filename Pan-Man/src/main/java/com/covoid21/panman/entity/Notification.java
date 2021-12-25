@@ -8,7 +8,7 @@ import javax.persistence.*;
 import java.util.Date;
 
 @Entity
-@Table( name = "notifications" )
+@Table(name = "notifications")
 @Getter
 @Setter
 public class Notification {
@@ -17,12 +17,13 @@ public class Notification {
     //@Column(name = "id", nullable = false, updatable = false, unique = true)
     private Long id;
 
+    @Column(updatable = false)
     private Date date;
 
     @Enumerated
     private NotificationType notificationType;
 
-    @OneToOne
+    @ManyToOne
     private User receiver;
 
     @Column(columnDefinition = "text")
@@ -31,7 +32,7 @@ public class Notification {
     private boolean isRead;
 
     @ManyToOne
-    @JoinColumn(name = "user_id")
+    //@JoinColumn(name = "user_id")
     private User user;
 
     protected Notification() {}
