@@ -1,26 +1,30 @@
+
 import React from "react";
+import '../sass/About.scss'
+import panmanlogo from "../images/panman_writing_1.png";
 
 function About() {
     return (
         <div className="about">
             <div class="container">
-                <div class="row align-items-center my-5">
-                    <div class="col-lg-7">
-                        <img
-                            class="img-fluid rounded mb-4 mb-lg-0"
-                            src="http://placehold.it/900x400"
-                            alt=""
-                        />
-                    </div>
-                    <div class="col-lg-5">
-                        <h1 class="font-weight-light">About</h1>
-                        <p>
-                            Lorem Ipsum is simply dummy text of the printing and typesetting
-                            industry. Lorem Ipsum has been the industry's standard dummy text
-                            ever since the 1500s, when an unknown printer took a galley of
-                            type and scrambled it to make a type specimen book.
-                        </p>
-                    </div>
+                <div className="about-logo">
+                    <img src={panmanlogo} className="about-logo" alt="pp" />
+                </div>
+                <div className="about-text">
+                    <h1>TEAM COVOID21</h1>
+                    <h3>Group 3E</h3>
+                    <h3>Kutay Demiray</h3>
+                    <h3>Gökberk Keskinkılıç</h3>
+                    <h3>Berke Uçar</h3>
+                    <h3>Yağız Yaşar</h3>
+                    <h3>Burak Yıldıran</h3>
+                    <a
+                        className="App-link"
+                        href="https://github.com/berkeucar/CS319-Covoid21"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    > Visit Our Github Repository
+                    </a>
                 </div>
             </div>
         </div>
