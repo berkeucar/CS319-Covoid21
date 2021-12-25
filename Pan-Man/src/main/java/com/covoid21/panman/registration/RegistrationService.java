@@ -2,10 +2,9 @@ package com.covoid21.panman.registration;
 
 import com.covoid21.panman.database.service.AuthUserService;
 import com.covoid21.panman.email.EmailSender;
-import com.covoid21.panman.entity.user.Student;
 import com.covoid21.panman.entity.user.User;
-import com.covoid21.panman.registration.token.ConfirmationToken;
-import com.covoid21.panman.registration.token.ConfirmationTokenService;
+import com.covoid21.panman.registration.token.entity.ConfirmationToken;
+import com.covoid21.panman.registration.token.service.ConfirmationTokenService;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

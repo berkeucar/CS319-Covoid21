@@ -1,9 +1,14 @@
 package com.covoid21.panman.registration.token.service;
 
-import com.covoid21.panman.entity.user.AdministrationPersonnel;
-import com.covoid21.panman.entity.user.HealthcarePersonnel;
-import com.covoid21.panman.entity.user.Instructor;
-import com.covoid21.panman.entity.user.Student;
+import com.covoid21.panman.database.repository.AdministrationPersonnelRepository;
+import com.covoid21.panman.database.repository.HealthcarePersonnelRepository;
+import com.covoid21.panman.database.repository.InstructorRepository;
+import com.covoid21.panman.database.repository.StudentRepository;
+import com.covoid21.panman.database.service.AdministrationPersonnelService;
+import com.covoid21.panman.database.service.HealthcarePersonnelService;
+import com.covoid21.panman.database.service.InstructorService;
+import com.covoid21.panman.database.service.StudentService;
+import com.covoid21.panman.entity.user.*;
 import com.covoid21.panman.registration.token.entity.ConfirmationToken;
 import com.covoid21.panman.registration.token.entity.StudentConfirmationToken;
 import com.covoid21.panman.registration.token.repository.ConfirmationTokenRepository;
@@ -11,51 +16,55 @@ import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import javax.persistence.*;
+import java.time.LocalDateTime;
+import java.util.Optional;
 
 @Service
 @AllArgsConstructor
-@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
-@DiscriminatorColumn(name="confirmation_token_type",
-        discriminatorType = DiscriminatorType.STRING)
+//@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+//@DiscriminatorColumn(name="confirmation_token_type",
+//        discriminatorType = DiscriminatorType.STRING)
 public class ConfirmationTokenService {
-    //@Autowired
     private final ConfirmationTokenRepository confirmationTokenRepository;
+    private final StudentService student;
+    private final InstructorService instructor;
+    private final HealthcarePersonnelService healthcare;
+    private final AdministrationPersonnelService administration;
 
     /**
      *
      * @param confirmationToken
     */
     public void saveConfirmationToken(ConfirmationToken confirmationToken) {
-
-        if (confirmationToken.getUser() instanceof Student) {
+        User user = confirmationToken.getUser();
+        if (user instanceof Student) {
             try {
-                studentService.save((Student) confirmationToken.getUser());
+                student.save((Student) user);
             } catch (EntityExistsException e) {
-                studentService.update((Student) confirmationToken.getUser());
+                student.update((Student) user);
             }
         }
-        else if (confirmationToken.getUser() instanceof Instructor) {
+        else if (user instanceof Instructor) {
             try {
-                instructorService.save((Instructor) confirmationToken.getUser());
+                instructor.save((Instructor) user);
             } catch (EntityExistsException e) {
-                instructorService.update((Instructor) confirmationToken.getUser());
+                instructor.update((Instructor) user);
             }
         }
-        else if (confirmationToken.getUser() instanceof HealthcarePersonnel) {
+        else if (user instanceof HealthcarePersonnel) {
             try {
-                healthcarePersonnelService.save((HealthcarePersonnel) confirmationToken.getUser());
+                healthcare.save((HealthcarePersonnel) user);
             } catch (EntityExistsException e) {
-                healthcarePersonnelService.update((HealthcarePersonnel) confirmationToken.getUser());
+                healthcare.update((HealthcarePersonnel) user);
             }
         }
-        else if (confirmationToken.getUser() instanceof AdministrationPersonnel) {
+        else if (user instanceof AdministrationPersonnel) {
             try {
-                administrationPersonnelService.save((AdministrationPersonnel) confirmationToken.getUser());
+                administration.save((AdministrationPersonnel) user);
             } catch (EntityExistsException e) {
-                administrationPersonnelService.update((AdministrationPersonnel) confirmationToken.getUser());
+                administration.update((AdministrationPersonnel) user);
             }
         }
-
 
         confirmationTokenRepository.save(confirmationToken);
     }
@@ -65,7 +74,7 @@ public class ConfirmationTokenService {
      * @param token
      * @return
     */
-    public Optional<StudentConfirmationToken> getToken(String token) {
+    public Optional<ConfirmationToken> getToken(String token) {
         return confirmationTokenRepository.findByToken(token);
     }
 
