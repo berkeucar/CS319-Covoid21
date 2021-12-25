@@ -30,4 +30,9 @@ public class AdministrationPersonnelService extends UserServiceBase<Administrati
     public List<AdministrationPersonnel> findByTitle(String title) {
         return administrationPersonnelRepo.findByTitle(title);
     }
+
+    @Override
+    public AdministrationPersonnel findByUserUniversityID(int universityID) {
+        return administrationPersonnelRepo.findByUserUniversityID(universityID).get();
+    }
 }

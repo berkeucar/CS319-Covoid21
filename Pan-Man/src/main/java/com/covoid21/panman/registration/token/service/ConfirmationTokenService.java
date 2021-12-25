@@ -32,9 +32,11 @@ public class ConfirmationTokenService {
     */
     public void saveConfirmationToken(ConfirmationToken confirmationToken) {
         String type = confirmationToken.getUserType();
+        System.out.println(confirmationToken.getUserType());
         int id = confirmationToken.getUniversityID();
-        if (student.findByUserTypeAndUniversityID(type, id) != null) {
-            Student entity = student.findByUserTypeAndUniversityID(type, id);
+        System.out.println(student.findByUserUniversityID(id) != null);
+        if (student.findByUserUniversityID(id) != null) {
+            Student entity = student.findByUserUniversityID(id);
             try {
                 student.update(entity);
             } catch (EntityNotFoundException e) {
@@ -42,8 +44,8 @@ public class ConfirmationTokenService {
                 student.save(entity);
             }
         }
-        else if (instructor.findByUserTypeAndUniversityID(type, id) != null) {
-            Instructor entity = instructor.findByUserTypeAndUniversityID(type, id);
+        else if (instructor.findByUserUniversityID(id) != null) {
+            Instructor entity = instructor.findByUserUniversityID(id);
             try {
                 instructor.update(entity);
             } catch (EntityNotFoundException e) {
@@ -51,8 +53,8 @@ public class ConfirmationTokenService {
                 instructor.save(entity);
             }
         }
-        else if (healthcare.findByUserTypeAndUniversityID(type, id) != null) {
-            HealthcarePersonnel entity = healthcare.findByUserTypeAndUniversityID(type, id);
+        else if (healthcare.findByUserUniversityID(id) != null) {
+            HealthcarePersonnel entity = healthcare.findByUserUniversityID(id);
             try {
                 healthcare.update(entity);
             } catch (EntityNotFoundException e) {
@@ -60,8 +62,8 @@ public class ConfirmationTokenService {
                 healthcare.save(entity);
             }
         }
-        else if (administration.findByUserTypeAndUniversityID(type, id) != null) {
-            AdministrationPersonnel entity = administration.findByUserTypeAndUniversityID(type, id);
+        else if (administration.findByUserUniversityID(id) != null) {
+            AdministrationPersonnel entity = administration.findByUserUniversityID(id);
             try {
                 administration.update(entity);
             } catch (EntityNotFoundException e) {

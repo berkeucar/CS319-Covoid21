@@ -7,6 +7,7 @@ import org.springframework.stereotype.Repository;
 
 import javax.transaction.Transactional;
 import java.util.List;
+import java.util.Optional;
 
 @Repository
 public interface InstructorRepository extends UserRepositoryBase<Instructor> {
@@ -18,4 +19,8 @@ public interface InstructorRepository extends UserRepositoryBase<Instructor> {
     @Modifying
     @Query("UPDATE Instructor user SET user.isEnabled = TRUE WHERE user.email = ?1")
     int enableUser(String email);
+
+    @Override
+    @Query("SELECT i FROM Instructor i WHERE i.universityID = ?1")
+    Optional<Instructor> findByUserUniversityID(int id);
 }
