@@ -59,8 +59,8 @@ public class HealthcarePersonnelConfirmationToken extends ConfirmationTokenBase<
     }
 
     @Override
-    public void setUser(HealthcarePersonnel user) {
-        super.setUser(user);
+    public void setUser(HealthcarePersonnel healthcarePersonnel) {
+        super.setUser(healthcarePersonnel);
     }
 
     @Override
