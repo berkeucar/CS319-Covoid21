@@ -12,5 +12,5 @@ public interface HealthcarePersonnelRepository extends UserRepositoryBase<Health
     List<HealthcarePersonnel> findByDepartment(String department);
     List<HealthcarePersonnel> findByOffice(String office);
     List<HealthcarePersonnel> findByTitle(String title);
-    Optional<HealthcarePersonnel> findByHealthAppointmentsContaining(HealthAppointment appointment);
+    //Optional<HealthcarePersonnel> findByHealthAppointmentsContaining(HealthAppointment appointment);
 }

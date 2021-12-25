@@ -14,13 +14,13 @@ import java.util.Date;
 @DiscriminatorValue("health")
 @Getter
 @Setter
-public class  HealthAppointment extends Appointment
+public class HealthAppointment extends Appointment
 {
     private String department;
 
     //@ManyToOne(cascade = CascadeType.ALL)
-    @ManyToOne
-    //@ManyToOne(cascade = CascadeType.DETACH)
+    //@ManyToOne
+    @ManyToOne(cascade = CascadeType.DETACH)
     private HealthcarePersonnel doctor;
 
     @Autowired

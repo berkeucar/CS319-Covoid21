@@ -19,10 +19,10 @@ public class HealthcarePersonnel extends User {
     private String department;
     private String office;
     private String title;
-
+    /*
     @OneToMany(cascade = CascadeType.MERGE, mappedBy = "id")
     private List<HealthAppointment> healthAppointments;
-
+    */
     public HealthcarePersonnel(
             //int universityID,
             int universityID,
@@ -40,7 +40,7 @@ public class HealthcarePersonnel extends User {
         this.department = department;
         this.office = office;
         this.title = title;
-        this.healthAppointments = new ArrayList<HealthAppointment>();
+        //this.healthAppointments = new ArrayList<HealthAppointment>();
     }
 
     public HealthcarePersonnel() {

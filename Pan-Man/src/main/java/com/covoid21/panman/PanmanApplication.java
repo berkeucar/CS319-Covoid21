@@ -80,6 +80,25 @@ public class PanmanApplication
                 System.out.println("student already exists");
             }
 
+            student = new Student(
+                    21901815,
+                    "Kutay Demiray",
+                    "123",
+                    "kutay.demiray@ug.bilkent.edu.tr",
+                    "kutayinhesi",
+                    InfectionStatus.HEALTHY,
+                    true,
+                    new Date(1019, 8, 30),
+                    "Computer Science",
+                    "82-736"
+            );
+
+            try {
+                ss.save(student);
+            } catch (EntityExistsException e) {
+                System.out.println("student already exists");
+            }
+
             policy = ps.findByTitle("Bilkent Policies");
             System.out.println(policy);
             policy.getAcceptedTests().add(TestType.DIAGNOVIR);
@@ -144,7 +163,10 @@ public class PanmanApplication
 
             HealthAppointment healthAppointment = new HealthAppointment(
                     new Date(121, 12, 27, 13, 0, 0),
-                    ss.findByUniversityID(21901815), "Orthopedics Appointment, Broken Fibia", "Orthopedics", healthcarePersonnel
+                    ss.findByUniversityID(21901815),
+                    "Orthopedics Appointment, Broken Fibia",
+                    "Orthopedics",
+                    hps.findByUniversityID(1234)
             );
 
             try {
@@ -152,7 +174,6 @@ public class PanmanApplication
             } catch (EntityExistsException e) {
                 System.out.println("Health appointment already exists");
             };
-
 
             // announcement
             Announcement announcement = new Announcement(

@@ -32,8 +32,9 @@ public class HealthcarePersonnelService extends UserServiceBase<HealthcarePerson
     public List<HealthcarePersonnel> findByTitle(String title) {
         return healthcarePersonnelRepo.findByTitle(title);
     }
-
+    /*
     public HealthcarePersonnel findByHealthAppointmentsContaining(HealthAppointment appointment) {
         return healthcarePersonnelRepo.findByHealthAppointmentsContaining(appointment).get();
     }
+     */
 }
