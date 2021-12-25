@@ -34,11 +34,13 @@ public class PanmanApplication
             //HealthAppointmentService has,
             TestAppointmentService tas,
             //FacilityAppointmentService fas,
-            PolicyService ps
+            PolicyService ps,
+            AnnouncementService as
     )
     {
         return args ->
         {
+            // policy
             Policy policy = new Policy(
                     "Bilkent Policies",
                     "This paragraph contains some random information about Bilkent policies",
@@ -49,6 +51,13 @@ public class PanmanApplication
                     LocalTime.of(18,30, 0)
             );
 
+            try {
+                ps.save(policy);
+            } catch (EntityExistsException e) {
+                System.out.println("policy already exists");
+            }
+
+            // student/user
             Student student = new Student(
                 21902222,
                 "Berke Uçar",
@@ -61,12 +70,6 @@ public class PanmanApplication
                 "Computer Science",
                 "82-842"
             );
-
-            try {
-                ps.save(policy);
-            } catch (EntityExistsException e) {
-                System.out.println("policy already exists");
-            }
 
             try {
                 ss.save(student);
@@ -93,8 +96,9 @@ public class PanmanApplication
             ss.update(student);
             System.out.println(ss.findByEmail("kutay.demiray@ug.bilkent.edu.tr"));
 
+            // appointment
             TestAppointment appointment = new TestAppointment(
-                    new Date(1021, 12, 27, 13, 0, 0),
+                    new Date(121, 12, 27, 13, 0, 0),
                     ss.findByUniversityID(21901815),
                     "Diagnovir test appointment",
                     TestType.DIAGNOVIR
@@ -108,9 +112,26 @@ public class PanmanApplication
 
             appointment = tas.findByHostUserUniversityIDAndDate(
                     21901815,
-                    new Date(1021, 12, 27, 13, 0 ,0));
-            appointment.setDate(new Date(1021, 12, 28, 9, 0, 0));
+                    new Date(121, 12, 27, 13, 0 ,0));
+            appointment.setDate(new Date(121, 12, 28, 9, 0, 0));
             tas.update(appointment);
+
+            // announcement
+            Announcement announcement = new Announcement(
+                    "Umarım 2022 daha güzel geçer",
+                    new Date(121, 12, 31),
+                    ss.findByUniversityID(21901815)
+            );
+
+            try {
+                as.save(announcement);
+            } catch (EntityExistsException e) {
+                System.out.println("announcement already exists");
+            }
+
+            announcement = as.findByDate(new Date(121, 12, 31));
+            announcement.setMessage("Mutlu yıllar falan");
+            as.update(announcement);
         };
     }
 }

@@ -1,5 +1,6 @@
 package com.covoid21.panman.entity;
 
+import com.covoid21.panman.entity.user.User;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -14,21 +15,23 @@ public class Announcement {
     @Id
     @GeneratedValue( strategy = GenerationType.AUTO )
     //@Column(name = "id", nullable = false, updatable = false, unique = true)
-    private Long id;
+    private Long id = 0L;
 
     @Column(columnDefinition="text")
     private String message;
-    
+
+    @Column(unique = true)
     private Date date;
-    
-    private long senderID;
+
+    @ManyToOne
+    private User sender;
     
     protected Announcement() {}
     
-    public Announcement(String message, Date date, long senderID) {
+    public Announcement(String message, Date date, User sender) {
         this.message = message;
         this.date = date;
-        this.senderID = senderID;
+        this.sender = sender;
     }
     
     @Override
