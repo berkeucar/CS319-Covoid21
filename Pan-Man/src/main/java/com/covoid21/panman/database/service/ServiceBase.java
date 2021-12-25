@@ -40,12 +40,28 @@ public abstract class ServiceBase<T>
         return entity.get();
     }
     
+<<<<<<< HEAD
     public T findById(Long id)
+=======
+    public T get(Long id)
+    {
+        return baseRepo.findById(id).orElse(null);
+    }
+    
+    public T find(Long id)
+>>>>>>> frontend
     {
         return baseRepo.findById(id).orElse(null);
     }
     
     public List<T> findAll()
+    {
+        List<T> list = new ArrayList<T>();
+        baseRepo.findAll().forEach(list::add);
+        return list;
+    }
+    
+    public List<T> getAll()
     {
         List<T> list = new ArrayList<T>();
         baseRepo.findAll().forEach(list::add);

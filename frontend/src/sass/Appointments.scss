@@ -1,0 +1,53 @@
+.appointments{
+  .container{
+    .appointment-dropdowns{
+      display: flex;
+      flex-direction: column;
+
+      .appointment-type{
+        display: flex;
+        flex-direction: row;
+        margin: 20px 10px;
+        .appointment-type-title{
+
+        }
+        .dropdown{
+          display: flex;
+          margin: 0 10px;
+        }
+      }
+
+      .appointment-date{
+        display: flex;
+        flex-direction: row;
+        margin: 20px 10px;
+        .appointment-date-title{
+
+        }
+        .dropdown-date{
+          display: flex;
+          margin: 0 10px;
+        }
+      }
+
+      .appointment-time{
+        display: flex;
+        flex-direction: row;
+        margin: 20px 10px;
+        .appointment-time-title{
+
+        }
+        .dropdown-time{
+          display: flex;
+          margin: 0 10px;
+        }
+      }
+
+      .appointment-button{
+        border-radius: 8px;
+        margin-left: 10px;
+      }
+    }
+
+  }
+}

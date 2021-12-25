@@ -1,0 +1,12 @@
+@import 'colors';
+
+.courses{
+  .container{
+    display: flex;
+    flex-direction: column;
+    max-width: 400px;
+    margin: 30px auto;
+    border: solid;
+    background-color: $panmanblue;
+  }
+}

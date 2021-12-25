@@ -2,12 +2,21 @@ package com.covoid21.panman.entity;
 
 import lombok.Getter;
 import lombok.Setter;
+<<<<<<< HEAD
 import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.persistence.*;
 import java.time.LocalTime;
 import java.util.Set;
 
+=======
+
+import javax.persistence.*;
+import java.time.LocalTime;
+import java.util.ArrayList;
+import java.util.List;
+
+>>>>>>> frontend
 @Entity
 @Table(name = "policies")
 @Getter
@@ -15,6 +24,7 @@ import java.util.Set;
 public class Policy
 {
     @Id
+<<<<<<< HEAD
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id = 0L;
 
@@ -39,10 +49,25 @@ public class Policy
     private Set<TestType> acceptedTests;
 
     @Column(columnDefinition = "text")
+=======
+    @GeneratedValue( strategy = GenerationType.AUTO )
+    private Long id;
+
+    private String title;
+    private String description;
+
+    @ElementCollection
+    private List<VaccinationType> acceptedVaccines = new ArrayList<VaccinationType>();
+    private String vaccinationInfo;
+
+    @ElementCollection
+    private List<TestType> acceptedTests = new ArrayList<TestType>();
+>>>>>>> frontend
     private String testInfo;
 
     @Column(columnDefinition = "text")
     private String quarantineInfo;
+<<<<<<< HEAD
 
     private LocalTime openingHour;
     private LocalTime closingHour;
@@ -52,6 +77,14 @@ public class Policy
         this.id = id;
         this.version = version;
         this.title = title;
+=======
+    private LocalTime openingHour;
+    private LocalTime closingHour;
+
+    protected Policy() {}
+    public Policy(String description, String vaccinationInfo, String testInfo, String quarantineInfo, LocalTime openingHour, LocalTime closingHour)
+    {
+>>>>>>> frontend
         this.description = description;
         this.acceptedVaccines = acceptedVaccines;
         this.vaccinationInfo = vaccinationInfo;
@@ -60,6 +93,7 @@ public class Policy
         this.quarantineInfo = quarantineInfo;
         this.openingHour = openingHour;
         this.closingHour = closingHour;
+<<<<<<< HEAD
     }
 
     public Policy(
@@ -91,5 +125,7 @@ public class Policy
 
     public boolean equals(Policy other) {
         return id.equals(other.id);
+=======
+>>>>>>> frontend
     }
 }

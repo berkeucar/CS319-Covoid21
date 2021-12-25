@@ -4,10 +4,30 @@ import com.covoid21.panman.entity.Policy;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
+<<<<<<< HEAD
 import java.util.Optional;
 
 @Repository
 public interface PolicyRepository extends CrudRepository<Policy, Long> {
     Optional<Policy> findByTitle(String title);
     boolean existsByTitle(String title);
+=======
+import java.util.List;
+
+@Repository
+public interface PolicyRepository extends CrudRepository<Policy, Long> {
+    /**
+     *
+     * @param id
+     * @return
+     */
+    List<Policy> findByID(Long id);
+
+    /**
+     *
+     * @param title
+     * @return
+     */
+    List<Policy> findByTitle(String title);
+>>>>>>> frontend
 }

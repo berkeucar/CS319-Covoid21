@@ -13,11 +13,16 @@ import java.util.Date;
 @Setter
 public class Notification {
     @Id
+<<<<<<< HEAD
     @GeneratedValue(strategy = GenerationType.AUTO)
     //@Column(name = "id", nullable = false, updatable = false, unique = true)
     private Long id;
 
     @Column(updatable = false)
+=======
+    @GeneratedValue( strategy = GenerationType.AUTO )
+    private Long id;
+>>>>>>> frontend
     private Date date;
 
     @Enumerated

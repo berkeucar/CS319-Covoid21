@@ -242,6 +242,7 @@ public class PanmanApplication
             Notification notification = new Notification(
                     date,
                     NotificationType.CONTACT_INFECTION_ALERT,
+<<<<<<< HEAD
                     ss.findByUniversityID(21901815),
                     "oda arkadaşın hastalanmış kib aeo"
             );
@@ -318,6 +319,13 @@ public class PanmanApplication
                 System.out.println("course already exists");
             }*/
             System.out.println("over");
+=======
+                    1327L,
+                    "Your contact is infected birader"
+                    );
+            as.add(announcement);
+            System.out.println(announcement);
+>>>>>>> frontend
         };
     }
 }
