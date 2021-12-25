@@ -135,7 +135,7 @@ public class PanmanApplication
             appointment = tas.findByHostUserUniversityIDAndDate(
                     21901815,
                     new Date(121, 12, 27, 13, 0 ,0));
-            appointment.setDate(new Date(121, 12, 28, 9, 0, 0));
+            appointment.setTestType(TestType.PCR);
             tas.update(appointment);
 
             FacilityAppointment facilityAppointment = new FacilityAppointment(

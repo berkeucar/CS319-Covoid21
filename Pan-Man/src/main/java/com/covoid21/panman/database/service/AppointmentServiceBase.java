@@ -28,7 +28,7 @@ public abstract class AppointmentServiceBase<T extends Appointment> extends Serv
 
     @Override
     public T save(T entity) {
-        if (appointmentRepo.existsByHostUserAndDate(entity.getHostUser(), entity.getDate())) {
+        if (appointmentRepo.existsByHostUserUniversityIDAndDate(entity.getHostUser().getUniversityID(), entity.getDate())) {
             throw new EntityExistsException();
         }
         return appointmentRepo.save(entity);
