@@ -1,13 +1,13 @@
-package com.covoid21.panman.registration.token;
+package com.covoid21.panman.registration.token.entity;
 
-import com.covoid21.panman.entity.user.Instructor;
+import com.covoid21.panman.entity.user.Student;
 
 import javax.persistence.DiscriminatorValue;
 import java.time.LocalDateTime;
 
-@DiscriminatorValue("instructor_confirmation_token")
-public class InstructorConfirmationToken extends ConfirmationTokenBase<Instructor> {
-    public InstructorConfirmationToken() {
+@DiscriminatorValue("student_confirmation_token")
+public class StudentConfirmationToken extends ConfirmationTokenBase<Student> {
+    public StudentConfirmationToken() {
         super();
     }
 
@@ -37,7 +37,7 @@ public class InstructorConfirmationToken extends ConfirmationTokenBase<Instructo
     }
 
     @Override
-    public Instructor getUser() {
+    public Student getUser() {
         return super.getUser();
     }
 
@@ -67,11 +67,11 @@ public class InstructorConfirmationToken extends ConfirmationTokenBase<Instructo
     }
 
     @Override
-    public void setUser(Instructor user) {
-        super.setUser(user);
+    public void setUser(Student student) {
+        super.setUser(student);
     }
 
-    public InstructorConfirmationToken(String token, LocalDateTime createdAt, LocalDateTime expiresAt, Instructor instructor) {
-        super(token, createdAt, expiresAt, instructor);
+    public StudentConfirmationToken(String token, LocalDateTime createdAt, LocalDateTime expiresAt, Student user) {
+        super(token, createdAt, expiresAt, user);
     }
 }

@@ -1,4 +1,4 @@
-package com.covoid21.panman.registration.token;
+package com.covoid21.panman.registration.token.service;
 
 import com.covoid21.panman.database.service.AdministrationPersonnelService;
 import com.covoid21.panman.database.service.HealthcarePersonnelService;

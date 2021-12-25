@@ -1,12 +1,21 @@
-package com.covoid21.panman.registration.token;
+package com.covoid21.panman.registration.token.entity;
 
-import com.covoid21.panman.entity.user.HealthcarePersonnel;
+import com.covoid21.panman.entity.user.AdministrationPersonnel;
 
 import javax.persistence.DiscriminatorValue;
 import java.time.LocalDateTime;
 
-@DiscriminatorValue("healthcare_confirmation_token")
-public class HealthcarePersonnelConfirmationToken extends ConfirmationTokenBase<HealthcarePersonnel> {
+@DiscriminatorValue("administration_confirmation_token")
+public class AdministrationPersonnelConfirmationToken extends ConfirmationTokenBase<AdministrationPersonnel> {
+    public AdministrationPersonnelConfirmationToken() {
+        super();
+    }
+
+    @Override
+    public Long getId() {
+        return super.getId();
+    }
+
     @Override
     public String getToken() {
         return super.getToken();
@@ -28,7 +37,7 @@ public class HealthcarePersonnelConfirmationToken extends ConfirmationTokenBase<
     }
 
     @Override
-    public HealthcarePersonnel getUser() {
+    public AdministrationPersonnel getUser() {
         return super.getUser();
     }
 
@@ -58,20 +67,11 @@ public class HealthcarePersonnelConfirmationToken extends ConfirmationTokenBase<
     }
 
     @Override
-    public void setUser(HealthcarePersonnel user) {
+    public void setUser(AdministrationPersonnel user) {
         super.setUser(user);
     }
 
-    @Override
-    public Long getId() {
-        return super.getId();
-    }
-
-    public HealthcarePersonnelConfirmationToken() {
-        super();
-    }
-
-    public HealthcarePersonnelConfirmationToken(String token, LocalDateTime createdAt, LocalDateTime expiresAt, HealthcarePersonnel user) {
+    public AdministrationPersonnelConfirmationToken(String token, LocalDateTime createdAt, LocalDateTime expiresAt, AdministrationPersonnel user) {
         super(token, createdAt, expiresAt, user);
     }
 }
