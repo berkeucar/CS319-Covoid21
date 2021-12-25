@@ -22,7 +22,7 @@ import java.util.Date;
 
 @SpringBootApplication
 @EnableJpaRepositories( "com.covoid21.panman.database.repository" )
-@EntityScan( "com.covoid21.panman.entity" )
+@EntityScan( {"com.covoid21.panman.entity", "com.covoid21.panman.entity.*" } )
 public class PanmanApplication
 {
     public static void main(String[] args)

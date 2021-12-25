@@ -9,16 +9,11 @@ import java.util.List;
 
 
 @RestController
+@RequestMapping(value = "/announcement")
 public class AnnouncementController extends ControllerBase<Announcement>
 {
     @Autowired
     private AnnouncementService announcementService;
-
-
-//    public AnnouncementController(AnnouncementService announcementService) {
-//        this.announcementService = announcementService;
-//        this.service = announcementService;
-//    }
     
     @Override
     @PostMapping( "/announcements" )
