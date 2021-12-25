@@ -1,6 +1,7 @@
 package com.covoid21.panman.database.repository;
 
 import com.covoid21.panman.entity.user.User;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
@@ -16,5 +17,11 @@ public interface UserRepositoryBase<T extends User> extends CrudRepository<T, Lo
     Optional<T> findByHesCode(String hesCode);
     List<T> findByCloseContactsContaining(User contact);
     List<T> findByTemporaryCloseContactsContaining(User contact);
+
+    @Query("SELECT u FROM User u WHERE user_type = ?1 AND university_id = ?2")
+    Optional<T> findByUserTypeAndUniversityID(String userType, int id);
+
+    @Query("SELECT u FROM User u WHERE user_type = ?1")
+    List<T> findByUserType(String userType);
     // TODO maybe add more queries later, if needed
 }
