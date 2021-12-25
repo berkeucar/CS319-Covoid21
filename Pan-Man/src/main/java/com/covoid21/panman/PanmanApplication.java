@@ -2,13 +2,11 @@ package com.covoid21.panman;
 
 import com.covoid21.panman.database.service.*;
 import com.covoid21.panman.entity.*;
-
 import com.covoid21.panman.entity.appointment.FacilityAppointment;
 import com.covoid21.panman.entity.appointment.HealthAppointment;
 import com.covoid21.panman.entity.appointment.TestAppointment;
 import com.covoid21.panman.entity.user.HealthcarePersonnel;
 import com.covoid21.panman.entity.user.Student;
-import com.covoid21.panman.entity.user.User;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -21,8 +19,8 @@ import java.time.LocalTime;
 import java.util.Date;
 
 @SpringBootApplication
-@EnableJpaRepositories( "com.covoid21.panman.database.repository" )
-@EntityScan( {"com.covoid21.panman.entity", "com.covoid21.panman.entity.*" } )
+@EnableJpaRepositories( {"com.covoid21.panman.database.repository", "com.covoid21.panman.registration"} )
+@EntityScan( {"com.covoid21.panman.entity", "com.covoid21.panman.registration" } )
 public class PanmanApplication
 {
     public static void main(String[] args)
@@ -32,6 +30,7 @@ public class PanmanApplication
     
     @Bean
     CommandLineRunner commandLineRunner(
+            //RegistrationService rs,
             HealthcarePersonnelService hps,
             StudentService ss,
             HealthAppointmentService has,

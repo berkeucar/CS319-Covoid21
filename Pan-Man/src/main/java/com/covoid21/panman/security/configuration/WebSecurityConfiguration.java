@@ -1,9 +1,7 @@
 package com.covoid21.panman.security.configuration;
 
-import com.covoid21.panman.database.service.UserService;
-import com.covoid21.panman.security.PasswordEncoder;
+import com.covoid21.panman.database.service.AuthUserService;
 import lombok.AllArgsConstructor;
-import org.springframework.beans.factory.annotation.Configurable;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
@@ -17,7 +15,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 @AllArgsConstructor
 @EnableWebSecurity
 public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
-    private final UserService userService;
+    private final AuthUserService userService;
     private final BCryptPasswordEncoder passwordEncoder;
     @Override
     protected void configure(HttpSecurity http) throws Exception {

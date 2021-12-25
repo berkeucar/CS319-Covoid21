@@ -11,9 +11,7 @@ import lombok.Setter;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.persistence.*;
-import java.util.ArrayList;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -120,7 +118,10 @@ public class User
 
     }
 
-    public User(String userName, String email, String password, String hesCode) {
+    public User(int universityID, String email, String password) {
+        this.universityID = universityID;
+        this.email = email;
+        this.password = password;
     }
 
     @Override
