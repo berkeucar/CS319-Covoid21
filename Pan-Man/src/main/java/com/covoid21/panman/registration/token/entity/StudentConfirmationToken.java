@@ -1,6 +1,7 @@
-package com.covoid21.panman.registration.token;
+package com.covoid21.panman.registration.token.entity;
 
 import com.covoid21.panman.entity.user.Student;
+import com.covoid21.panman.registration.token.entity.ConfirmationTokenBase;
 
 import javax.persistence.DiscriminatorValue;
 

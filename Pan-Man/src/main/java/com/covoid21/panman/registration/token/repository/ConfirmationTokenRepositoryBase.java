@@ -1,5 +1,6 @@
-package com.covoid21.panman.registration.token;
+package com.covoid21.panman.registration.token.repository;
 
+import com.covoid21.panman.registration.token.entity.ConfirmationTokenBase;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;

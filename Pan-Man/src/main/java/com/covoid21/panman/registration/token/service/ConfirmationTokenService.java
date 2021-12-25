@@ -1,17 +1,18 @@
-package com.covoid21.panman.registration.token;
+package com.covoid21.panman.registration.token.service;
 
 import com.covoid21.panman.database.service.AdministrationPersonnelService;
 import com.covoid21.panman.database.service.HealthcarePersonnelService;
 import com.covoid21.panman.database.service.InstructorService;
 import com.covoid21.panman.database.service.StudentService;
 import com.covoid21.panman.entity.user.*;
+import com.covoid21.panman.registration.token.entity.StudentConfirmationToken;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
 import java.util.Optional;
-
+/*
 @Service
 @AllArgsConstructor
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
@@ -28,7 +29,7 @@ public class ConfirmationTokenServiceBase<T extends User> {
     /**
      *
      * @param confirmationToken
-     */
+
     public void saveConfirmationToken(ConfirmationToken confirmationToken) {
 
         if (confirmationToken.getUser() instanceof Student) {
@@ -68,8 +69,8 @@ public class ConfirmationTokenServiceBase<T extends User> {
      *
      * @param token
      * @return
-     */
-    public Optional<ConfirmationToken> getToken(String token) {
+
+    public Optional<StudentConfirmationToken> getToken(String token) {
         return confirmationTokenRepository.findByToken(token);
     }
 
@@ -77,8 +78,9 @@ public class ConfirmationTokenServiceBase<T extends User> {
      *
      * @param token
      * @return
-     */
+
     public int setConfirmedAt(String token) {
         return confirmationTokenRepository.updateConfirmedAt(token, LocalDateTime.now());
     }
 }
+*/
