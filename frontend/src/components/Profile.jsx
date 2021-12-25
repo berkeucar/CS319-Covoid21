@@ -48,11 +48,6 @@ function Profile() {
                             <h5>•Eckstein</h5>
                             <h5>•Einstein</h5>
                         </div>
-                        <div className="status">
-                            <h3>Status</h3>
-                            <h5>•Elon Musk</h5>
-                            <h5>•Nicola Tesla</h5>
-                        </div>
                         <div className="results">
                             <h3>Past Test Results</h3>
                             <h5>•31/02/2023 - (Negative)</h5>

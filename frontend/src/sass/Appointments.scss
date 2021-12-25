@@ -1,0 +1,25 @@
+.appointments{
+  .container{
+    .appointment-type{
+
+    }
+    .appointment-date{
+      margin: 20px 0;
+      .appointment-date-title{
+
+      }
+      .dropdown-date{
+        display: flex;
+      }
+    }
+    .appointment-time{
+      margin: 20px 0;
+      .appointment-time-title{
+
+      }
+      .dropdown-time{
+        display: flex;
+      }
+    }
+  }
+}

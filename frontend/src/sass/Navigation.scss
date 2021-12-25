@@ -7,12 +7,13 @@
   flex-direction: column;
   .navbar{
     .navbar-div{
-      @include screen(800){
-        flex: 1 0 30%;
-      }
+
       .navbar-nav{
         display: flex;
         flex-direction: row;
+        @include screen(800){
+          flex: 1 0 10%;
+        }
 
         .nav-item{
           margin: 0 15px;
@@ -29,6 +30,7 @@
         .nav-item:hover{
           background-color: $panmanlavandercomplementary;
         }
+
       }
     }
 
