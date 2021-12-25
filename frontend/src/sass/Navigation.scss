@@ -16,12 +16,18 @@
 
         .nav-item{
           margin: 0 15px;
+          border: solid;
+          border-width: thin;
+          border-radius: 12px;
           .nav-link{
             color: $panmanblack;
             font-weight: bold;
             border-radius: 4px;
-            padding: 5px 5px;
+            padding: 10px 10px;
           }
+        }
+        .nav-item:hover{
+          background-color: $panmanlavandercomplementary;
         }
       }
     }

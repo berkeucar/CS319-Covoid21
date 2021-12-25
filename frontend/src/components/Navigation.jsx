@@ -12,7 +12,7 @@ function Navigation() {
                     <NavLink className="navbar-brand" to="/">
                         <img src={navlogo} className="navbar-logo" alt="logo" />
                     </NavLink>
-                    <div className= "navbar-div">
+                    <nav className= "navbar-div">
                         <ul className="navbar-nav">
                             <li className="nav-item">
                                 <NavLink className="nav-link" to="/">
@@ -51,7 +51,7 @@ function Navigation() {
                                 </NavLink>
                             </li>
                         </ul>
-                    </div>
+                    </nav>
                 </div>
             </nav>
         </div>
