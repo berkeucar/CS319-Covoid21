@@ -24,8 +24,9 @@ import java.util.Set;
 @Getter
 @Setter
 @EqualsAndHashCode(of = "id")
-public abstract class User
+public class User
 {
+    private boolean isEnabled;
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     protected Long id = 0L;
@@ -73,7 +74,7 @@ public abstract class User
     private Set<TestEntry> testEntries;
 
     @Autowired
-    public User(Long id, int universityID, String name, String password, String email, String hesCode, InfectionStatus infectionStatus, boolean isFullyVaccinated, Set<User> closeContacts, Set<Appointment> appointments, Set<Notification> notifications, Set<User> temporaryCloseContacts, Set<VaccinationEntry> vaccinationsEntries, Set<TestEntry> testEntries) {
+    public User(Long id, int universityID, String name, String password, String email, String hesCode, InfectionStatus infectionStatus, boolean isFullyVaccinated, Set<User> closeContacts, Set<Appointment> appointments, Set<Notification> notifications, Set<User> temporaryCloseContacts, Set<VaccinationEntry> vaccinationsEntries, Set<TestEntry> testEntries, boolean isEnabled) {
         this.id = id;
         this.universityID = universityID;
         this.name = name;
@@ -88,6 +89,7 @@ public abstract class User
         this.temporaryCloseContacts = temporaryCloseContacts;
         this.vaccinationsEntries = vaccinationsEntries;
         this.testEntries = testEntries;
+        this.isEnabled = isEnabled;
     }
 
     public User(
@@ -116,6 +118,9 @@ public abstract class User
 
     public User() {
 
+    }
+
+    public User(String userName, String email, String password, String hesCode) {
     }
 
     @Override
