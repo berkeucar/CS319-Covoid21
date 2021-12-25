@@ -1,6 +1,9 @@
 import React from "react";
 import '../sass/Profile.scss';
 import panmanhead from "../images/panman-head.png";
+
+
+
 function Profile() {
     return (
         <div className="profile">

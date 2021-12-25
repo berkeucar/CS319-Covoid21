@@ -1,7 +1,5 @@
 import React from "react";
 import '../sass/Stats.scss';
-import Dropdown from 'react-dropdown';
-import {DropdownButton} from "react-bootstrap";
 import 'react-dropdown/style.css';
 /*
 const options = [

@@ -7,7 +7,7 @@ function About() {
         <div className="about">
             <div className="container">
                 <div className="logo">
-                    <img src={panmanlogo}/>
+                    <img src={panmanlogo} alt="logo"/>
                 </div>
                 <div className="info">
                     <h1>TEAM COVOID21</h1>

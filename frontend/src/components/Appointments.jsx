@@ -137,6 +137,10 @@ function Appointments() {
                             </div>
                         </div>
                     </div>
+
+                    <div>
+                        <button className="appointment-button">Get Appointment</button>
+                    </div>
                 </div>
 
 

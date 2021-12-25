@@ -10,7 +10,7 @@ function Navigation() {
             <nav className="navbar">
                 <div className="container">
                     <NavLink className="navbar-brand" to="/">
-                        <img src={navlogo} className="navbar-logo" alt="logo" />
+                        <img src={navlogo} className="navbar-logo" alt="logo"/>
                     </NavLink>
                     <div className= "navbar-div">
                         <ul className="navbar-nav">
@@ -25,11 +25,16 @@ function Navigation() {
                                     About
                                 </NavLink>
                             </li>
-                            <li className="nav-item">
+                            {
+                                /*
+                                <li className="nav-item">
                                 <NavLink className="nav-link" to="/contact">
                                     Contact
                                 </NavLink>
                             </li>
+                                 */
+                            }
+
                             <li className="nav-item">
                                 <NavLink className="nav-link" to="/stats">
                                     Stats
