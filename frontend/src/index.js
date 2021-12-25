@@ -44,10 +44,6 @@ ReactDOM.render(
             <Route path="/about" element={<About />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/appointments" element={<Appointments />} />
-            {/*<Route path="/blog" element={<Blog />}>
-                <Route path="" element={<Posts />} />
-                <Route path=":postSlug" element={<Post />} />
-            </Route>*/}
             <Route path="/courses" element={<Courses />} />
             <Route path="/navigation" element={<Navigation />} />
             <Route path="/profile" element={<Profile />} />
