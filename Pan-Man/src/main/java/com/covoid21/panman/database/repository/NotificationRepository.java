@@ -21,5 +21,5 @@ public interface NotificationRepository extends CrudRepository<Notification, Lon
     List<Notification> findByReceiver(User receiver);
 
     Optional<Notification> findByReceiverAndDate(User receiver, Date date);
-    boolean existsByReceiverAndDate(User receiver, Date date);
+    boolean existsByReceiverUniversityIDAndDate(int receiverUniversityID, Date date);
 }
