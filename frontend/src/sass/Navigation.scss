@@ -1,5 +1,24 @@
 @import 'colors';
 @import 'mixins';
 
-.navigation { 
+.navigation{
+  background-color: $panmanlavander;
+  display: flex;
+  flex-direction: column;
+  .navbar{
+
+    .navbar-nav{
+      display: flex;
+      flex-direction: row;
+      .nav-item{
+        margin: 0 15px;
+        .nav-link{
+          color: $panmanblack;
+          font-weight: bold;
+        }
+      }
+    }
+
+
+  }
 }
