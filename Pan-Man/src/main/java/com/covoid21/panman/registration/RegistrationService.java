@@ -1,8 +1,11 @@
 package com.covoid21.panman.registration;
 
-import com.covoid21.panman.database.service.AuthUserService;
+import com.covoid21.panman.database.service.*;
 import com.covoid21.panman.email.EmailSender;
-import com.covoid21.panman.entity.user.User;
+import com.covoid21.panman.entity.user.AdministrationPersonnel;
+import com.covoid21.panman.entity.user.HealthcarePersonnel;
+import com.covoid21.panman.entity.user.Instructor;
+import com.covoid21.panman.entity.user.Student;
 import com.covoid21.panman.registration.token.entity.ConfirmationToken;
 import com.covoid21.panman.registration.token.service.ConfirmationTokenService;
 import lombok.AllArgsConstructor;
@@ -19,22 +22,54 @@ public class RegistrationService {
     private final EmailValidator emailValidator;
     private final ConfirmationTokenService confirmationTokenService;
     private final EmailSender emailSender;
+    private final StudentService studentService;
+    private final HealthcarePersonnelService healthcarePersonnelService;
+    private final AdministrationPersonnelService administrationPersonnelService;
+    private final InstructorService instructorService;
 
     public String register(RegistrationRequest request) {
         boolean isValidEmail = emailValidator.test(request.getEmail());
-
+        String token = "";
         if (!isValidEmail) {
             throw new IllegalStateException("E-mail is not valid.");
         }
 
-
-            String token = userService.signUpUser(
-                    new User(
+        if (request.getUserType().equals("student")) {
+            token = userService.signUpUser(
+                    new Student(
                             request.getUniversityID(),
                             request.getEmail(),
                             request.getPassword()
                     )
             );
+        } else if (request.getUserType().equals("instructor")) {
+            token = userService.signUpUser(
+                    new Instructor(
+                            request.getUniversityID(),
+                            request.getEmail(),
+                            request.getPassword()
+                    )
+            );
+        } else if (request.getUserType().equals("administration")) {
+            token = userService.signUpUser(
+                    new AdministrationPersonnel(
+                            request.getUniversityID(),
+                            request.getEmail(),
+                            request.getPassword()
+                    )
+            );
+        } else if (request.getUserType().equals("healthcare")) {
+            token = userService.signUpUser(
+                    new HealthcarePersonnel(
+                            request.getUniversityID(),
+                            request.getEmail(),
+                            request.getPassword()
+                    )
+            );
+        } else {
+            System.out.println("No such user type!");
+        }
+
 
         String link = "http://localhost:8080/api/v1/registration/confirm?token=" + token;
         emailSender.send(request.getEmail(), buildEmail(request.getUniversityID(), link));
@@ -60,7 +95,10 @@ public class RegistrationService {
         }
 
         confirmationTokenService.setConfirmedAt(token);
-        userService.enableUser(confirmationToken.getUser().getEmail());
+        if (confirmationToken.getUserType().equals("student")) {
+            studentService.enableUser(confirmationToken.getUniversityID()..getEmail());
+        }
+
         return "User is confirmed.";
     }
 

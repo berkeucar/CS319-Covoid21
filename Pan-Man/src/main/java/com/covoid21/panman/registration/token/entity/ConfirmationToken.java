@@ -1,6 +1,5 @@
 package com.covoid21.panman.registration.token.entity;
 
-import com.covoid21.panman.entity.user.User;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -37,21 +36,54 @@ public class ConfirmationToken {
     private LocalDateTime expiresAt;
 
     private LocalDateTime confirmedAt;
+    /*
+    @ManyToOne
+    @JoinColumn(name = "instructor_id")
+    private Instructor instructor;
 
     @ManyToOne
-    @JoinColumn(
-            nullable = false,
-            name = "user_id"
-    )
-    private User user;
+    @JoinColumn(name = "student_id")
+    private Student student;
 
-    public ConfirmationToken(String token,
-                                 LocalDateTime createdAt,
-                                 LocalDateTime expiresAt,
-                                 User user) {
+    @ManyToOne
+    @JoinColumn(name = "healthcare_personnel_id")
+    private HealthcarePersonnel healthcarePersonnel;
+
+    @ManyToOne
+    @JoinColumn(name = "administration_personnel_id")
+    private AdministrationPersonnel administrationPersonnel;
+
+     */
+
+    private int universityID;
+
+    private String userType;
+
+    public ConfirmationToken(String token, LocalDateTime createdAt, LocalDateTime expiresAt, int universityID, String userType) {
         this.token = token;
         this.createdAt = createdAt;
         this.expiresAt = expiresAt;
-        this.user = user;
+        this.universityID = universityID;
+        this.userType = userType;
+        /*
+        this.instructor = null;
+        this.student = null;
+        this.healthcarePersonnel = null;
+        this.administrationPersonnel = null;
+
+        if (user.getDiscriminatorValue().equals("student")) {
+            this.student = (Student) user;
+        }
+        else if (user.getDiscriminatorValue().equals("healthcare")) {
+            this.healthcarePersonnel = (HealthcarePersonnel) user;
+        }
+        else if (user.getDiscriminatorValue().equals("instructor")) {
+            this.instructor = (Instructor) user;
+        }
+        else if (user.getDiscriminatorValue().equals("administration")) {
+            this.administrationPersonnel = (AdministrationPersonnel) user;
+        }
+         */
+
     }
 }

@@ -1,16 +1,11 @@
 package com.covoid21.panman.registration.token.service;
 
-import com.covoid21.panman.database.repository.AdministrationPersonnelRepository;
-import com.covoid21.panman.database.repository.HealthcarePersonnelRepository;
-import com.covoid21.panman.database.repository.InstructorRepository;
-import com.covoid21.panman.database.repository.StudentRepository;
 import com.covoid21.panman.database.service.AdministrationPersonnelService;
 import com.covoid21.panman.database.service.HealthcarePersonnelService;
 import com.covoid21.panman.database.service.InstructorService;
 import com.covoid21.panman.database.service.StudentService;
 import com.covoid21.panman.entity.user.*;
 import com.covoid21.panman.registration.token.entity.ConfirmationToken;
-import com.covoid21.panman.registration.token.entity.StudentConfirmationToken;
 import com.covoid21.panman.registration.token.repository.ConfirmationTokenRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -41,29 +36,32 @@ public class ConfirmationTokenService {
             try {
                 student.save((Student) user);
             } catch (EntityExistsException e) {
-                student.update((Student) user);
+                System.out.println("Error in registration request.");
             }
         }
         else if (user instanceof Instructor) {
             try {
                 instructor.save((Instructor) user);
             } catch (EntityExistsException e) {
-                instructor.update((Instructor) user);
+                System.out.println("Error in registration request.");
             }
         }
         else if (user instanceof HealthcarePersonnel) {
             try {
                 healthcare.save((HealthcarePersonnel) user);
             } catch (EntityExistsException e) {
-                healthcare.update((HealthcarePersonnel) user);
+                System.out.println("Error in registration request.");
             }
         }
         else if (user instanceof AdministrationPersonnel) {
             try {
                 administration.save((AdministrationPersonnel) user);
             } catch (EntityExistsException e) {
-                administration.update((AdministrationPersonnel) user);
+                System.out.println("Error in registration request.");
             }
+        }
+        else {
+            System.out.println("Error in registration request.");
         }
 
         confirmationTokenRepository.save(confirmationToken);

@@ -1,13 +1,11 @@
 package com.covoid21.panman.entity.user;
 
 import com.covoid21.panman.entity.InfectionStatus;
-import com.covoid21.panman.entity.appointment.HealthAppointment;
 import lombok.Getter;
 import lombok.Setter;
 
-import javax.persistence.*;
-import java.util.ArrayList;
-import java.util.List;
+import javax.persistence.DiscriminatorValue;
+import javax.persistence.Entity;
 
 @Entity
 //@PrimaryKeyJoinColumn(name = "user_id")
@@ -45,6 +43,10 @@ public class HealthcarePersonnel extends User {
 
     public HealthcarePersonnel() {
         super();
+    }
+
+    public HealthcarePersonnel(int universityID, String email, String password) {
+        super(universityID, email, password);
     }
 
     @Override

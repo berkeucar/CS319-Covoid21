@@ -8,7 +8,6 @@ import lombok.Setter;
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 import javax.persistence.ManyToMany;
-import javax.persistence.Table;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -48,6 +47,10 @@ public class Student extends User
 
     public Student() {
         super();
+    }
+
+    public Student(int universityID, String email, String password) {
+        super(universityID, email, password);
     }
 
     public String toString() {
