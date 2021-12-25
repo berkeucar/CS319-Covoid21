@@ -9,39 +9,37 @@ import java.util.List;
 
 
 @RestController
-@RequestMapping(value = "/announcement")
+@ResponseBody
+@RequestMapping(value = "/announcements")
 public class AnnouncementController extends ControllerBase<Announcement>
 {
     @Autowired
     private AnnouncementService announcementService;
     
     @Override
-    @PostMapping( "/announcements" )
-    public Announcement save(@RequestBody Announcement entity)
-    {
-        return super.save(entity);
+    @PostMapping
+    public Announcement save(@RequestBody Announcement entity) {
+        return announcementService.save(entity);
     }
     
     @Override
-    @DeleteMapping( "/announcements/{id}" )
-    public Announcement delete(@PathVariable Long id)
-    {
-        return super.delete(id);
+    @DeleteMapping( "/{id}" )
+    public Announcement delete(@PathVariable Long id) {
+        return announcementService.delete(id);
     }
     
     @Override
-    @GetMapping( "/announcements/{id}" )
-    public Announcement get(@PathVariable Long id)
-    {
-        return super.get(id);
+    @GetMapping( "/{id}" )
+    public Announcement get(@PathVariable Long id) {
+        return announcementService.findById(id);
     }
     
     @Override
-    @GetMapping( "/announcements" )
-    public List<Announcement> getAll()
-    {
-        return super.getAll();
+    @GetMapping
+    public List<Announcement> getAll() {
+        return announcementService.findAll();
     }
+
     /*
     @PostMapping("/announcements")
     public Announcement add(@RequestBody Announcement announcement) {

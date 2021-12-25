@@ -29,7 +29,7 @@ public abstract class ControllerBase<T>
         return service.findById(id);
     }
     
-    public List<T> getAll()
+    public  List<T> getAll()
     {
         return service.findAll();
     }
