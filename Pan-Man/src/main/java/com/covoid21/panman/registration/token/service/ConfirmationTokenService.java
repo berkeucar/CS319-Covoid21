@@ -31,33 +31,42 @@ public class ConfirmationTokenService {
      * @param confirmationToken
     */
     public void saveConfirmationToken(ConfirmationToken confirmationToken) {
-        User user = confirmationToken.getUser();
-        if (user instanceof Student) {
+        String type = confirmationToken.getUserType();
+        int id = confirmationToken.getUniversityID();
+        if (student.findByUserTypeAndUniversityID(type, id) != null) {
+            Student entity = student.findByUserTypeAndUniversityID(type, id);
             try {
-                student.save((Student) user);
-            } catch (EntityExistsException e) {
+                student.update(entity);
+            } catch (EntityNotFoundException e) {
                 System.out.println("Error in registration request.");
+                student.save(entity);
             }
         }
-        else if (user instanceof Instructor) {
+        else if (instructor.findByUserTypeAndUniversityID(type, id) != null) {
+            Instructor entity = instructor.findByUserTypeAndUniversityID(type, id);
             try {
-                instructor.save((Instructor) user);
-            } catch (EntityExistsException e) {
+                instructor.update(entity);
+            } catch (EntityNotFoundException e) {
                 System.out.println("Error in registration request.");
+                instructor.save(entity);
             }
         }
-        else if (user instanceof HealthcarePersonnel) {
+        else if (healthcare.findByUserTypeAndUniversityID(type, id) != null) {
+            HealthcarePersonnel entity = healthcare.findByUserTypeAndUniversityID(type, id);
             try {
-                healthcare.save((HealthcarePersonnel) user);
-            } catch (EntityExistsException e) {
+                healthcare.update(entity);
+            } catch (EntityNotFoundException e) {
                 System.out.println("Error in registration request.");
+                healthcare.save(entity);
             }
         }
-        else if (user instanceof AdministrationPersonnel) {
+        else if (administration.findByUserTypeAndUniversityID(type, id) != null) {
+            AdministrationPersonnel entity = administration.findByUserTypeAndUniversityID(type, id);
             try {
-                administration.save((AdministrationPersonnel) user);
-            } catch (EntityExistsException e) {
+                administration.update(entity);
+            } catch (EntityNotFoundException e) {
                 System.out.println("Error in registration request.");
+                administration.save(entity);
             }
         }
         else {
