@@ -5,9 +5,15 @@ function Appointments() {
     return (
         <div className="appointments">
             <div className="container">
-                <p>
-                    hello
-                </p>
+                <div className="container AppointmentType">
+
+                </div>
+                <div className="container Appointments">
+                    
+                </div>
+                <div className="container MakeAppointment">
+                    
+                </div>
             </div>
         </div>
     );

@@ -1,0 +1,20 @@
+@import 'colors';
+@import 'mixins';
+
+.navigation {   
+    .navbar navbar-expand navbar-dark bg-dark{
+        display: flex;
+        background: $panmanlavander;
+        .container{
+            .navbar-nav ml-auto{
+                text-align: center;
+                color: #000;
+                
+                .nav-item{
+                    text-align: center;
+                    color: #000;
+                }
+            }
+        }
+    }
+}
