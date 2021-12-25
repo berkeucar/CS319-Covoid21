@@ -134,4 +134,9 @@ public class User
     public boolean equals(User other) {
         return this.universityID == other.universityID;
     }
+
+    @Transient
+    public String getDiscriminatorValue() {
+        return this.getClass().getAnnotation(DiscriminatorValue.class).value();
+    }
 }
