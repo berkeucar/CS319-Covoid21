@@ -18,7 +18,7 @@ public interface UserRepositoryBase<T extends User> extends CrudRepository<T, Lo
     List<T> findByCloseContactsContaining(User contact);
     List<T> findByTemporaryCloseContactsContaining(User contact);
 
-    @Query("SELECT u FROM User u WHERE user_type = ?1 AND university_id = ?2")
+    @Query("SELECT u FROM User u WHERE user_type = ?1 AND universityid = ?2")
     Optional<T> findByUserTypeAndUniversityID(String userType, int id);
 
     @Query("SELECT u FROM User u WHERE user_type = ?1")

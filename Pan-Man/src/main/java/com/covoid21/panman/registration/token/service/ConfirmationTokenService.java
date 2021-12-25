@@ -1,35 +1,30 @@
 package com.covoid21.panman.registration.token.service;
 
-import com.covoid21.panman.database.service.AdministrationPersonnelService;
-import com.covoid21.panman.database.service.HealthcarePersonnelService;
-import com.covoid21.panman.database.service.InstructorService;
-import com.covoid21.panman.database.service.StudentService;
-import com.covoid21.panman.entity.user.*;
+import com.covoid21.panman.entity.user.AdministrationPersonnel;
+import com.covoid21.panman.entity.user.HealthcarePersonnel;
+import com.covoid21.panman.entity.user.Instructor;
+import com.covoid21.panman.entity.user.Student;
+import com.covoid21.panman.registration.token.entity.ConfirmationToken;
 import com.covoid21.panman.registration.token.entity.StudentConfirmationToken;
+import com.covoid21.panman.registration.token.repository.ConfirmationTokenRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import javax.persistence.*;
-import java.time.LocalDateTime;
-import java.util.Optional;
-/*
+
 @Service
 @AllArgsConstructor
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 @DiscriminatorColumn(name="confirmation_token_type",
         discriminatorType = DiscriminatorType.STRING)
-public class ConfirmationTokenServiceBase<T extends User> {
+public class ConfirmationTokenService {
     //@Autowired
     private final ConfirmationTokenRepository confirmationTokenRepository;
-    private final StudentService studentService;
-    private final InstructorService instructorService;
-    private final HealthcarePersonnelService healthcarePersonnelService;
-    private final AdministrationPersonnelService administrationPersonnelService;
 
     /**
      *
      * @param confirmationToken
-
+    */
     public void saveConfirmationToken(ConfirmationToken confirmationToken) {
 
         if (confirmationToken.getUser() instanceof Student) {
@@ -69,7 +64,7 @@ public class ConfirmationTokenServiceBase<T extends User> {
      *
      * @param token
      * @return
-
+    */
     public Optional<StudentConfirmationToken> getToken(String token) {
         return confirmationTokenRepository.findByToken(token);
     }
@@ -78,9 +73,8 @@ public class ConfirmationTokenServiceBase<T extends User> {
      *
      * @param token
      * @return
-
+    */
     public int setConfirmedAt(String token) {
         return confirmationTokenRepository.updateConfirmedAt(token, LocalDateTime.now());
     }
 }
-*/

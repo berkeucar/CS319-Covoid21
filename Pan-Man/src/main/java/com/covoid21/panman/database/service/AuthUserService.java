@@ -2,8 +2,8 @@ package com.covoid21.panman.database.service;
 
 import com.covoid21.panman.database.repository.AuthUserRepository;
 import com.covoid21.panman.entity.user.User;
-import com.covoid21.panman.registration.token.ConfirmationToken;
 import com.covoid21.panman.registration.token.ConfirmationTokenService;
+import com.covoid21.panman.registration.token.entity.ConfirmationToken;
 import lombok.AllArgsConstructor;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;

@@ -1,6 +1,4 @@
-package com.covoid21.panman.entity.appointment;
-
-import com.covoid21.panman.manager.AppointmentBehavior;
+package com.covoid21.panman.manager;
 
 import java.time.LocalTime;
 
