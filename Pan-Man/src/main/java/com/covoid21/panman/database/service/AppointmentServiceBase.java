@@ -38,12 +38,24 @@ public abstract class AppointmentServiceBase<T extends Appointment> extends Serv
     public T update(T entity) {
         Optional<T> tmp = appointmentRepo.findById(entity.getId());
 
-        if (tmp.isPresent()) {
+        if (tmp.isPresent() || appointmentRepo.existsByHostUser(entity.getHostUser())) {
             return appointmentRepo.save(entity);
         }
         else {
             throw new EntityNotFoundException();
         }
+    }
+
+    /**
+     * This method finds an announcement from a given host user's ID and a Date
+     * The query should return a single appointment
+     * because one host cannot be in two different appointments at the same time
+     * @param universityID
+     * @param date
+     * @return Found appointment (or null, if not found)
+     */
+    public T findByHostUserUniversityIDAndDate(int universityID, Date date) {
+        return appointmentRepo.findByHostUserUniversityIDAndDate(universityID, date).get();
     }
 
     public List<T> findByDateBefore(Date date) {

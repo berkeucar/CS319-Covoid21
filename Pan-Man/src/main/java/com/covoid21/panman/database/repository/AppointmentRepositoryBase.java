@@ -7,9 +7,12 @@ import org.springframework.stereotype.Repository;
 
 import java.util.Date;
 import java.util.List;
+import java.util.Optional;
 
 @Repository
 public interface AppointmentRepositoryBase<T extends Appointment> extends CrudRepository<T, Long> {
     List<T> findByDateBefore(Date date);
-    List<T> findByHostUser(User host);
+    List<T> findByHostUser(User hostUser);
+    Optional<T> findByHostUserUniversityIDAndDate(int senderUniversityID, Date date);
+    boolean existsByHostUser(User hostUser);
 }

@@ -3,7 +3,9 @@ package com.covoid21.panman;
 import com.covoid21.panman.database.service.*;
 import com.covoid21.panman.entity.*;
 
+import com.covoid21.panman.entity.appointment.TestAppointment;
 import com.covoid21.panman.entity.user.Student;
+import com.covoid21.panman.entity.user.User;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -30,7 +32,7 @@ public class PanmanApplication
             //HealthcarePersonnelService hps,
             StudentService ss,
             //HealthAppointmentService has,
-            //TestAppointmentService tas,
+            TestAppointmentService tas,
             //FacilityAppointmentService fas,
             PolicyService ps
     )
@@ -84,8 +86,31 @@ public class PanmanApplication
             student = ss.findByUniversityID(21901815);
             System.out.println(student);
             student.setInfectionStatus(InfectionStatus.CONTACTED);
+            student.setEntryDate(new Date(119, 8, 29));
+            ss.update(student);
+            student = ss.findByUniversityID(21902222);
+            student.setEntryDate(new Date(119, 8, 30));
             ss.update(student);
             System.out.println(ss.findByEmail("kutay.demiray@ug.bilkent.edu.tr"));
+
+            TestAppointment appointment = new TestAppointment(
+                    new Date(1021, 12, 27, 13, 0, 0),
+                    ss.findByUniversityID(21901815),
+                    "Diagnovir test appointment",
+                    TestType.DIAGNOVIR
+            );
+
+            try {
+                tas.save(appointment);
+            } catch (EntityExistsException e) {
+                System.out.println("test appointment already exists");
+            }
+
+            appointment = tas.findByHostUserUniversityIDAndDate(
+                    21901815,
+                    new Date(1021, 12, 27, 13, 0 ,0));
+            appointment.setDate(new Date(1021, 12, 28, 9, 0, 0));
+            tas.update(appointment);
         };
     }
 }

@@ -18,7 +18,7 @@ public abstract class Appointment
 {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
+    private Long id = 0L;
 
     private Date date;
 

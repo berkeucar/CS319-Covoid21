@@ -26,7 +26,7 @@ public abstract class ControllerBase<T>
     
     public T get(@PathVariable Long id)
     { // TODO böyle mi emin değilim parametre annotationları
-        return service.find(id);
+        return service.findById(id);
     }
     
     public List<T> getAll()

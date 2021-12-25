@@ -34,7 +34,7 @@ public class DatabaseManager {
     }
 
     public Notification getNotification(Long id) {
-        return notificationService.find(id);
+        return notificationService.findById(id);
     }
 
     public Course getCourse(Long id) {
@@ -50,7 +50,7 @@ public class DatabaseManager {
     }
 
     public Announcement getAnnouncement(Long id) {
-        return announcementService.find(id);
+        return announcementService.findById(id);
     }
 
     public Policy getPolicy(int id) {
