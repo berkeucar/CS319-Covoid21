@@ -13,8 +13,7 @@ public abstract class UserServiceBase<T extends User> extends ServiceBase<T> {
     private UserRepositoryBase<T> userRepo;
 
     @Autowired
-    public UserServiceBase(UserRepositoryBase<T> repo)
-    {
+    public UserServiceBase(UserRepositoryBase<T> repo) {
         super(repo);
         this.userRepo = repo;
     }
@@ -72,4 +71,9 @@ public abstract class UserServiceBase<T extends User> extends ServiceBase<T> {
     public List<T> findByUserType(String userType) {
         return userRepo.findByUserType(userType);
     }
+
+    public void enableUser(String email) {
+        userRepo.enableUser(email);
+    }
+
 }

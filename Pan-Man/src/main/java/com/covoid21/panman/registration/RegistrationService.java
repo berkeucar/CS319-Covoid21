@@ -96,7 +96,35 @@ public class RegistrationService {
 
         confirmationTokenService.setConfirmedAt(token);
         if (confirmationToken.getUserType().equals("student")) {
-            studentService.enableUser(confirmationToken.getUniversityID()..getEmail());
+            studentService.enableUser(
+                    studentService.findByUniversityID(
+                            confirmationToken.getUniversityID()
+                    ).getEmail()
+            );
+        }
+        else if (confirmationToken.getUserType().equals("instructor")) {
+            instructorService.enableUser(
+                    instructorService.findByUniversityID(
+                            confirmationToken.getUniversityID()
+                    ).getEmail()
+            );
+        }
+        else if (confirmationToken.getUserType().equals("healthcare")) {
+            healthcarePersonnelService.enableUser(
+                    healthcarePersonnelService.findByUniversityID(
+                            confirmationToken.getUniversityID()
+                    ).getEmail()
+            );
+        }
+        else if (confirmationToken.getUserType().equals("administration")) {
+            administrationPersonnelService.enableUser(
+                    administrationPersonnelService.findByUniversityID(
+                            confirmationToken.getUniversityID()
+                    ).getEmail()
+            );
+        }
+        else {
+            System.out.println("Error: RegistrationService.confirmToken() invalid user type");
         }
 
         return "User is confirmed.";

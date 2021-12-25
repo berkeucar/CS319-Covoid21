@@ -47,7 +47,8 @@ public class AuthUserService implements UserDetailsService {
                 token,
                 LocalDateTime.now(),
                 LocalDateTime.now().plusMinutes(30),
-                user
+                user.getUniversityID(),
+                user.getDiscriminatorValue()
         );
 
         confirmationTokenService.saveConfirmationToken(
@@ -57,7 +58,7 @@ public class AuthUserService implements UserDetailsService {
     }
 
     public int enableUser(String email) {
-        return userRepository.enableUser(email);
+            return userRepository.enableUser(email);
     }
 
 }
