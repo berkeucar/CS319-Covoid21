@@ -12,7 +12,9 @@ import java.time.LocalDateTime;
 @Setter
 @NoArgsConstructor
 @Entity
-public class ConfirmationToken {
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+@DiscriminatorColumn(name="confirmation_token_type", discriminatorType = DiscriminatorType.STRING)
+public abstract class ConfirmationTokenBase<T extends User> {
 
     @SequenceGenerator(
             name = "confirmation_token_sequence",
@@ -42,12 +44,12 @@ public class ConfirmationToken {
             nullable = false,
             name = "user_id"
     )
-    private User user;
+    private T user;
 
-    public ConfirmationToken(String token,
+    public ConfirmationTokenBase(String token,
                              LocalDateTime createdAt,
                              LocalDateTime expiresAt,
-                             User user) {
+                             T user) {
         this.token = token;
         this.createdAt = createdAt;
         this.expiresAt = expiresAt;

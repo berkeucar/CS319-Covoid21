@@ -2,6 +2,7 @@ package com.covoid21.panman.registration;
 
 import com.covoid21.panman.database.service.AuthUserService;
 import com.covoid21.panman.email.EmailSender;
+import com.covoid21.panman.entity.user.Student;
 import com.covoid21.panman.entity.user.User;
 import com.covoid21.panman.registration.token.ConfirmationToken;
 import com.covoid21.panman.registration.token.ConfirmationTokenService;
@@ -27,13 +28,17 @@ public class RegistrationService {
             throw new IllegalStateException("E-mail is not valid.");
         }
 
-        String token = userService.signUpUser(
-                new User(
-                        request.getUniversityID(),
-                        request.getEmail(),
-                        request.getPassword()
-                        )
-        );
+
+            String token = userService.signUpUser(
+                    new User(
+                            request.getUniversityID(),
+                            request.getEmail(),
+                            request.getPassword()
+                    )
+            );
+
+
+
 
         String link = "http://localhost:8080/api/v1/registration/confirm?token=" + token;
         emailSender.send(request.getEmail(), buildEmail(request.getUniversityID(), link));

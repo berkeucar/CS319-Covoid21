@@ -18,8 +18,6 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import javax.persistence.EntityExistsException;
 import java.time.LocalTime;
 import java.util.Date;
-import java.util.HashSet;
-import java.util.Set;
 
 @SpringBootApplication
 @EnableJpaRepositories( {"com.covoid21.panman.database.repository", "com.covoid21.panman.registration"} )
@@ -50,7 +48,7 @@ public class PanmanApplication
     {
         return args ->
         {
-            /*
+
             // policy
             Policy policy = new Policy(
                     "Bilkent Policies",
@@ -257,7 +255,7 @@ public class PanmanApplication
             notification = ns.findByReceiverAndDate(ss.findByUniversityID(21901815), date);
             notification.setMessage("oda arkadaşın hastalanmış ama yeniden");
             ns.update(notification);
-            */
+
             // course
             /*
             String code = "CS319";
@@ -318,8 +316,8 @@ public class PanmanApplication
                 cs.save(course);
             } catch (EntityExistsException e) {
                 System.out.println("course already exists");
-            }
-            */
+            }*/
+            System.out.println("over");
         };
     }
 }
