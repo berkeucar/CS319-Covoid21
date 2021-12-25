@@ -14,7 +14,7 @@ import java.util.Date;
 @DiscriminatorValue("health")
 @Getter
 @Setter
-public class HealthAppointment extends Appointment
+public class  HealthAppointment extends Appointment
 {
     private String department;
 

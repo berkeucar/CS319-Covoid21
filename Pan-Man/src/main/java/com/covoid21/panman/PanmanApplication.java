@@ -3,7 +3,10 @@ package com.covoid21.panman;
 import com.covoid21.panman.database.service.*;
 import com.covoid21.panman.entity.*;
 
+import com.covoid21.panman.entity.appointment.FacilityAppointment;
+import com.covoid21.panman.entity.appointment.HealthAppointment;
 import com.covoid21.panman.entity.appointment.TestAppointment;
+import com.covoid21.panman.entity.user.HealthcarePersonnel;
 import com.covoid21.panman.entity.user.Student;
 import com.covoid21.panman.entity.user.User;
 import org.springframework.boot.CommandLineRunner;
@@ -29,11 +32,11 @@ public class PanmanApplication
     
     @Bean
     CommandLineRunner commandLineRunner(
-            //HealthcarePersonnelService hps,
+            HealthcarePersonnelService hps,
             StudentService ss,
-            //HealthAppointmentService has,
+            HealthAppointmentService has,
             TestAppointmentService tas,
-            //FacilityAppointmentService fas,
+            FacilityAppointmentService fas,
             PolicyService ps,
             AnnouncementService as
     )
@@ -96,7 +99,7 @@ public class PanmanApplication
             ss.update(student);
             System.out.println(ss.findByEmail("kutay.demiray@ug.bilkent.edu.tr"));
 
-            // appointment
+            // appointments
             TestAppointment appointment = new TestAppointment(
                     new Date(121, 12, 27, 13, 0, 0),
                     ss.findByUniversityID(21901815),
@@ -115,6 +118,41 @@ public class PanmanApplication
                     new Date(121, 12, 27, 13, 0 ,0));
             appointment.setDate(new Date(121, 12, 28, 9, 0, 0));
             tas.update(appointment);
+
+            FacilityAppointment facilityAppointment = new FacilityAppointment(
+                    new Date(121, 12, 27, 13, 0, 0), ss.findByUniversityID(21901815)
+                    , "Gym Appointment", "gym"
+            );
+
+            try {
+                fas.save(facilityAppointment);
+            } catch (EntityExistsException e) {
+                System.out.println("Facility appointment already exists");
+            };
+
+            HealthcarePersonnel healthcarePersonnel = new HealthcarePersonnel(
+                    1234, "orthoDoc", "password", "orthodoc@gmail.com",
+                    "0192341812", InfectionStatus.HEALTHY, true,
+                    "ortho", "HC-103", "head doc"
+            );
+
+            try {
+                hps.save(healthcarePersonnel);
+            } catch (EntityExistsException e) {
+                System.out.println("Healthcare personnel already exists");
+            };
+
+            HealthAppointment healthAppointment = new HealthAppointment(
+                    new Date(121, 12, 27, 13, 0, 0),
+                    ss.findByUniversityID(21901815), "Orthopedics Appointment, Broken Fibia", "Orthopedics", healthcarePersonnel
+            );
+
+            try {
+                has.save(healthAppointment);
+            } catch (EntityExistsException e) {
+                System.out.println("Health appointment already exists");
+            };
+
 
             // announcement
             Announcement announcement = new Announcement(
