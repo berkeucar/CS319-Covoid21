@@ -12,7 +12,7 @@ function Navigation() {
                     <NavLink className="navbar-brand" to="/">
                         <img src={navlogo} className="navbar-logo" alt="logo" />
                     </NavLink>
-                    <div >
+                    <div className= "navbar-div">
                         <ul className="navbar-nav">
                             <li className="nav-item">
                                 <NavLink className="nav-link" to="/">

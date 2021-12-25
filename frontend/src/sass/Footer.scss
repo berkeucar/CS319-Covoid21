@@ -1,0 +1,8 @@
+@import 'colors';
+@import 'mixins';
+
+.footer{
+  .py-5.bg-dark.fixed-bottom{
+    background-color: $panmanlavander;
+  }
+}

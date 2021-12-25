@@ -6,18 +6,26 @@
   display: flex;
   flex-direction: column;
   .navbar{
+    .navbar-div{
+      @include screen(800){
+        flex: 1 0 30%;
+      }
+      .navbar-nav{
+        display: flex;
+        flex-direction: row;
 
-    .navbar-nav{
-      display: flex;
-      flex-direction: row;
-      .nav-item{
-        margin: 0 15px;
-        .nav-link{
-          color: $panmanblack;
-          font-weight: bold;
+        .nav-item{
+          margin: 0 15px;
+          .nav-link{
+            color: $panmanblack;
+            font-weight: bold;
+            border-radius: 4px;
+            padding: 5px 5px;
+          }
         }
       }
     }
+
 
 
   }
