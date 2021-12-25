@@ -29,7 +29,7 @@ public class NotificationService extends ServiceBase<Notification> {
 
     @Override
     public Notification save(Notification entity) {
-        if (notificationRepo.existsByReceiverAndDate(entity.getUser(), entity.getDate())) {
+        if (notificationRepo.existsByReceiverUniversityIDAndDate(entity.getReceiver().getUniversityID(), entity.getDate())) {
             throw new EntityExistsException();
         }
         else {

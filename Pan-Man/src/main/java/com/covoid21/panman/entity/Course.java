@@ -7,6 +7,7 @@ import lombok.Setter;
 
 import javax.persistence.*;
 import java.util.List;
+import java.util.Set;
 
 @Entity
 @Table(name = "courses")
@@ -14,23 +15,25 @@ import java.util.List;
 @Setter
 public class Course {
     @Id
-    @GeneratedValue( strategy = GenerationType.AUTO )
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     
     private String code;
     private int section;
     
     @ManyToMany
-    private List<Student> students;
+    private Set<Student> students;
     
     @ManyToOne
     private Instructor instructor;
     
     @ManyToMany
-    private List<Student> assistants;
+    private Set<Student> assistants;
     
     private int quota;
-    private int seatingPlanID;
+
+    @OneToOne
+    private SeatingPlan seatingPlan;
     
     private double coordinateX;
     private double coordinateY;
@@ -38,17 +41,40 @@ public class Course {
     private boolean isFaceToFace;
     
     protected Course() {}
-    
-    public Course(Long id, String code, int section, Instructor instructor, int quota, int seatingPlanID, double coordinateX, double coordinateY, boolean isFaceToFace)
-    {
-        this.id = id;
+
+    public Course(
+            String code,
+            int section,
+            Set<Student> students,
+            Instructor instructor,
+            Set<Student> assistants,
+            int quota,
+            double coordinateX,
+            double coordinateY,
+            boolean isFaceToFace
+    ) {
         this.code = code;
         this.section = section;
+        this.students = students;
         this.instructor = instructor;
+        this.assistants = assistants;
         this.quota = quota;
-        this.seatingPlanID = seatingPlanID;
+        this.seatingPlan = new SeatingPlan(code, section, students);
         this.coordinateX = coordinateX;
         this.coordinateY = coordinateY;
         this.isFaceToFace = isFaceToFace;
+    }
+
+    public StudentCloseSeats getStudentCloseSeats(Student student) {
+        return seatingPlan.getStudentCloseSeats(student);
+    }
+
+    public void setCloseSeats(Student s1, Student s2) {
+        seatingPlan.setCloseSeats(s1, s2);
+    }
+
+    public void addStudent(Student student) {
+        students.add(student);
+        seatingPlan.getSeating().add(new StudentCloseSeats(code, section, student));
     }
 }

@@ -31,10 +31,6 @@ public class Notification {
 
     private boolean isRead;
 
-    @ManyToOne
-    //@JoinColumn(name = "user_id")
-    private User user;
-
     protected Notification() {}
     
     public Notification(Date date, NotificationType notificationType, User receiver, String message)
