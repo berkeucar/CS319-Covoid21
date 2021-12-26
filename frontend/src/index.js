@@ -31,6 +31,8 @@ import {
     Courses,
     Profile,
     Stats,
+    Login,
+    SignUp,
 
 } from "./components";
 
@@ -41,14 +43,13 @@ ReactDOM.render(
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<About />} />
             <Route path="/contact" element={<Contact />} />
-            {/*<Route path="/blog" element={<Blog />}>
-                <Route path="" element={<Posts />} />
-                <Route path=":postSlug" element={<Post />} />
-            </Route>*/}
+            <Route path="/appointments" element={<Appointments />} />
             <Route path="/courses" element={<Courses />} />
             <Route path="/navigation" element={<Navigation />} />
             <Route path="/profile" element={<Profile />} />
             <Route path="/stats" element={<Stats />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/signup" element={<SignUp />} />
         </Routes>
         <Footer />
     </Router>,

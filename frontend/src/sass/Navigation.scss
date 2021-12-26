@@ -1,0 +1,40 @@
+@import 'colors';
+@import 'mixins';
+
+.navigation{
+  background-color: $panmanlavander;
+  display: flex;
+  flex-direction: column;
+  .navbar{
+    .navbar-div{
+
+      .navbar-nav{
+        display: flex;
+        flex-direction: row;
+        @include screen(800){
+          flex: 1 0 10%;
+        }
+
+        .nav-item{
+          margin: 0 15px;
+          border: solid;
+          border-width: thin;
+          border-radius: 12px;
+          .nav-link{
+            color: $panmanblack;
+            font-weight: bold;
+            border-radius: 4px;
+            padding: 10px 10px;
+          }
+        }
+        .nav-item:hover{
+          background-color: $panmanlavandercomplementary;
+        }
+
+      }
+    }
+
+
+
+  }
+}

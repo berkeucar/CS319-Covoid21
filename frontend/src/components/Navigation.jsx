@@ -1,18 +1,19 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import navlogo from "../images/navlogo.png";
+import '../sass/Navigation.scss';
 
 
 function Navigation() {
     return (
         <div className="navigation">
-            <nav className="navbar navbar-expand navbar-dark bg-dark">
+            <nav className="navbar">
                 <div className="container">
                     <NavLink className="navbar-brand" to="/">
-                        <img src={navlogo} className="navbar-logo" alt="logo" />
+                        <img src={navlogo} className="navbar-logo" alt="logo"/>
                     </NavLink>
-                    <div>
-                        <ul className="navbar-nav ml-auto">
+                    <div className= "navbar-div">
+                        <ul className="navbar-nav">
                             <li className="nav-item">
                                 <NavLink className="nav-link" to="/">
                                     Home
@@ -24,11 +25,16 @@ function Navigation() {
                                     About
                                 </NavLink>
                             </li>
-                            <li className="nav-item">
+                            {
+                                /*
+                                <li className="nav-item">
                                 <NavLink className="nav-link" to="/contact">
                                     Contact
                                 </NavLink>
                             </li>
+                                 */
+                            }
+
                             <li className="nav-item">
                                 <NavLink className="nav-link" to="/stats">
                                     Stats
@@ -58,3 +64,4 @@ function Navigation() {
 }
 
 export default Navigation;
+

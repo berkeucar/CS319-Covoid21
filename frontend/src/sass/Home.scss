@@ -1,0 +1,85 @@
+@import 'colors';
+@import 'mixins';
+
+.Home {
+
+    .home-status {
+        background-color: $panmangreen;
+        margin: 10px 0;
+        border: solid;
+        border-radius: 12px;
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        .home-status-text{
+            margin: 0 20px 0;
+        }
+        .home-status-healthy{
+
+        }
+        .home-status-contacted{
+            display: none;
+        }
+        .home-status-infected{
+            display: none;
+        }
+    }
+    .home-last{
+        padding: 20px 0;
+        .home-last-title{
+            margin: 0 20px 0;
+        }
+        .home-last-container {
+            max-width: 1280px;
+            display: flex;
+            background-color: $panmanblue;
+            border: solid;
+            border-color: $panmanblue;
+            border-radius: 12px;
+            margin: 0 auto;
+            flex-direction: row;
+            @include screen(1280){
+                text-font: 20px;
+            }
+            @include screen(800){
+                flex-direction: column;
+            }
+            .home-last-text {
+                flex: .4;
+                margin-left: 42px;
+                max-width: 380px;
+            }
+
+            .home-last-box{
+                background-color: $panmangreen;
+                border: solid;
+                border-color: $panmanblack;
+                border-radius: 12px;
+                margin: 30px 20px;
+                padding: 5px 10px;
+                flex: 1 0 26%;
+                text-align: center;
+                .home-last-box-title{
+                    font-weight: bold;
+                    font-size: 30px;
+                    @include screen(1280){
+                        font-size: 20px;
+                    }
+                }
+                .home-last-box-status{
+                    font-size: 20px;
+                    @include screen(1280){
+                        font-size: 15px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+
+.Home-link {
+    color: $panmangreen;
+}
+
