@@ -21,10 +21,11 @@ public class StudentCloseSeats {
     private String code;
     private int section;
 
-    @ManyToOne(cascade = CascadeType.DETACH)
+    @ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.DETACH})
     private Student student;
 
-    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
+    @ManyToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name = "course_id")
     private Set<Student> closeStudents;
 
     public StudentCloseSeats() {}
@@ -43,8 +44,9 @@ public class StudentCloseSeats {
     public void addStudent(Student s) {
         closeStudents.add(s);
     }
-
+    /*
     public boolean equals(StudentCloseSeats other) {
         return this.code.equals(other.code) && section == other.section;
     }
+     */
 }
