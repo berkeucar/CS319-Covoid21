@@ -1,5 +1,5 @@
 package com.covoid21.panman.entity;
-
+/*
 import com.covoid21.panman.database.service.SeatingPlanService;
 import com.covoid21.panman.entity.user.Student;
 import lombok.Getter;
@@ -55,3 +55,4 @@ public class SeatingPlan {
         getStudentCloseSeats(s2).getCloseStudents().add(s1);
     }
 }
+*/

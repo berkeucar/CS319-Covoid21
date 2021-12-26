@@ -3,6 +3,8 @@ package com.covoid21.panman.database.service;
 import com.covoid21.panman.database.repository.UserRepositoryBase;
 import com.covoid21.panman.entity.user.User;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.EntityExistsException;
 import javax.persistence.EntityNotFoundException;
@@ -20,7 +22,7 @@ public abstract class UserServiceBase<T extends User> extends ServiceBase<T> {
 
     @Override
     public T save(T entity) {
-        if (userRepo.existsById(entity.getId()) || userRepo.existsByUniversityID(entity.getUniversityID())) {
+        if (userRepo.existsByUniversityID(entity.getUniversityID())) {
             throw new EntityExistsException();
         }
         return userRepo.save(entity);
@@ -28,9 +30,7 @@ public abstract class UserServiceBase<T extends User> extends ServiceBase<T> {
 
     @Override
     public T update(T entity) {
-        Optional<T> tmp = userRepo.findById(entity.getId());
-
-        if (!tmp.isPresent()) {
+        if (!userRepo.existsByUniversityID(entity.getUniversityID())) {
             throw new EntityNotFoundException();
         }
         return userRepo.save(entity);
