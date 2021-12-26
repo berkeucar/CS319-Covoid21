@@ -1,5 +1,6 @@
 package com.covoid21.panman.database.repository;
 
+/*
 import com.covoid21.panman.entity.Seating;
 import com.covoid21.panman.entity.SeatingPlan;
 import org.springframework.data.repository.CrudRepository;
@@ -13,6 +14,7 @@ public interface SeatingRepository extends CrudRepository<SeatingPlan, Long> {
      *
      * @param id
      * @return
-     */
+
     List<Seating> findByID(Long id);
 }
+*/

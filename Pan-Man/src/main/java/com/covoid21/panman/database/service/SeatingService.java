@@ -1,5 +1,5 @@
 package com.covoid21.panman.database.service;
-
+/*
 import com.covoid21.panman.database.repository.SeatingRepository;
 import com.covoid21.panman.entity.Seating;
 import com.covoid21.panman.entity.SeatingPlan;
@@ -21,3 +21,4 @@ public class SeatingService extends ServiceBase<SeatingPlan> {
         return repo.findByID(id);
     }
 }
+*/
