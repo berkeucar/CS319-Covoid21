@@ -5,6 +5,20 @@
 ## General Information
 This software project is an application which helps universities to manage their pandemic related issues and processes.
 
+## Build Guide
+
+Backend:
+1. Fork/clone this project from GitHub into your local machine.
+2. Open the project folder using IntelliJ Ultimate 2021 (which should be free to obtain with an educational e-mail).
+3. Check the project SDK from File -> Project Structure -> SDK and make sure it is Amazon Corretto version 11.0.13. If it is something else, you can download it from
+   Project Structure -> Platform Settings -> SDKs -> Add new ("+" button) -> Download JDK -> Version 11 and Vendor Amazon Corretto (11.0.13), then set the project SDK
+   to that.
+4. If there's no build configuration, select Run -> Edit Configurations -> Add new ("+" button) -> Under "Build and run," select the Amazon Corretto 11.0.13 SDK, select
+   com.covoid21.panman.PanmanApplication for the main class, and select "@argfile (Java 9+)" for the "Shorten command line" option.
+5. The application should now be buildable and runnable. If you would like, you may open com.covoid21.panman.PanmanApplication and experiment with various services' operations
+   inside the "commandLineRunner" method. Some (mostly commented out) example code is available as examples on how to use the services. If you want to use another service,
+   make sure to add it as a parameter of the "commandLineRunner" method.
+
 ## Planned Features
 - Vaccination Status Tracking
 - Test Appointment System
@@ -29,15 +43,13 @@ This software project is an application which helps universities to manage their
 - Student User
 - Instructor User
 - Health Center User: This user type can be applied to the doctors, nurses, urgent aid workers and information center workers (mentioned in planned features).
-- Maintenance User
 
 ## General Features for All Users
-- There will be a part of the system that ask users to enter their roommates or families (basically people whom they are living with) and track their infection status.
-- If they are detected as contacted, they will obtain immediate notifications and their access to campus will be limited until they give a test which is negative after 2 days of contact.
-- If they are not vaccinated fully, they will be asked to give tests with 3 days intervals.
-- They can make an appointment optionally or due to their contact Status.
-- They can make appointments for facilities of gym, pool etc. which provides the application to track the infection flow around the other facilities.
-- Using the card system of rings the infection status of users will be checked and they will be asked to mark their seats on the ring.
+- There will be a part of the system that ask users to enter their roommates, officemates or close classmates to track infection status.
+- If they are detected as contacted, they will receive immediate notifications and will be asked to give a test which is negative after 2 days of contact.
+- If they are not vaccinated fully, they will be asked to give tests with 3 days intervals with notifications.
+- They can make an appointment optionally or due to their contact status.
+- They can make appointments for the health center, test center or facilities of gym, pool etc. which provides the application to track the infection flow around the other facilities.
 
 ## Student Users' Functionalities
 - For each classroom they have been, there will be a screen for selecting the seat they have been sitting.
