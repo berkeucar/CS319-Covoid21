@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.NoSuchElementException;
 
 @Service
 @Transactional
@@ -27,6 +28,11 @@ public class InstructorService extends UserServiceBase<Instructor> {
 
     @Override
     public Instructor findByUserUniversityID(int universityID) {
-        return instructorRepo.findByUserUniversityID(universityID).get();
+        try {
+            return instructorRepo.findByUserUniversityID(universityID).get();
+        }
+        catch (NoSuchElementException e){
+            return null;
+        }
     }
 }
