@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
 import java.util.List;
+import java.util.NoSuchElementException;
 
 @Service
 @Transactional
@@ -33,6 +34,11 @@ public class HealthcarePersonnelService extends UserServiceBase<HealthcarePerson
 
     @Override
     public HealthcarePersonnel findByUserUniversityID(int universityID) {
-        return healthcarePersonnelRepo.findByUserUniversityID(universityID).get();
+        try {
+            return healthcarePersonnelRepo.findByUserUniversityID(universityID).get();
+        }
+        catch (NoSuchElementException e){
+            return null;
+        }
     }
 }

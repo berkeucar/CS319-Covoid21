@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.NoSuchElementException;
 
 /**
  * Manages database operations for AdministrativePersonnel
@@ -51,6 +52,11 @@ public class AdministrationPersonnelService extends UserServiceBase<Administrati
 
     @Override
     public AdministrationPersonnel findByUserUniversityID(int universityID) {
-        return administrationPersonnelRepo.findByUserUniversityID(universityID).get();
+        try {
+            return administrationPersonnelRepo.findByUserUniversityID(universityID).get();
+        }
+        catch (NoSuchElementException e){
+            return null;
+        }
     }
 }

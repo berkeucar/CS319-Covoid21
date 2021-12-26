@@ -30,7 +30,7 @@ public class StudentController extends ControllerBase<Student> {
     }
 
     @Override
-    @GetMapping
+    @GetMapping("/{id}")
     public Student get(@PathVariable Long id) {
         return studentService.findById(id);
     }

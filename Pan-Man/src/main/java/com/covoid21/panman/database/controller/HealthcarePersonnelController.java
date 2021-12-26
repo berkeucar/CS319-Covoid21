@@ -2,6 +2,7 @@ package com.covoid21.panman.database.controller;
 
 import com.covoid21.panman.database.service.HealthcarePersonnelService;
 import com.covoid21.panman.entity.user.HealthcarePersonnel;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -15,6 +16,7 @@ import java.util.List;
 @RequestMapping(value = "/healthcare")
 public class HealthcarePersonnelController extends UserControllerBase<HealthcarePersonnel> {
 
+    @Autowired
     private HealthcarePersonnelService healthcarePersonnelService;
 
     @Override

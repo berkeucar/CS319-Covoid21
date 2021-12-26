@@ -18,7 +18,6 @@ public class CourseController extends ControllerBase<Course> {
     @Autowired
     private CourseService courseService;
 
-
     @Override
     @PostMapping
     public Course save(@RequestBody Course entity) {
