@@ -4,28 +4,34 @@ import com.covoid21.panman.entity.user.User;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
+/**
+ *
+ * @param <T>
+ */
 @RestController
+@ResponseBody
+@RequestMapping("/users")
 public abstract class UserControllerBase<T extends User> extends ControllerBase<T> {
 
-    @PostMapping("/users")
+    @PostMapping
     public T save(@RequestBody T entity) {
         return super.save(entity);
     }
 
     @Override
-    @DeleteMapping("/users/{id}")
+    @DeleteMapping("/{id}")
     public @ResponseBody T delete(@PathVariable Long id) {
         return super.delete(id);
     }
 
     @Override
-    @GetMapping("/users/{id}")
+    @GetMapping("/{id}")
     public @ResponseBody T get(@PathVariable Long id) {
         return super.get(id);
     }
 
     @Override
-    @GetMapping("/users")
+    @GetMapping
     public @ResponseBody List<T> getAll() {
         return super.getAll();
     }

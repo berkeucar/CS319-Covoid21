@@ -8,6 +8,10 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
+/**
+ * 
+ * @param <T>
+ */
 @RestController
 @RequestMapping( "/api" )
 public abstract class ControllerBase<T>

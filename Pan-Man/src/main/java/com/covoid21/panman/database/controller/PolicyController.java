@@ -7,6 +7,10 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+/**
+ * Policy RestController API class, includes save(...),
+ * delete(...), get(...), getAll() methods
+ */
 @RestController
 @ResponseBody
 @RequestMapping("/policies")

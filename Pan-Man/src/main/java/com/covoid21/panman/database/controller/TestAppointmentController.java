@@ -7,6 +7,13 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+/**
+ * TestAppointment RestController API class, includes save(...),
+ * delete(...), get(...), getAll() methods
+ */
+@RestController
+@ResponseBody
+@RequestMapping("/appointments/test")
 public class TestAppointmentController extends ControllerBase<TestAppointment> {
     @Autowired
     private TestAppointmentService testAppointmentService;

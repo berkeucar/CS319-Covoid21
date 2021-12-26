@@ -6,9 +6,13 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+/**
+ * HealthcarePersonnel RestController API class, includes save(...),
+ * delete(...), get(...), getAll() methods
+ */
 @RestController
 @ResponseBody
-@RequestMapping(value = "/users")
+@RequestMapping(value = "/healthcare")
 public class HealthcarePersonnelController extends UserControllerBase<HealthcarePersonnel> {
 
     private HealthcarePersonnelService healthcarePersonnelService;
@@ -35,6 +39,6 @@ public class HealthcarePersonnelController extends UserControllerBase<Healthcare
     @Override
     @GetMapping
     public List<HealthcarePersonnel> getAll() {
-        return super.getAll();
+        return healthcarePersonnelService.findAll();
     }
 }

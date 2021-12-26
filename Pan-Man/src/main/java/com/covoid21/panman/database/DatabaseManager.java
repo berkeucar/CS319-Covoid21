@@ -30,7 +30,7 @@ public class DatabaseManager {
     private HealthAppointmentService healthAppointmentService;
     private TestAppointmentService testAppointmentService;
     private CourseService courseService;
-    private SeatingPlanService seatingPlanService;
+    //private SeatingPlanService seatingPlanService;
     private StudentCloseSeatsService studentCloseSeatsService;
 
 
@@ -155,10 +155,11 @@ public class DatabaseManager {
      * @param code
      * @param section
      * @return
-     */
+
     public SeatingPlan getSeatingPlan(String code, int section) {
         return seatingPlanService.findByCodeAndSection(code, section);
     }
+    */
 
     /**
      * Unique getter for student close seats
@@ -260,6 +261,7 @@ public class DatabaseManager {
         }
     }
 
+    /**
     public void setSeatingPlan(SeatingPlan entity) {
         try {
             seatingPlanService.save(entity);
@@ -267,6 +269,7 @@ public class DatabaseManager {
             System.out.println("Error: SeatingPlan entity not found.");
         }
     }
+     */
 
     public void setStudentCloseSeats(StudentCloseSeats entity) {
         try {

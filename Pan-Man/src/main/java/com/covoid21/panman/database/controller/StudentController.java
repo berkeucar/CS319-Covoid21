@@ -7,14 +7,18 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+/**
+ * Student RestController API class, includes save(...),
+ * delete(...), get(...), getAll() methods
+ */
 @RestController
-@RequestMapping(value = "/users")
+@RequestMapping(value = "/student")
 public class StudentController extends ControllerBase<Student> {
     @Autowired
     private StudentService studentService;
 
     @Override
-    @GetMapping
+    @PostMapping
     public Student save(@RequestBody Student entity) {
         return studentService.save(entity);
     }

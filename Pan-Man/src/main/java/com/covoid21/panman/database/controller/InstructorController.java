@@ -7,14 +7,18 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+/**
+ * Instructor RestController API class, includes save(...),
+ * delete(...), get(...), getAll() methods
+ */
 @RestController
-@RequestMapping(value = "/users")
+@RequestMapping(value = "/instructor")
 public class InstructorController extends UserControllerBase<Instructor> {
     @Autowired
     private InstructorService instructorService;
 
     @Override
-    @GetMapping
+    @PostMapping
     public Instructor save(@RequestBody Instructor entity) {
         return instructorService.save(entity);
     }

@@ -7,9 +7,13 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+/**
+ * FacilityAppointment RestController API class, includes save(...),
+ * delete(...), get(...), getAll() methods
+ */
 @RestController
 @ResponseBody
-@RequestMapping("/appointments")
+@RequestMapping("/appointments/facility")
 public class FacilityAppointmentController extends ControllerBase<FacilityAppointment> {
     @Autowired
     private FacilityAppointmentService facilityAppointmentService;

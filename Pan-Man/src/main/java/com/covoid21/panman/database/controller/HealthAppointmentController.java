@@ -7,9 +7,13 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+/**
+ * HealthAppointment RestController API class, includes save(...),
+ * delete(...), get(...), getAll() methods
+ */
 @RestController
 @ResponseBody
-@RequestMapping("/appointments")
+@RequestMapping("/appointments/healthcare")
 public class HealthAppointmentController extends ControllerBase<HealthAppointment> {
     @Autowired
     private HealthAppointmentService healthAppointmentService;
