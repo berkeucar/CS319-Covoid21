@@ -2,8 +2,10 @@ package com.covoid21.panman.entity.user;
 
 import com.covoid21.panman.entity.Course;
 import com.covoid21.panman.entity.InfectionStatus;
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Getter;
 import lombok.Setter;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
@@ -21,8 +23,11 @@ public class Student extends User
 {
     @ManyToMany
     private List<Course> coursesTaken;
-    
+
+    @DateTimeFormat(pattern = "Yyyy-mm-dd HH:mm:ss")
+    @JsonFormat(pattern = "Yyyy-mm-dd HH:mm:ss")
     private Date entryDate;
+
     private String department;
     private String dormRoom;
 

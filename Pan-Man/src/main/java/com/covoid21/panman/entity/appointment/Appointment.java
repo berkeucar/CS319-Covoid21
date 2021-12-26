@@ -1,9 +1,11 @@
 package com.covoid21.panman.entity.appointment;
 
 import com.covoid21.panman.entity.user.User;
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Getter;
 import lombok.Setter;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -20,6 +22,8 @@ public abstract class Appointment
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id = 0L;
 
+    @DateTimeFormat(pattern = "Yyyy-mm-dd HH:mm:ss")
+    @JsonFormat(pattern = "Yyyy-mm-dd HH:mm:ss")
     private Date date;
 
     @ManyToOne

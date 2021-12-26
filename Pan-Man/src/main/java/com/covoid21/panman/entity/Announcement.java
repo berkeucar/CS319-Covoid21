@@ -1,8 +1,10 @@
 package com.covoid21.panman.entity;
 
 import com.covoid21.panman.entity.user.User;
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Getter;
 import lombok.Setter;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -21,6 +23,8 @@ public class Announcement {
     private String message;
 
     @Column(unique = true)
+    @DateTimeFormat(pattern = "Yyyy-mm-dd HH:mm:ss")
+    @JsonFormat(pattern = "Yyyy-mm-dd HH:mm:ss")
     private Date date;
 
     @ManyToOne
