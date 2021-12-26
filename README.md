@@ -18,6 +18,20 @@ Backend:
 5. The application should now be buildable and runnable. If you would like, you may open com.covoid21.panman.PanmanApplication and experiment with various services' operations
    inside the "commandLineRunner" method. Some (mostly commented out) example code is available as examples on how to use the services. If you want to use another service,
    make sure to add it as a parameter of the "commandLineRunner" method.
+  
+Frontend:
+   
+1. Running the frontend part requires some packages. Initially install node.js and npm and make sure you can use npm command. 
+
+2. npm install bootstrap is required to use some functionalities from the 	bootstrap library.
+
+3. npm install node-sass is required to compile scss files to css files.
+
+4. After following the above installment processes, now the project is ready to launch in IDE. Open the terminal of the IDE and change the directory by simply writing “cd frontend”.
+
+5. Once the current directory is the frontend folder, now one can run the react app by writing	 “npm start”.
+
+ 
 
 ## Planned Features
 - Vaccination Status Tracking
