@@ -2,6 +2,7 @@ package com.covoid21.panman.database.controller;
 
 import com.covoid21.panman.database.service.AdministrationPersonnelService;
 import com.covoid21.panman.entity.user.AdministrationPersonnel;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -14,6 +15,8 @@ import java.util.List;
 @ResponseBody
 @RequestMapping(value = "/administration")
 public class AdministrationPersonnelController extends ControllerBase<AdministrationPersonnel> {
+
+    @Autowired
     private AdministrationPersonnelService administrationPersonnelService;
 
     @Override

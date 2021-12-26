@@ -30,7 +30,7 @@ public class InstructorController extends UserControllerBase<Instructor> {
     }
 
     @Override
-    @GetMapping
+    @GetMapping("/{id}")
     public Instructor get(@PathVariable Long id) {
         return instructorService.findById(id);
     }
