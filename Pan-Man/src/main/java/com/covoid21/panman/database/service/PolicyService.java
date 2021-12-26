@@ -43,19 +43,18 @@ public class PolicyService extends ServiceBase<Policy> {
         }
     }
 
-    public Policy findByTitle(String title) {
-        return policyRepo.findByTitle(title).get();
-    }
+
 
     public boolean existsByTitle(String title) {
         return policyRepo.existsByTitle(title);
     }
     public List<Policy> findByID(Long id) {
-        return repo.findByID(id);
+        return policyRepo.findByID(id);
     }
 
-    public List<Policy> findByTitle(String title) {
-        return repo.findByTitle(title);
+    // It may be problematic
+    public Policy findByTitle(String title) {
+        return (Policy) policyRepo.findByTitle(title);
     }
 
 }

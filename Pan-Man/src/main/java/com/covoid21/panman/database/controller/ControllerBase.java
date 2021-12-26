@@ -14,10 +14,10 @@ import java.util.List;
 public abstract class ControllerBase<T>
 {
     protected ServiceBase<T> controller;
-    
+
     public T save(@RequestBody T entity)
     {
-        return service.save(entity);
+        return controller.save(entity);
     }
     
     public T delete(@PathVariable Long id)
@@ -27,7 +27,7 @@ public abstract class ControllerBase<T>
     
     public T get(@PathVariable Long id)
     { 
-        return service.findById(id);
+        return controller.findById(id);
     }
     
     public  List<T> getAll()

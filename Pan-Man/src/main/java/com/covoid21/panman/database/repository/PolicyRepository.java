@@ -24,7 +24,6 @@ public interface PolicyRepository extends CrudRepository<Policy, Long> {
      * @return
      */
     List<Policy> findByTitle(String title);
-    Optional<Policy> findByTitle(String title);
     boolean existsByTitle(String title);
 
 }

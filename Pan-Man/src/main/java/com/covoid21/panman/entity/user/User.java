@@ -9,11 +9,7 @@ import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import net.bytebuddy.build.Plugin;
-import org.springframework.data.relational.core.mapping.Table;
-import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.authority.SimpleGrantedAuthority;
-import org.springframework.security.core.userdetails.UserDetails;
+
 
 import com.covoid21.panman.entity.InfectionStatus;
 import com.covoid21.panman.entity.Notification;
@@ -153,41 +149,10 @@ public class User
 
     @Transient
     public String getDiscriminatorValue() {
-        return this.getClass().getAnnotation(DiscriminatorValue.class).value();
-         @Override
-    protected Object clone() throws CloneNotSupportedException {
+        return this.getClass().getAnnotation(DiscriminatorValue.class).value();}
+    @Override
+    protected Object clone () throws CloneNotSupportedException {
         return super.clone();
     }
-
-    @Override
-    public String toString() {
-        return super.toString();
-    }
-
-    @Override
-    public Collection<? extends GrantedAuthority> getAuthorities() {
-        return null;
-    }
-
-    @Override
-    public boolean isAccountNonExpired() {
-        return false;
-    }
-
-    @Override
-    public boolean isAccountNonLocked() {
-        return false;
-    }
-
-    @Override
-    public boolean isCredentialsNonExpired() {
-        return true;
-    }
-
-    @Override
-    public boolean isEnabled() {
-        return false;}
-        private boolean fullyVaccinated;
-
     
 }

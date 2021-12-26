@@ -1,7 +1,9 @@
 package com.covoid21.panman.database.controller;
 
+import com.covoid21.panman.database.service.AnnouncementService;
 import com.covoid21.panman.database.service.ServiceBase;
 import com.covoid21.panman.entity.Announcement;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -47,7 +49,7 @@ public class AnnouncementController extends ControllerBase<Announcement>
     /*
     @PostMapping("/announcements")
     public Announcement add(@RequestBody Announcement announcement) {
-        return service.add(announcement);*/
+        return service.add(announcement);}*/
 
-    }
+
 }

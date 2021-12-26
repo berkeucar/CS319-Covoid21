@@ -45,7 +45,7 @@ public abstract class ServiceBase<T>
         return baseRepo.findById(id).orElse(null);
     }
     
-    public T find(Long id)
+    public T findById(Long id)
     {
         return baseRepo.findById(id).orElse(null);
     }

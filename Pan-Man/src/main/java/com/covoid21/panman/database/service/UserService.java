@@ -5,6 +5,8 @@ import com.covoid21.panman.entity.Notification;
 import com.covoid21.panman.entity.user.User;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import javax.persistence.EntityExistsException;
+import javax.persistence.EntityNotFoundException;
 import java.util.List;
 
 public class UserService extends ServiceBase<User>{
@@ -12,8 +14,18 @@ public class UserService extends ServiceBase<User>{
 
     @Autowired
     public UserService(UserRepository repo) {
-        super();
+        super(repo);
         this.repo = repo;
         this.baseRepo = repo;
+    }
+
+    @Override
+    public User save(User entity) throws EntityExistsException {
+        return null;
+    }
+
+    @Override
+    public User update(User entity) throws EntityNotFoundException {
+        return null;
     }
 }

@@ -6,17 +6,14 @@ import com.covoid21.panman.entity.Course;
 import com.covoid21.panman.entity.StudentCloseSeats;
 import com.covoid21.panman.entity.user.Student;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.UnexpectedRollbackException;
-import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
-import javax.persistence.Entity;
 import javax.persistence.EntityExistsException;
 import javax.persistence.EntityNotFoundException;
 import com.covoid21.panman.entity.user.Instructor;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 @Transactional
@@ -125,19 +122,19 @@ public class CourseService extends ServiceBase<Course> {
         }
     }
     public Course findByID(Long id) {
-        return repo.findByID(id);
+        return courseRepo.findByID(id);
     }
 
     public List<Course> findByCode(String code) {
-        return repo.findByCode(code);
+        return courseRepo.findByCode(code);
     }
 
-    public Course findByCodeAndSection(String code, int section) {
-        return repo.findByCodeAndSection(code, section);
+    public Optional<Course> findByCodeAndSection(String code, int section) {
+        return courseRepo.findByCodeAndSection(code, section);
     }
 
     public List<Course> findByInstructor(Instructor instructor) {
-        return repo.findByInstructor(instructor);
+        return courseRepo.findByInstructor(instructor);
     }
     /*
     public Course addNeighbors(Course course, int s1, int s2) {

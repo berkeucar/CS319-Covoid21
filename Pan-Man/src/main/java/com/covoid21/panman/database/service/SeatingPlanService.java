@@ -1,5 +1,5 @@
 package com.covoid21.panman.database.service;
-/*
+
 import com.covoid21.panman.database.repository.SeatingPlanRepository;
 import com.covoid21.panman.entity.SeatingPlan;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -41,4 +41,3 @@ public class SeatingPlanService extends ServiceBase<SeatingPlan> {
         return seatingPlanRepo.findByCodeAndSection(code, section).get();
     }
 }
-*/
