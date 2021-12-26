@@ -13,7 +13,7 @@ import java.util.List;
  */
 @RestController
 @ResponseBody
-@RequestMapping("/appointments/healthcare")
+@RequestMapping("/api/appointments/healthcare")
 public class HealthAppointmentController extends ControllerBase<HealthAppointment> {
     @Autowired
     private HealthAppointmentService healthAppointmentService;

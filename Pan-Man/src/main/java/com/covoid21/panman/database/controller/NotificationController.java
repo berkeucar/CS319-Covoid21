@@ -13,7 +13,7 @@ import java.util.List;
  */
 @RestController
 @ResponseBody
-@RequestMapping("/notifications")
+@RequestMapping("/api/notifications")
 public class NotificationController extends ControllerBase<Notification> {
     @Autowired
     private NotificationService notificationService;

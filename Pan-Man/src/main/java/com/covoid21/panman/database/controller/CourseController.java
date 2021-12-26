@@ -13,7 +13,7 @@ import java.util.List;
  */
 @RestController
 @ResponseBody
-@RequestMapping("/courses")
+@RequestMapping("/api/courses")
 public class CourseController extends ControllerBase<Course> {
     @Autowired
     private CourseService courseService;

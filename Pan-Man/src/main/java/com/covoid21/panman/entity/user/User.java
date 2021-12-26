@@ -24,6 +24,7 @@ import java.util.Set;
 @EqualsAndHashCode(of = "id")
 public class User
 {
+
     private boolean isEnabled;
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

@@ -13,7 +13,7 @@ import java.util.List;
  * @param <T>
  */
 @RestController
-@RequestMapping( "/api" )
+@RequestMapping
 public abstract class ControllerBase<T>
 {
     protected ServiceBase<T> service;

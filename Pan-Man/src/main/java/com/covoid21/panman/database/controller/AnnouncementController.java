@@ -13,7 +13,7 @@ import java.util.List;
  */
 @RestController
 @ResponseBody
-@RequestMapping(value = "/announcements")
+@RequestMapping(value = "/api/announcements")
 public class AnnouncementController extends ControllerBase<Announcement>
 {
     @Autowired

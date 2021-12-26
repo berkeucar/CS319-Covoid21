@@ -10,7 +10,7 @@ import java.util.List;
  */
 @RestController
 @ResponseBody
-@RequestMapping("/users")
+@RequestMapping
 public abstract class UserControllerBase<T extends User> extends ControllerBase<T> {
 
     @PostMapping

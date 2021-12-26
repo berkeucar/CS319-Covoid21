@@ -13,7 +13,7 @@ import java.util.List;
  */
 @RestController
 @ResponseBody
-@RequestMapping("/appointments/facility")
+@RequestMapping("/api/appointments/facility")
 public class FacilityAppointmentController extends ControllerBase<FacilityAppointment> {
     @Autowired
     private FacilityAppointmentService facilityAppointmentService;

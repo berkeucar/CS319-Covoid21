@@ -12,7 +12,7 @@ import java.util.List;
  * delete(...), get(...), getAll() methods
  */
 @RestController
-@RequestMapping(value = "/student")
+@RequestMapping(value = "/api/users/student")
 public class StudentController extends ControllerBase<Student> {
     @Autowired
     private StudentService studentService;

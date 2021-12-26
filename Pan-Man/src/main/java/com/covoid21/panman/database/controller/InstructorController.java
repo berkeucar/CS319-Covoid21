@@ -12,7 +12,7 @@ import java.util.List;
  * delete(...), get(...), getAll() methods
  */
 @RestController
-@RequestMapping(value = "/instructor")
+@RequestMapping(value = "/api/users/instructor")
 public class InstructorController extends UserControllerBase<Instructor> {
     @Autowired
     private InstructorService instructorService;

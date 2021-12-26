@@ -13,7 +13,7 @@ import java.util.List;
  */
 @RestController
 @ResponseBody
-@RequestMapping("/policies")
+@RequestMapping("/api/policies")
 public class PolicyController extends ControllerBase<Policy> {
     @Autowired
     private PolicyService policyService;

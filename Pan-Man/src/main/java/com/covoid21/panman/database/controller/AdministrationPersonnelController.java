@@ -13,7 +13,7 @@ import java.util.List;
  */
 @RestController
 @ResponseBody
-@RequestMapping(value = "/administration")
+@RequestMapping(value = "/api/users/administration")
 public class AdministrationPersonnelController extends ControllerBase<AdministrationPersonnel> {
 
     @Autowired
