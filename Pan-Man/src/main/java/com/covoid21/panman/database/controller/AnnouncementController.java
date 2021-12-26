@@ -1,8 +1,7 @@
 package com.covoid21.panman.database.controller;
 
-import com.covoid21.panman.database.service.AnnouncementService;
+import com.covoid21.panman.database.service.ServiceBase;
 import com.covoid21.panman.entity.Announcement;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -16,8 +15,10 @@ import java.util.List;
 @RequestMapping(value = "/announcements")
 public class AnnouncementController extends ControllerBase<Announcement>
 {
+
     @Autowired
     private AnnouncementService announcementService;
+
     
     @Override
     @PostMapping
@@ -46,19 +47,7 @@ public class AnnouncementController extends ControllerBase<Announcement>
     /*
     @PostMapping("/announcements")
     public Announcement add(@RequestBody Announcement announcement) {
-        return service.add(announcement);
-    }
+        return service.add(announcement);*/
 
-    @DeleteMapping("/announcements/{id}")
-    public Announcement delete(@PathVariable Long id) {
-        return service.deleteById(id);
     }
-
-    @GetMapping
-    public List<Announcement> getAllAnnouncements() {
-        System.out.println("AnnouncementController.getAllAnnouncements()");
-        return service.getAllAnnouncements();
-    }
-    */
-    
 }

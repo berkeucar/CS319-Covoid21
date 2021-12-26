@@ -54,5 +54,7 @@ public class SeatingPlan {
         getStudentCloseSeats(s1).getCloseStudents().add(s2);
         getStudentCloseSeats(s2).getCloseStudents().add(s1);
     }
+
+
 }
 */

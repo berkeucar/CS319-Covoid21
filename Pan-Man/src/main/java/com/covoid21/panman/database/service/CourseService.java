@@ -2,6 +2,7 @@ package com.covoid21.panman.database.service;
 
 import com.covoid21.panman.database.repository.CourseRepository;
 import com.covoid21.panman.entity.Course;
+
 import com.covoid21.panman.entity.StudentCloseSeats;
 import com.covoid21.panman.entity.user.Student;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,6 +15,8 @@ import org.springframework.transaction.annotation.Transactional;
 import javax.persistence.Entity;
 import javax.persistence.EntityExistsException;
 import javax.persistence.EntityNotFoundException;
+import com.covoid21.panman.entity.user.Instructor;
+import java.util.List;
 
 @Service
 @Transactional
@@ -120,6 +123,21 @@ public class CourseService extends ServiceBase<Course> {
         } catch (EntityNotFoundException e) {
             throw new EntityNotFoundException();
         }
+    }
+    public Course findByID(Long id) {
+        return repo.findByID(id);
+    }
+
+    public List<Course> findByCode(String code) {
+        return repo.findByCode(code);
+    }
+
+    public Course findByCodeAndSection(String code, int section) {
+        return repo.findByCodeAndSection(code, section);
+    }
+
+    public List<Course> findByInstructor(Instructor instructor) {
+        return repo.findByInstructor(instructor);
     }
     /*
     public Course addNeighbors(Course course, int s1, int s2) {

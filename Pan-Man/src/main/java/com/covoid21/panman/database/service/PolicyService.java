@@ -4,8 +4,10 @@ import com.covoid21.panman.database.repository.PolicyRepository;
 import com.covoid21.panman.entity.Policy;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
 import javax.persistence.EntityExistsException;
 import javax.persistence.EntityNotFoundException;
 import java.util.Optional;
@@ -47,6 +49,13 @@ public class PolicyService extends ServiceBase<Policy> {
 
     public boolean existsByTitle(String title) {
         return policyRepo.existsByTitle(title);
+    }
+    public List<Policy> findByID(Long id) {
+        return repo.findByID(id);
+    }
+
+    public List<Policy> findByTitle(String title) {
+        return repo.findByTitle(title);
     }
 
 }

@@ -6,8 +6,25 @@ import org.springframework.stereotype.Repository;
 
 import java.util.Optional;
 
+
+import java.util.List;
+
 @Repository
 public interface PolicyRepository extends CrudRepository<Policy, Long> {
+    /**
+     *
+     * @param id
+     * @return
+     */
+    List<Policy> findByID(Long id);
+
+    /**
+     *
+     * @param title
+     * @return
+     */
+    List<Policy> findByTitle(String title);
     Optional<Policy> findByTitle(String title);
     boolean existsByTitle(String title);
+
 }

@@ -2,11 +2,13 @@ package com.covoid21.panman.entity;
 
 import lombok.Getter;
 import lombok.Setter;
+
 import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.persistence.*;
 import java.time.LocalTime;
 import java.util.Set;
+import java.util.List;
 
 @Entity
 @Table(name = "policies")

@@ -13,11 +13,13 @@ import java.util.Date;
 @Setter
 public class Notification {
     @Id
+
     @GeneratedValue(strategy = GenerationType.AUTO)
     //@Column(name = "id", nullable = false, updatable = false, unique = true)
     private Long id;
 
     @Column(updatable = false)
+
     private Date date;
 
     @Enumerated
