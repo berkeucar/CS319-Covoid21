@@ -56,4 +56,6 @@ public class NotificationService extends ServiceBase<Notification> {
     public List<Notification> findByReceiver(User receiver) {
         return notificationRepo.findByReceiver(receiver);
     }
+
+
 }

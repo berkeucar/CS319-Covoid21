@@ -1,7 +1,9 @@
 package com.covoid21.panman.database.controller;
 
+import com.covoid21.panman.database.service.NotificationService;
 import com.covoid21.panman.database.service.ServiceBase;
 import com.covoid21.panman.entity.Notification;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -28,13 +30,12 @@ public class NotificationController extends ControllerBase<Notification> {
     @DeleteMapping( "/{id}" )
     public Notification delete(@PathVariable Long id) {
         return notificationService.delete(id);
-
+    }
     
     @Override
     @GetMapping( "/{id}" )
     public Notification get(@PathVariable Long id) {
-        return notificationService.findById(id);
-=
+        return notificationService.get(id);
     }
     
     @Override
