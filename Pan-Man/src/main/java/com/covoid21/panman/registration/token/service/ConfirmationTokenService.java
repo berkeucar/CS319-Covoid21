@@ -75,6 +75,7 @@ public class ConfirmationTokenService {
             System.out.println("Error in registration request.");
         }
 
+
         confirmationTokenRepository.save(confirmationToken);
     }
 

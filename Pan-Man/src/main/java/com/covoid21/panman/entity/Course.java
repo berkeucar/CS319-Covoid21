@@ -6,6 +6,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
@@ -21,20 +22,24 @@ public class Course {
     private String code;
     private int section;
     
-    @ManyToMany
+    @ManyToMany(cascade = CascadeType.ALL)
     private Set<Student> students;
     
     @ManyToOne
     private Instructor instructor;
     
-    @ManyToMany
+    @ManyToMany(cascade = CascadeType.ALL)
     private Set<Student> assistants;
     
     private int quota;
 
-    @OneToOne
-    private SeatingPlan seatingPlan;
-    
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
+    @JoinColumn
+    private Set<StudentCloseSeats> seatingPlan;
+
+    @OneToMany
+    private Set<Student> studentsNearInstructor;
+
     private double coordinateX;
     private double coordinateY;
     
@@ -59,12 +64,23 @@ public class Course {
         this.instructor = instructor;
         this.assistants = assistants;
         this.quota = quota;
-        this.seatingPlan = new SeatingPlan(code, section, students);
+        //this.seatingPlan = new SeatingPlan(code, section, students);
+        this.seatingPlan = new HashSet<StudentCloseSeats>();
         this.coordinateX = coordinateX;
         this.coordinateY = coordinateY;
         this.isFaceToFace = isFaceToFace;
     }
 
+    public StudentCloseSeats getStudentCloseSeats(Student s) {
+        for (StudentCloseSeats seats : seatingPlan) {
+            if (seats.getStudent().getUniversityID() == s.getUniversityID()) {
+                return seats;
+            }
+        }
+        return null;
+    }
+
+    /*
     public StudentCloseSeats getStudentCloseSeats(Student student) {
         return seatingPlan.getStudentCloseSeats(student);
     }
@@ -77,4 +93,5 @@ public class Course {
         students.add(student);
         seatingPlan.getSeating().add(new StudentCloseSeats(code, section, student));
     }
+     */
 }

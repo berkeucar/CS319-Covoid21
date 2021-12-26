@@ -1,34 +1,44 @@
 package com.covoid21.panman.database.controller;
 
+import com.covoid21.panman.database.service.HealthcarePersonnelService;
 import com.covoid21.panman.entity.user.HealthcarePersonnel;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+/**
+ * HealthcarePersonnel RestController API class, includes save(...),
+ * delete(...), get(...), getAll() methods
+ */
 @RestController
-@RequestMapping(value = "/users", params = "user_type=healthcare")
+@ResponseBody
+@RequestMapping(value = "/healthcare")
 public class HealthcarePersonnelController extends UserControllerBase<HealthcarePersonnel> {
 
+    private HealthcarePersonnelService healthcarePersonnelService;
+
     @Override
-    public HealthcarePersonnel save(HealthcarePersonnel entity) {
-        return super.save(entity);
+    @PostMapping
+    public HealthcarePersonnel save(@RequestBody HealthcarePersonnel entity) {
+        return healthcarePersonnelService.save(entity);
     }
 
     @Override
+    @DeleteMapping("/{id}")
     public HealthcarePersonnel delete(@PathVariable Long id) {
-        return super.delete(id);
+
+        return healthcarePersonnelService.delete(id);
     }
 
     @Override
-    public @ResponseBody HealthcarePersonnel get(@PathVariable Long id) {
-        return super.get(id);
+    @GetMapping("/{id}")
+    public HealthcarePersonnel get(@PathVariable Long id) {
+        return healthcarePersonnelService.findById(id);
     }
 
     @Override
-    public @ResponseBody List<HealthcarePersonnel> getAll() {
-        return super.getAll();
+    @GetMapping
+    public List<HealthcarePersonnel> getAll() {
+        return healthcarePersonnelService.findAll();
     }
 }

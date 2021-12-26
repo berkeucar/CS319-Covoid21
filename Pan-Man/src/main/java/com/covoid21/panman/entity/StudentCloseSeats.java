@@ -21,18 +21,28 @@ public class StudentCloseSeats {
     private String code;
     private int section;
 
-    @ManyToOne
+    @OneToOne
     private Student student;
 
-    @OneToMany
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
     private Set<Student> closeStudents;
 
     public StudentCloseSeats() {}
 
-    public StudentCloseSeats(String code, int section, Student student) {
+    public StudentCloseSeats(
+            String code,
+            int section,
+            Student student
+    ) {
         this.code = code;
         this.section = section;
         this.student = student;
         this.closeStudents = new HashSet<Student>();
     }
+
+    public void addStudent(Student s) {
+        closeStudents.add(s);
+    }
+
+
 }

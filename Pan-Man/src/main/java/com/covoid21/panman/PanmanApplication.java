@@ -18,6 +18,8 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import javax.persistence.EntityExistsException;
 import java.time.LocalTime;
 import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
 
 @SpringBootApplication
 @EnableJpaRepositories( {"com.covoid21.panman.database.repository", "com.covoid21.panman.registration"} )
@@ -41,14 +43,14 @@ public class PanmanApplication
             AnnouncementService as,
             NotificationService ns,
             StudentCloseSeatsService scss,
-            SeatingPlanService sps,
+            //SeatingPlanService sps,
             CourseService cs,
             InstructorService is
     )
     {
         return args ->
         {
-
+            /*
             // policy
             Policy policy = new Policy(
                     "Bilkent Policies",
@@ -255,68 +257,41 @@ public class PanmanApplication
             notification = ns.findByReceiverAndDate(ss.findByUniversityID(21901815), date);
             notification.setMessage("oda arkadaşın hastalanmış ama yeniden");
             ns.update(notification);
-
+            */
             // course
-            /*
-            String code = "CS319";
-            int section = 3;
-            Course course = new Course(code, section,
+            Course course = new Course(
+                    "CS319",
+                    3,
                     new HashSet<Student>(),
                     is.findByUniversityID(152535),
                     new HashSet<Student>(),
                     60,
-                    13.636363,
-                    27.542142,
+                    13.315,
+                    36.363153,
                     true
             );
 
-            Student s1 = ss.findByUniversityID(21900000);
-            Student s2 = ss.findByUniversityID(21901815);
-            course.addStudent(s1);
-            course.addStudent(s2);
-            course.setSeatingPlan(new SeatingPlan(code, section, course.getStudents()));
-
             try {
-                sps.save(course.getSeatingPlan());
+                course = cs.save(course);
+                System.out.println("saved course");
             } catch (EntityExistsException e) {
-                System.out.println("a");
+                course = cs.update(course);
+                System.out.println("updated course");
             }
 
-
-            course.setCloseSeats(s1, s2);
-
-            try {
-                scss.save(course.getStudentCloseSeats(s1));
-            } catch (EntityExistsException e) {
-                System.out.println("scs already exists");
-            }
-            try {
-                scss.save(course.getStudentCloseSeats(s2));
-            } catch (EntityExistsException e) {
-                System.out.println("scs already exists");
-            }
-
-            for (StudentCloseSeats s : course.getSeatingPlan().getSeating()) {
-                try {
-                    scss.save(s);
-                } catch(EntityExistsException e){
-                    System.out.println("scs already exists");
-                }
-            }
+            Student s1 = ss.findByUniversityID(21901815);
+            Student s2 = ss.findByUniversityID(21902222);
+            course = cs.addNewStudent(course, s1);
+            course = cs.addNewStudent(course, s2);
+            course = cs.addNeighbors(course, s1, s2);
 
             try {
-                SeatingPlan sp1 = course.getSeatingPlan();
-                sps.save(sp1);
-                sps.update(course.getSeatingPlan());
+                course = cs.save(course);
+                System.out.println("saved course");
             } catch (EntityExistsException e) {
-                System.out.println("seatingplan already exists");
+                course = cs.update(course);
+                System.out.println("updated course");
             }
-
-            try {
-                cs.save(course);
-            } catch (EntityExistsException e) {
-                System.out.println("course already exists");
-            }*/
             System.out.println("over");
         };
     }

@@ -8,6 +8,10 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
+/**
+ * 
+ * @param <T>
+ */
 @RestController
 @RequestMapping( "/api" )
 public abstract class ControllerBase<T>
@@ -29,7 +33,7 @@ public abstract class ControllerBase<T>
         return service.findById(id);
     }
     
-    public List<T> getAll()
+    public  List<T> getAll()
     {
         return service.findAll();
     }
