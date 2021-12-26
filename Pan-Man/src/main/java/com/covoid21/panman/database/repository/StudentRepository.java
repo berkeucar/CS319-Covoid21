@@ -8,6 +8,7 @@ import org.springframework.stereotype.Repository;
 
 import javax.transaction.Transactional;
 import java.util.List;
+import java.util.Optional;
 
 @Repository
 public interface StudentRepository extends UserRepositoryBase<Student> {
@@ -18,6 +19,10 @@ public interface StudentRepository extends UserRepositoryBase<Student> {
     @Override
     @Transactional
     @Modifying
-    @Query("UPDATE Student user SET user.isEnabled = TRUE WHERE user.email = ?1")
+    @Query("UPDATE Student stu SET stu.isEnabled = TRUE WHERE stu.email = ?1")
     int enableUser(String email);
+
+    @Override
+    @Query("SELECT s FROM Student s WHERE s.universityID = ?1")
+    Optional<Student> findByUserUniversityID(int id);
 }

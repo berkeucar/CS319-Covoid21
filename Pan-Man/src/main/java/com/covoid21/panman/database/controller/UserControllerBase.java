@@ -30,7 +30,5 @@ public abstract class UserControllerBase<T extends User> extends ControllerBase<
         return super.getAll();
     }
 
-    public void changePassword() {
 
-    }
 }

@@ -1,7 +1,6 @@
 package com.covoid21.panman.database.service;
 
 import com.covoid21.panman.database.repository.InstructorRepository;
-import com.covoid21.panman.database.repository.UserRepositoryBase;
 import com.covoid21.panman.entity.user.Instructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -24,5 +23,10 @@ public class InstructorService extends UserServiceBase<Instructor> {
 
     public List<Instructor> findByOffice(String office) {
         return instructorRepo.findByOffice(office);
+    }
+
+    @Override
+    public Instructor findByUserUniversityID(int universityID) {
+        return instructorRepo.findByUserUniversityID(universityID).get();
     }
 }

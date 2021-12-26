@@ -7,6 +7,7 @@ import org.springframework.stereotype.Repository;
 
 import javax.transaction.Transactional;
 import java.util.List;
+import java.util.Optional;
 
 @Repository
 public interface AdministrationPersonnelRepository extends UserRepositoryBase<AdministrationPersonnel> {
@@ -19,4 +20,8 @@ public interface AdministrationPersonnelRepository extends UserRepositoryBase<Ad
     @Modifying
     @Query("UPDATE AdministrationPersonnel user SET user.isEnabled = TRUE WHERE user.email = ?1")
     int enableUser(String email);
+
+    @Override
+    @Query("SELECT ap FROM AdministrationPersonnel ap WHERE ap.universityID = ?1")
+    Optional<AdministrationPersonnel> findByUserUniversityID(int id);
 }

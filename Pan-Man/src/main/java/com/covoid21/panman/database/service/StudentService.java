@@ -56,4 +56,8 @@ public class StudentService extends UserServiceBase<Student> {
         return studentRepo.findByDepartment(department);
     }
 
+    @Override
+    public Student findByUserUniversityID(int universityID) {
+        return studentRepo.findByUserUniversityID(universityID).get();
+    }
 }

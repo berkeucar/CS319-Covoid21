@@ -36,24 +36,6 @@ public class ConfirmationToken {
     private LocalDateTime expiresAt;
 
     private LocalDateTime confirmedAt;
-    /*
-    @ManyToOne
-    @JoinColumn(name = "instructor_id")
-    private Instructor instructor;
-
-    @ManyToOne
-    @JoinColumn(name = "student_id")
-    private Student student;
-
-    @ManyToOne
-    @JoinColumn(name = "healthcare_personnel_id")
-    private HealthcarePersonnel healthcarePersonnel;
-
-    @ManyToOne
-    @JoinColumn(name = "administration_personnel_id")
-    private AdministrationPersonnel administrationPersonnel;
-
-     */
 
     private int universityID;
 
@@ -65,25 +47,5 @@ public class ConfirmationToken {
         this.expiresAt = expiresAt;
         this.universityID = universityID;
         this.userType = userType;
-        /*
-        this.instructor = null;
-        this.student = null;
-        this.healthcarePersonnel = null;
-        this.administrationPersonnel = null;
-
-        if (user.getDiscriminatorValue().equals("student")) {
-            this.student = (Student) user;
-        }
-        else if (user.getDiscriminatorValue().equals("healthcare")) {
-            this.healthcarePersonnel = (HealthcarePersonnel) user;
-        }
-        else if (user.getDiscriminatorValue().equals("instructor")) {
-            this.instructor = (Instructor) user;
-        }
-        else if (user.getDiscriminatorValue().equals("administration")) {
-            this.administrationPersonnel = (AdministrationPersonnel) user;
-        }
-         */
-
     }
 }

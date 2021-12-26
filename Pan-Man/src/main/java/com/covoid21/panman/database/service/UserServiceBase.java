@@ -64,8 +64,8 @@ public abstract class UserServiceBase<T extends User> extends ServiceBase<T> {
         return userRepo.existsByUniversityID(universityID);
     }
 
-    public T findByUserTypeAndUniversityID(String userType, int universityID) {
-        return userRepo.findByUserTypeAndUniversityID(userType, universityID).get();
+    public T findByUserUniversityID(int universityID) {
+        return userRepo.findByUserUniversityID(universityID).get();
     }
 
     public List<T> findByUserType(String userType) {

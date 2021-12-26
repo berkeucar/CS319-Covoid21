@@ -8,31 +8,33 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
+@ResponseBody
+@RequestMapping("/notifications")
 public class NotificationController extends ControllerBase<Notification> {
     @Autowired
     private NotificationService notificationService;
 
     @Override
-    @PostMapping( "/notifications" )
+    @PostMapping
     public Notification save(@RequestBody Notification entity) {
-        return super.save(entity);
+        return notificationService.save(entity);
     }
 
     @Override
-    @DeleteMapping( "/notifications/{id}" )
+    @DeleteMapping( "/{id}" )
     public Notification delete(@PathVariable Long id) {
-        return super.delete(id);
+        return notificationService.delete(id);
     }
 
     @Override
-    @GetMapping( "/notifications{id}" )
+    @GetMapping( "/{id}" )
     public Notification get(@PathVariable Long id) {
-        return super.get(id);
+        return notificationService.findById(id);
     }
 
     @Override
-    @GetMapping( "/notifications" )
+    @GetMapping
     public List<Notification> getAll() {
-        return super.getAll();
+        return notificationService.findAll();
     }
 }
