@@ -21,7 +21,7 @@ public class StudentCloseSeats {
     private String code;
     private int section;
 
-    @OneToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     private Student student;
 
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
