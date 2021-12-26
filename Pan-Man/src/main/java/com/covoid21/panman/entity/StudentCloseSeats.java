@@ -21,7 +21,7 @@ public class StudentCloseSeats {
     private String code;
     private int section;
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne(cascade = CascadeType.DETACH)
     private Student student;
 
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
@@ -44,5 +44,7 @@ public class StudentCloseSeats {
         closeStudents.add(s);
     }
 
-
+    public boolean equals(StudentCloseSeats other) {
+        return this.code.equals(other.code) && section == other.section;
+    }
 }

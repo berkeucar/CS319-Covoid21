@@ -94,4 +94,8 @@ public class Course {
         seatingPlan.getSeating().add(new StudentCloseSeats(code, section, student));
     }
      */
+
+    public boolean equals(Course other) {
+        return this.code.equals(other.code) && section == other.section;
+    }
 }
