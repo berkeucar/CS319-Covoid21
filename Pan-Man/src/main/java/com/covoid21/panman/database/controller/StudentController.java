@@ -13,7 +13,7 @@ import java.util.List;
  */
 @RestController
 @RequestMapping(value = "/api/users/student")
-public class StudentController extends ControllerBase<Student> {
+public class StudentController extends UserControllerBase<Student> {
     @Autowired
     private StudentService studentService;
 

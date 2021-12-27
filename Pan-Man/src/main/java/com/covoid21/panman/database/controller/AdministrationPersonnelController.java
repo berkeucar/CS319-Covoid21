@@ -14,7 +14,7 @@ import java.util.List;
 @RestController
 @ResponseBody
 @RequestMapping(value = "/api/users/administration")
-public class AdministrationPersonnelController extends ControllerBase<AdministrationPersonnel> {
+public class AdministrationPersonnelController extends UserControllerBase<AdministrationPersonnel> {
 
     @Autowired
     private AdministrationPersonnelService administrationPersonnelService;
