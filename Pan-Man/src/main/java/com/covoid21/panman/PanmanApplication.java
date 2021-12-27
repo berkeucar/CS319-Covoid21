@@ -1,12 +1,7 @@
 package com.covoid21.panman;
 
 import com.covoid21.panman.database.service.*;
-import com.covoid21.panman.entity.*;
-import com.covoid21.panman.entity.appointment.FacilityAppointment;
-import com.covoid21.panman.entity.appointment.HealthAppointment;
-import com.covoid21.panman.entity.appointment.TestAppointment;
-import com.covoid21.panman.entity.user.HealthcarePersonnel;
-import com.covoid21.panman.entity.user.Instructor;
+import com.covoid21.panman.entity.Course;
 import com.covoid21.panman.entity.user.Student;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -16,10 +11,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 import javax.persistence.EntityExistsException;
-import java.time.LocalTime;
-import java.util.Date;
 import java.util.HashSet;
-import java.util.Set;
 
 @SpringBootApplication
 @EnableJpaRepositories( {"com.covoid21.panman.database.repository", "com.covoid21.panman.registration"} )
@@ -263,7 +255,7 @@ public class PanmanApplication
                     "CS319",
                     3,
                     new HashSet<Student>(),
-                    is.findByUniversityID(152535),
+                    is.findByUniversityID(12),
                     new HashSet<Student>(),
                     60,
                     13.315,
@@ -280,7 +272,7 @@ public class PanmanApplication
             }
 
             Student s1 = ss.findByUniversityID(21901815);
-            Student s2 = ss.findByUniversityID(21902222);
+            Student s2 = ss.findByUniversityID(21902238);
             course = cs.addNewStudent(course, s1);
             course = cs.addNewStudent(course, s2);
             course = cs.addNeighbors(course, s1, s2);
