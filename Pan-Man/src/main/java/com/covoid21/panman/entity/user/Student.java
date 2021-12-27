@@ -24,8 +24,8 @@ public class Student extends User
     @ManyToMany
     private List<Course> coursesTaken;
 
-    @DateTimeFormat(pattern = "Yyyy-mm-dd HH:mm:ss")
-    @JsonFormat(pattern = "Yyyy-mm-dd HH:mm:ss")
+    @DateTimeFormat(pattern = "yyyy-mm-dd HH:mm:ss")
+    @JsonFormat(pattern = "yyyy-mm-dd HH:mm:ss")
     private Date entryDate;
 
     private String department;

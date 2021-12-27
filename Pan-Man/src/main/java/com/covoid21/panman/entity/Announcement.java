@@ -23,8 +23,8 @@ public class Announcement {
     private String message;
 
     @Column(unique = true)
-    @DateTimeFormat(pattern = "Yyyy-mm-dd HH:mm:ss")
-    @JsonFormat(pattern = "Yyyy-mm-dd HH:mm:ss")
+    @DateTimeFormat(pattern = "yyyy-mm-dd HH:mm:ss")
+    @JsonFormat(pattern = "yyyy-mm-dd HH:mm:ss")
     private Date date;
 
     @ManyToOne

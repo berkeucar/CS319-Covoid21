@@ -20,8 +20,8 @@ public class Notification {
     private Long id;
 
     @Column(updatable = false)
-    @DateTimeFormat(pattern = "Yyyy-mm-dd HH:mm:ss")
-    @JsonFormat(pattern = "Yyyy-mm-dd HH:mm:ss")
+    @DateTimeFormat(pattern = "yyyy-mm-dd HH:mm:ss")
+    @JsonFormat(pattern = "yyyy-mm-dd HH:mm:ss")
     private Date date;
 
     @Enumerated
