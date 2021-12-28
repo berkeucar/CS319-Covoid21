@@ -7,6 +7,7 @@ import com.covoid21.panman.entity.appointment.HealthAppointment;
 import com.covoid21.panman.entity.appointment.TestAppointment;
 import com.covoid21.panman.entity.user.*;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
 
 import javax.persistence.EntityNotFoundException;
 import java.util.Date;
@@ -20,11 +21,13 @@ public class DatabaseManager {
     // services
     @Autowired
     private AnnouncementService announcementService;
+
     private NotificationService notificationService;
     private PolicyService policyService;
     private AdministrationPersonnelService administrationPersonnelService;
     private HealthcarePersonnelService healthcarePersonnelService;
     private InstructorService instructorService;
+    @Autowired
     private StudentService studentService;
     private FacilityAppointmentService facilityAppointmentService;
     private HealthAppointmentService healthAppointmentService;
@@ -38,7 +41,7 @@ public class DatabaseManager {
         System.out.println("DatabaseManager() constructed");
     }
 
-    public DatabaseManager getInstance() {
+    public static DatabaseManager getInstance() {
         if (instance == null) {
             instance = new DatabaseManager();
         }
