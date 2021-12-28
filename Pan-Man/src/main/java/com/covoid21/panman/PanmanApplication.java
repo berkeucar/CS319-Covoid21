@@ -111,27 +111,27 @@ public class PanmanApplication
             */
 
 
-            // appointments
-            Date date = new Date(121, 12, 27, 13, 0, 0);
-            TestAppointment appointment = new TestAppointment(
-                    date,
-                    ss.findByUniversityID(21901815),
-                    "Diagnovir test appointment",
-                    TestType.DIAGNOVIR
-            );
-
-            try {
-                tas.save(appointment);
-                System.out.println("test appointment saved");
-            } catch (EntityExistsException e) {
-                System.out.println("test appointment already exists");
-            }
-
-            appointment = tas.findByHostUserUniversityIDAndDate(21901815, date);
-            appointment.setTestType(TestType.PCR);
-            appointment.setMessage("PCR test appointment");
-            tas.update(appointment);
-            System.out.println(tas.findByHostUserUniversityIDAndDate(21901815, date));
+//            // appointments
+//            Date date = new Date(121, 12, 28, 13, 0, 0);
+//            TestAppointment appointment = new TestAppointment(
+//                    date,
+//                    ss.findByUniversityID(21901815),
+//                    "Diagnovir test appointment",
+//                    TestType.DIAGNOVIR
+//            );
+//
+//            try {
+//                tas.save(appointment);
+//                System.out.println("test appointment saved");
+//            } catch (EntityExistsException e) {
+//                System.out.println("test appointment already exists");
+//            }
+//
+//            appointment = tas.findByHostUserUniversityIDAndDate(21901815, date);
+//            appointment.setTestType(TestType.PCR);
+//            appointment.setMessage("PCR test appointment");
+//            tas.update(appointment);
+//            System.out.println(tas.findByHostUserUniversityIDAndDate(21901815, date));
 
             /*
             FacilityAppointment facilityAppointment = new FacilityAppointment(
