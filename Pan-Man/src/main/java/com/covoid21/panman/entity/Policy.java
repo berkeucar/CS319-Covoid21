@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.persistence.*;
 import java.time.LocalTime;
+import java.util.HashSet;
 import java.util.Set;
 
 @Entity
@@ -79,6 +80,8 @@ public class Policy
         this.quarantineInfo = quarantineInfo;
         this.openingHour = openingHour;
         this.closingHour = closingHour;
+        this.acceptedTests = new HashSet<TestType>();
+        this.acceptedVaccines = new HashSet<VaccinationType>();
     }
 
     public Policy() {

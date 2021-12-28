@@ -1,7 +1,11 @@
 package com.covoid21.panman;
 
+import com.covoid21.panman.database.DatabaseManager;
 import com.covoid21.panman.database.service.*;
-import com.covoid21.panman.entity.Course;
+import com.covoid21.panman.entity.*;
+import com.covoid21.panman.entity.appointment.FacilityAppointment;
+import com.covoid21.panman.entity.appointment.TestAppointment;
+import com.covoid21.panman.entity.user.Instructor;
 import com.covoid21.panman.entity.user.Student;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -11,6 +15,8 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 import javax.persistence.EntityExistsException;
+import java.time.LocalTime;
+import java.util.Date;
 import java.util.HashSet;
 
 @SpringBootApplication
@@ -47,85 +53,54 @@ public class PanmanApplication
             Policy policy = new Policy(
                     "Bilkent Policies",
                     "This paragraph contains some random information about Bilkent policies",
-                    "Köpekler ve aşısızlar giremez",
-                    "Diagnovir moruq, bi de aşı olmayayım dersen 60 lira kilitleriz",
-                    "Final haftasında korona kaparsanız FZ",
+                    "Vaccination is mandatory for university personnel",
+                    "Unvaccinated have to get tested every 3 days",
+                    "Infected have to be quarantined for 14 days or until they return a negative result.",
                     LocalTime.of(9, 0, 0),
                     LocalTime.of(18, 30, 0)
             );
+
+            policy.getAcceptedTests().add(TestType.DIAGNOVIR);
+            policy.getAcceptedVaccines().add(VaccinationType.BIONTECH);
 
             try {
                 ps.save(policy);
             } catch (EntityExistsException e) {
                 System.out.println("policy already exists");
             }
+            */
 
-            // student/user
-            Student student = new Student(
-                    21902222,
-                    "Berke Uçar",
-                    "sirke",
-                    "berke.ucar@ug.bilkent.edu.tr",
-                    "berkeninhesi",
-                    InfectionStatus.HEALTHY,
-                    true,
-                    new Date(1019, 8, 30),
-                    "Computer Science",
-                    "82-842"
-            );
-
-            try {
-                ss.save(student);
-            } catch (EntityExistsException e) {
-                System.out.println("student already exists");
-            }
-
-            student = new Student(
-                    21901815,
-                    "Kutay Demiray",
+            /*
+            // student/instructor
+            Student gokberk = new Student(
+                    21800000,
+                    "Gökberk Keskinkılıç",
                     "123",
-                    "kutay.demiray@ug.bilkent.edu.tr",
-                    "kutayinhesi",
+                    "gokberk.keskinkilic@ug.bilkent.edu.tr",
+                    "gokberkinhesi",
                     InfectionStatus.HEALTHY,
                     true,
                     new Date(1019, 8, 30),
                     "Computer Science",
-                    "82-736"
+                    "null"
             );
 
             try {
-                ss.save(student);
-            } catch (EntityExistsException e) {
-                System.out.println("student already exists");
-            }
-            student = new Student(
-                    21900000,
-                    "Yağız Yaşar",
-                    "123",
-                    "yy@ug.bilkent.edu.tr",
-                    "yagizinhesi",
-                    InfectionStatus.HEALTHY,
-                    true,
-                    new Date(1019, 8, 30),
-                    "Computer Science",
-                    "82-736"
-            );
-            try {
-                ss.save(student);
+                ss.save(gokberk);
             } catch (EntityExistsException e) {
                 System.out.println("student already exists");
             }
 
             Instructor instructor = new Instructor(
-                    152535,
-                    "Eray Tüzün",
-                    "erayt",
-                    "tuzun@bilkent.edu.tr",
-                    "erayhocaninheskodu",
+                    27,
+                    "Selim Aksoy",
+                    "cv4242",
+                    "saksoy@bilkent.edu.tr",
+                    "selimhocaninheskodu",
                     InfectionStatus.HEALTHY,
                     true,
                     "Computer Science",
-                    "EA-420"
+                    "EA-430"
             );
 
             try {
@@ -133,30 +108,13 @@ public class PanmanApplication
             } catch (EntityExistsException e) {
                 System.out.println("instructor already exists");
             }
+            */
 
-            // policy
-            policy = ps.findByTitle("Bilkent Policies");
-            System.out.println(policy);
-            policy.getAcceptedTests().add(TestType.DIAGNOVIR);
-            policy.getAcceptedVaccines().add(VaccinationType.BIONTECH);
-            policy.setDescription("değişik description");
-            ps.update(policy);
-            policy = ps.findByTitle("Bilkent Policies");
-            System.out.println(policy);
-
-            student = ss.findByUniversityID(21901815);
-            System.out.println(student);
-            student.setInfectionStatus(InfectionStatus.CONTACTED);
-            student.setEntryDate(new Date(119, 8, 29));
-            ss.update(student);
-            student = ss.findByUniversityID(21902222);
-            student.setEntryDate(new Date(119, 8, 30));
-            ss.update(student);
-            System.out.println(ss.findByEmail("kutay.demiray@ug.bilkent.edu.tr"));
 
             // appointments
+            Date date = new Date(121, 12, 27, 13, 0, 0);
             TestAppointment appointment = new TestAppointment(
-                    new Date(121, 12, 27, 13, 0, 0),
+                    date,
                     ss.findByUniversityID(21901815),
                     "Diagnovir test appointment",
                     TestType.DIAGNOVIR
@@ -164,16 +122,18 @@ public class PanmanApplication
 
             try {
                 tas.save(appointment);
+                System.out.println("test appointment saved");
             } catch (EntityExistsException e) {
                 System.out.println("test appointment already exists");
             }
 
-            appointment = tas.findByHostUserUniversityIDAndDate(
-                    21901815,
-                    new Date(121, 12, 27, 13, 0, 0));
+            appointment = tas.findByHostUserUniversityIDAndDate(21901815, date);
             appointment.setTestType(TestType.PCR);
+            appointment.setMessage("PCR test appointment");
             tas.update(appointment);
+            System.out.println(tas.findByHostUserUniversityIDAndDate(21901815, date));
 
+            /*
             FacilityAppointment facilityAppointment = new FacilityAppointment(
                     new Date(121, 12, 27, 13, 0, 0), ss.findByUniversityID(21901815)
                     , "Gym Appointment", "gym"
@@ -213,7 +173,9 @@ public class PanmanApplication
                 System.out.println("Health appointment already exists");
             }
             ;
+            */
 
+            /*
             // announcement
             Announcement announcement = new Announcement(
                     "Umarım 2022 daha güzel geçer",
@@ -230,7 +192,9 @@ public class PanmanApplication
             announcement = as.findByDate(new Date(121, 12, 31));
             announcement.setMessage("Mutlu yıllar falan");
             as.update(announcement);
+            */
 
+            /*
             // notification
             Date date = new Date(121, 12, 26, 13, 52);
             Notification notification = new Notification(
@@ -251,6 +215,7 @@ public class PanmanApplication
             ns.update(notification);
             */
             // course
+            /*
             Course course = new Course(
                     "CS319",
                     3,
@@ -284,6 +249,9 @@ public class PanmanApplication
                 course = cs.update(course);
                 System.out.println("updated course");
             }
+
+             */
+
             System.out.println("over");
         };
     }
