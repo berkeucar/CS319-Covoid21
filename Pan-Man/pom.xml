@@ -49,7 +49,7 @@
             <groupId>org.postgresql</groupId>
             <artifactId>postgresql</artifactId>
             <scope>runtime</scope>
-            <version>42.2.5</version>
+            <version>42.4.1</version>
         </dependency>
 
         <dependency>
